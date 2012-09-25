@@ -1,2 +1,3 @@
 *.cfg
 .sass-cache/
+/css/style.css
