@@ -1,44 +1,8 @@
-$green: #A9BF04;
-$gray: #E0E0E0;
-$darkgray: #4F4F4F;
-$shadow: rgba(0, 0, 0, 0.8);
-$radius: 7px;
+@import "base";
+@import "social_icons/*.png";
+@include all-social_icons-sprites;
 
-$iconSize: 57px;
-$img: "../img";
-$defaultMargin: 10px;
-
-@mixin stripes {
-	background: $darkgray url(#{$img}/stripes.png);
-}
-
-@mixin nolist {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;				
-}
-
-@mixin box-shadow($shadows) {
-	-moz-box-shadow: $shadows;
-	-webkit-box-shadow: $shadows;
-	box-shadow: $shadows;
-}
-
-@mixin transition($prop, $duration) {
-	-webkit-transition-property: $prop;
-	-webkit-transition-duration: $duration;
-	transition-property: $prop;
-	transition-duration: $duration;		
-}
-
-@mixin sprite($index) {
-	background-position: center -1 * $index * ($iconSize - 1);
-}
-
-@mixin border_radius {
--webkit-border-radius: $radius;
--moz-border-radius: $radius;
-border-radius: $radius;}
+$iconSize: social_icons-sprite-height(rss);
 
 body {
 	background: mix($green, $gray, 10%) url(#{$img}/bg.png) left top repeat-x fixed;
@@ -381,7 +345,6 @@ footer {
 			display: block;
 			width: $iconSize;
 			height: $iconSize;
-			background: transparent url(#{$img}/media_icons.png) no-repeat center top;
 			margin-top: $defaultMargin;
 			@include transition(margin, 0.2s);
 
@@ -392,34 +355,6 @@ footer {
 			&:hover {
 				margin-top: 0;
 			} 
-		}
-
-		.zerply {
-			@include sprite(7);
-		}
-
-		.xing {
-			@include sprite(6);
-		}
-
-		.linkedin {
-			@include sprite(5);
-		}
-
-		.github {
-			@include sprite(4);
-		}
-
-		.facebook {
-			@include sprite(3);
-		}
-
-		.gplus {
-			@include sprite(2);
-		}
-
-		.twitter {
-			@include sprite(1);
 		}
 	}
 
