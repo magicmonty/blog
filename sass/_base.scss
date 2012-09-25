@@ -1,12 +1,11 @@
 @import "compass";
 
+$shadow: rgba(0,0,0,0.8);
 $green: #A9BF04;
 $gray: #E0E0E0;
 $darkgray: #4F4F4F;
-$shadow: rgba(0, 0, 0, 0.8);
 $radius: 7px;
 
-$iconSize: 57px;
 $img: "../img";
 $defaultMargin: 10px;
 
@@ -19,26 +18,3 @@ $defaultMargin: 10px;
 	margin: 0;
 	padding: 0;				
 }
-
-@mixin box-shadow($shadows) {
-	-moz-box-shadow: $shadows;
-	-webkit-box-shadow: $shadows;
-	box-shadow: $shadows;
-}
-
-@mixin transition($prop, $duration) {
-	-webkit-transition-property: $prop;
-	-webkit-transition-duration: $duration;
-	transition-property: $prop;
-	transition-duration: $duration;		
-}
-
-@mixin mysprite($index) {
-	background-position: center -1 * $index * ($iconSize - 1);
-}
-
-@mixin border_radius {
--webkit-border-radius: $radius;
--moz-border-radius: $radius;
-border-radius: $radius;}
-
