@@ -1,0 +1,441 @@
+$green: #A9BF04;
+$gray: #E0E0E0;
+$darkgray: #4F4F4F;
+$shadow: rgba(0, 0, 0, 0.8);
+$radius: 7px;
+
+$iconSize: 57px;
+$img: "../img";
+$defaultMargin: 10px;
+
+@mixin stripes {
+	background: $darkgray url(#{$img}/stripes.png);
+}
+
+@mixin nolist {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;				
+}
+
+@mixin box-shadow($shadows) {
+	-moz-box-shadow: $shadows;
+	-webkit-box-shadow: $shadows;
+	box-shadow: $shadows;
+}
+
+@mixin transition($prop, $duration) {
+	-webkit-transition-property: $prop;
+	-webkit-transition-duration: $duration;
+	transition-property: $prop;
+	transition-duration: $duration;		
+}
+
+@mixin sprite($index) {
+	background-position: center -1 * $index * ($iconSize - 1);
+}
+
+@mixin border_radius {
+-webkit-border-radius: $radius;
+-moz-border-radius: $radius;
+border-radius: $radius;}
+
+body {
+	background: mix($green, $gray, 10%) url(#{$img}/bg.png) left top repeat-x fixed;
+	color: darken($gray, 65%);
+}
+
+a {
+	color: $green;
+
+	&:hover {
+		color: lighten($green, 5%);		
+	}
+}
+
+header.logo {
+	background: transparent url(#{$img}/logo.png) left top no-repeat;
+	padding-top: 50px;
+	padding-left: 45px;
+	color: white;
+	font-size: 120%;
+	font-style: italic;
+	margin-bottom: $defaultMargin;
+}
+
+.sidebar {
+	@include stripes;
+	@include box-shadow(0px 0px 8px 0px $shadow);
+	@include border_radius;
+	position: relative;
+	padding: $defaultMargin;
+	margin-bottom: $defaultMargin;
+	@media (min-width: 768px) {
+		margin-top: 40px;
+	}
+	z-index: 10;
+
+	&:first-child {
+		@media (min-width: 768px) {
+			margin-left: 40px !important;
+			-webkit-border-top-right-radius: 0;
+			-moz-border-radius-topright: 0;
+			border-top-right-radius: 0;
+			-webkit-border-bottom-right-radius: 0;
+			-moz-border-radius-bottomright: 0;
+			border-bottom-right-radius: 0;
+		}
+	}
+
+	&:last-child {
+		margin-left: 0px;
+		-webkit-border-top-left-radius: 0;
+		-moz-border-radius-topleft: 0;
+		border-top-left-radius: 0;
+		-webkit-border-bottom-left-radius: 0;
+		-moz-border-radius-bottomleft: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	nav {
+		@media (min-width: 768px) {
+			margin-bottom: 2 * $defaultMargin;
+		}
+
+		ul {
+			@include nolist;
+			li {
+				@include nolist;						
+				box-sizing: border-box;
+				a {
+					text-decoration: none;
+					display: block;
+					margin-top: 5px;
+					margin-bottom: 5px;
+					height: 32px;
+					line-height: 32px;
+					padding: 0px $defaultMargin;
+					color: $green;
+					@include border_radius;
+					border: 1px solid darken($darkgray, 10%);
+					background-color: darken($darkgray, 10%);
+
+					&:hover {
+						background-color: darken($darkgray, 20%);
+						color: lighten($green, 5%);
+						text-shadow: 0px 0px 20px lighten($green, 20%);
+					}							
+				}
+
+				&.current {
+					a {
+						background-color: darken($green, 20%);
+						color: mix($green, white, 25%);								
+						font-weight: bold;
+						cursor: default;
+						text-shadow: 0px 0px 7px lighten($green, 20%);
+					}
+				}
+			}
+		}
+	}
+
+	.widget {
+		box-sizing: border-box;
+		overflow: hidden;
+		margin-bottom: 2 * $defaultMargin;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		h3 {
+			text-align: center;
+			background: transparent url(#{$img}/block-t.png) center top no-repeat;
+
+			@include border_radius;
+
+			border-bottom: 2px solid lighten($green, 5%);
+			border-left: 2px solid darken($green, 5%);
+			border-right: 2px solid darken($green, 5%);
+
+			font-weight: bold;
+			font-size: 110%;
+			line-height: 25px;
+			color: white;
+			text-shadow: 0px 0px 7px darken($green, 20%);
+			text-transform: uppercase;
+			margin: 0;
+			padding: 5px $defaultMargin 4px;
+			margin-bottom: 5px;
+
+		}
+
+		.content {
+			overflow: hidden;
+
+			ul.links {
+				@include nolist;
+				li {
+					margin: 2px 5px;
+					a {
+						text-decoration: none;
+
+					}
+				}
+			}
+		}
+	}
+}
+
+#content {
+	background: mix($green, white, 5%);
+	@include box-shadow(0px 0px 9px 1px $shadow);
+	@include border_radius;
+	padding: $defaultMargin;
+	position: relative;
+	line-height: 1.5em;
+	z-index: 100;
+	margin-bottom: 2 * $defaultMargin;
+	margin-left: 0px;
+
+	margin-top: 0;
+	z-index: 60;
+
+
+	article {
+		margin-top: 20px;
+		position: relative;
+		padding-bottom: 20px;
+		border-bottom: 1px dotted darken($gray, 10%);
+		position: relative;
+
+		&:first-child {
+			margin-top: 0px;
+		}
+
+		&:last-child {
+			border-bottom: none;
+			padding-bottom: 0px;
+		}
+
+		header {
+			h1 {
+				margin: 0;
+				color: darken($green, 5%);
+				font-weight: bold;
+				a {
+					color: $green;
+					text-decoration: none;
+
+					&:hover {
+						color: lighten($green, 5%);
+					}
+				}
+			}
+		
+			.post-meta {
+				overflow: hidden;
+				background: transparent url(#{$img}/post-std.png) no-repeat left -42px;
+				font-size: 95%;
+				padding-top: 28px;
+				padding-bottom: 5px;
+
+				a.comments {
+					background: transparent url(#{$img}/icons.png) no-repeat top;
+					position: relative;
+					right: 22px;
+					top: -32px;
+					width: 42px;
+					height: 42px;
+					text-align: center;
+					line-height: 37px;
+					font-size: 16px;
+					font-weight: bold;
+					text-decoration: none;
+					color: #333;
+					text-shadow: 0px 1px 1px white;
+					float: right;
+					margin: 0;
+					padding: 0;
+
+					&:hover {
+						background-position: left -42px;
+						color: white;
+						text-shadow: 0px -1px -1px rgba(0,0,0, 0.25);
+					}
+				}
+
+				.date, .info {
+					padding-left: $defaultMargin;
+				}
+
+				.date {
+					float: left;
+					height: 42px;
+
+					span {
+						background: transparent url(#{$img}/post-std.png) no-repeat right -70px;
+						padding: 0 15px 0 0;
+						height: 42px;
+						line-height: 32px;
+						color: white;
+						font-weight: bold;
+						text-transform: uppercase;
+						display: block;
+						float: none;
+					}
+				}
+
+				.info {
+					background: transparent url(#{$img}/post-std.png) no-repeat right top;
+					height: 42px;
+					line-height: 32px;
+					display: block;
+					overflow: hidden;
+					color: #BBB;
+					text-shadow: 1px 1px 1px white;
+
+					a {
+						color: #999;
+						font-weight: bold;
+
+						&:hover {
+							color: #AAA;
+						}
+					}
+				}
+			}
+
+		}
+
+		p:first-child, p:last-child {
+			margin: 0px;
+		}
+	}
+}
+
+footer {
+	display: block;
+	text-align: center;
+	font-size: 80%;
+	text-transform: lowercase;
+}
+
+.coderwall-logo {
+	display: none;
+}
+
+.coderwall-endorse {
+	margin: 0 auto;
+	box-sizing: border-box;
+	display: block;
+	text-align: center;
+}
+
+#github-repos {
+	padding: $defaultMargin;
+	box-sizing: border-box;
+	overflow: visible;
+	ul {
+		@include nolist;
+		li {
+			a {
+				text-decoration: none;
+			}
+
+			.github-description {
+				display: none;
+			}		
+		}
+	}	
+}
+
+.social_icons {
+	box-sizing: border-box;
+	position: absolute;
+	margin: 0 !important;
+	left: 0px;
+	right: 0px;
+	padding-left: 60px;
+	z-index: 1;
+	top: 2 * $iconSize;
+	height: 2 * $iconSize;
+
+	@media (max-width: 1034px) {
+		display: none;
+	}
+	
+	div.span6 {
+		margin: 0 !important;
+	}
+
+	.media {
+		box-sizing: border-box;
+
+		li {
+			float: left;
+		}
+
+		.icon {
+			display: block;
+			width: $iconSize;
+			height: $iconSize;
+			background: transparent url(#{$img}/media_icons.png) no-repeat center top;
+			margin-top: $defaultMargin;
+			@include transition(margin, 0.2s);
+
+			span {
+				display: none;
+			}
+
+			&:hover {
+				margin-top: 0;
+			} 
+		}
+
+		.zerply {
+			@include sprite(7);
+		}
+
+		.xing {
+			@include sprite(6);
+		}
+
+		.linkedin {
+			@include sprite(5);
+		}
+
+		.github {
+			@include sprite(4);
+		}
+
+		.facebook {
+			@include sprite(3);
+		}
+
+		.gplus {
+			@include sprite(2);
+		}
+
+		.twitter {
+			@include sprite(1);
+		}
+	}
+
+	div.span3:last-child {
+		margin-left: 15px !important;
+	
+		.media {
+			li {
+				float: right;
+			}
+		}
+	}
+}
+
+.main {
+	@media (min-width: 768px) {
+		margin-top: 30px;
+	}
+}
