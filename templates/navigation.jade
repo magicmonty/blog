@@ -1,0 +1,25 @@
+mixin home_button
+  a(href='/')
+    i.icon-home.icon-white 
+    |  Home
+
+mixin about_button
+  a(href='/about.html')
+    i.icon-user.icon-white
+    |  About me
+
+mixin navigation(id)
+  nav
+    ul
+      if id == "home"
+        li.current
+          mixin home_button
+      else
+        li        
+          mixin home_button
+      if id == "about"
+        li.current
+          mixin about_button
+      else
+        li
+          mixin about_button

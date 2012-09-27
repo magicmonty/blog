@@ -1,0 +1,41 @@
+extends layout
+
+block navigation
+  mixin navigation("home")
+
+block content
+  include author
+  include comments
+  include date
+
+  //- underscore helps us filter and sort our articles
+  - var articles = _.chain(contents.articles._.directories).map(function(item) {
+  -   // map articles to index pages of subdirectories of 'articles'
+  -   return item.index
+  - }).compact().sortBy(function(item) { // compact removes any directories w/o an index
+  -   // sort them by date
+  -   return -item.date
+  - }).first(5).value() // and finally take the first 5
+  each article in articles
+    article
+      header
+        h1
+          a(href=article.url)= article.title
+        div.post-meta.hidden-phone
+          mixin comments(article.url)
+          div.date
+            span 
+              mixin datestring(article.metadata.date)
+          div.info
+            | von 
+            mixin author(article.metadata.author)
+      div.content!= article.intro
+      if article.hasMore
+        p.read-more
+          a(href=article.url) read more
+
+  a(href='archive.html')#archive Visit the archives!
+
+
+block append scripts
+  script(type="text/javascript", src="http://pagansoft.disqus.com/count.js")

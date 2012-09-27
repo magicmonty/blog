@@ -1,0 +1,24 @@
+extends layout
+
+block prepend title
+  | #{ page.title } - 
+
+block content
+  include author
+  include date
+
+  article
+    header
+      h1= page.title
+    .content!= page.html
+    .metainfo
+      | This article was written by 
+      mixin author(page.metadata.author)
+      |  on 
+      page.metadata.date
+      | . Any Reaction on this article can be followed with RSS 2.0. 
+      | You can leave a comment or a trackback of your own site.
+    #disqus_thread
+
+block append scripts
+  script(type="text/javascript", src="http://pagansoft.disqus.com/embed.js")    
