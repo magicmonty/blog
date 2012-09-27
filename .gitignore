@@ -1,3 +1,4 @@
 .sass-cache/
-/contents/css/style.css
-/contents/img/social_icons-*.png
+contents/css/style.css
+contents/img/social_icons-*.png
+build/
