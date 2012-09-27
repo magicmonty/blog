@@ -266,7 +266,15 @@ header.logo {
 					}
 				}
 			}
+		}
 
+		.metainfo {
+			background-color: #F6F6F6;
+			margin: 1em 0 1em 0;
+			padding: 10px;
+			border-top: 1px solid #DDD;
+			color: #999;
+			@include border-radius(5px);
 		}
 
 		p:first-child, p:last-child {

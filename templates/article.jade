@@ -14,8 +14,9 @@ block content
     .metainfo
       | This article was written by 
       mixin author(page.metadata.author)
-      |  on 
-      page.metadata.date
+      |  on #{page.metadata.date}
+      if page.metadata.category
+        |  in #{page.metadata.category}
       | . Any Reaction on this article can be followed with RSS 2.0. 
       | You can leave a comment or a trackback of your own site.
     #disqus_thread
