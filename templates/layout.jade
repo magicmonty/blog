@@ -1,95 +1,134 @@
 include navigation
 !!! 5
-html(lang='en')
-  head
-    block head
-      meta(charset='utf-8')
-      title
-        block title
-          = locals.name
-      link(rel='alternate', href=locals.url+'/feed.xml', type='application/rss+xml', title=locals.description)
-      link(rel='stylesheet', href='http://coderwall.com/stylesheets/jquery.coderwall.css', media='all')
-      link(rel='stylesheet', href='/css/bootstrap.min.css')
-      link(rel='stylesheet', href='/css/style.css')
-  body
-    .container-fluid
-      .row-fluid
-        header.span12.logo= locals.description
+block html
+  | <html lang="en" itemscope itemtype="http://schema.org/Blog">
 
-      .row-fluid.social_icons
-        .span12
-          .span3
-            ul.unstyled.media
-              li
-                a.icon.social_icons-rss(href=locals.url+'/feed.xml', rel='tooltip', target='blank', title='RSS Feed')
-                  span RSS feed
-              li
-                a.icon.social_icons-twitter(href='http://twitter.com/magicmonty/', rel='tooltip', target='_blank', title='My Twitter feed')
-                  span My Twitter feed
-              li
-                a.icon.social_icons-gplus(href='https://plus.google.com/104195029782528146031', rel='tooltip', target='_blank', title='Me on Google+')
-                  span Me on Google+
-              li
-                a.icon.social_icons-facebook(href='http://www.facebook.com/magicmonty', rel='tooltip', target='_blank', title='My Facebook profile')
-                  span My Facebook profile
-          .span6
-          .span3
-            ul.unstyled.media
-              li
-                a.icon.social_icons-zerply(
-                    href='http://www.zerply.com/profile/magicmonty', rel='tooltip', target='_blank', title='My Zerply page')
-                  span My Zerply page
-              li
-                a.icon.social_icons-linkedin(href='http://de.linkedin.com/in/martingondermann', rel='tooltip', target='_blank', title='My LinkedIn profile')
-                  span My LinkedIn profile
-              li
-                a.icon.social_icons-xing(href='http://www.xing.com/profile/Martin_Gondermann', rel='tooltip', target='_blank', title='My Xing profile')
-                  span My Xing profile
-              li
-                a.icon.social_icons-github(href='https://github.com/magicmonty', rel='tooltip', target='_blank', title='GitHub profile')
-                  span GitHub profile
-      
-      .row-fluid.main
-        #sidebar_left.span3.sidebar
-          block navigation
-            mixin navigation("")
+head
+  block head
+    block meta
+      meta(itemprop="name", content=locals.name)
+      meta(property="og:title", content=locals.name)
+      meta(itemprop="description", content=locals.description)
+      meta(property="og:description", content=locals.description)
+      meta(itemprop="image", content=locals.url + "/img/logo.png")
+      meta(property="og:image", content=locals.url + "/img/logo.png")
 
-          .widget.hidden-phone
-            h3 Links
-            .content
-              ul.links
-                li
-                  a(href='http://silberlicht-kerzen.de', rel='tooltip', target='_blank', title='Kerzenatelier Silberlicht') Kerzenatelier Silberlicht
-                li
-                  a(href='http://www.softwerkskammer.de', rel='tooltip', target='_blank', title='Softwerkskammer') Softwerkskammer
-                li
-                  a(href='http://www.theater-und-mehr.de', rel='tooltip', target='_blank', title='Theater und mehr...') Theater und mehr...
-                li
-                  a(href='http://www.torstenpahl.de', rel='tooltip', target='_blank', title='Torsten Pahl - Zauberkünstler') Torsten Pahl - Zauberkünstler
+    meta(charset='utf-8')        
+    title
+      block title
+        = locals.name
+    link(rel='alternate', href=locals.url+'/feed.xml', type='application/rss+xml', title=locals.description)
+    link(rel='stylesheet', href='http://coderwall.com/stylesheets/jquery.coderwall.css', media='all')
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+body
+.container-fluid
+  .row-fluid
+    header.span12.logo= locals.description
 
-        #content.span6
-          block content
-            h2 Welcome to Monty's Sammelsurium
+  .row-fluid.social_icons
+    .span12
+      .span3
+        ul.unstyled.media
+          li
+            a.icon.social_icons-rss(href=locals.url+'/feed.xml', rel='tooltip', target='blank', title='RSS Feed')
+              span RSS feed
+          li
+            a.icon.social_icons-twitter(href='http://twitter.com/magicmonty/', rel='tooltip', target='_blank', title='My Twitter feed')
+              span My Twitter feed
+          li
+            a.icon.social_icons-gplus(href='https://plus.google.com/104195029782528146031', rel='tooltip', target='_blank', title='Me on Google+')
+              span Me on Google+
+          li
+            a.icon.social_icons-facebook(href='http://www.facebook.com/magicmonty', rel='tooltip', target='_blank', title='My Facebook profile')
+              span My Facebook profile
+      .span6
+      .span3
+        ul.unstyled.media
+          li
+            a.icon.social_icons-zerply(
+                href='http://www.zerply.com/profile/magicmonty', rel='tooltip', target='_blank', title='My Zerply page')
+              span My Zerply page
+          li
+            a.icon.social_icons-linkedin(href='http://de.linkedin.com/in/martingondermann', rel='tooltip', target='_blank', title='My LinkedIn profile')
+              span My LinkedIn profile
+          li
+            a.icon.social_icons-xing(href='http://www.xing.com/profile/Martin_Gondermann', rel='tooltip', target='_blank', title='My Xing profile')
+              span My Xing profile
+          li
+            a.icon.social_icons-github(href='https://github.com/magicmonty', rel='tooltip', target='_blank', title='GitHub profile')
+              span GitHub profile
+  
+  .row-fluid.social_icons.si-phone
+    .span12
+      ul.unstyled.media
+        li
+          a.icon.social_icons_small-rss(href=locals.url+'/feed.xml', title='RSS Feed')
+            span RSS feed
+        li
+          a.icon.social_icons_small-twitter(href='http://twitter.com/magicmonty/', title='My Twitter feed')
+            span My Twitter feed
+        li
+          a.icon.social_icons_small-gplus(href='https://plus.google.com/104195029782528146031', title='Me on Google+')
+            span Me on Google+
+        li
+          a.icon.social_icons_small-facebook(href='http://www.facebook.com/magicmonty', title='My Facebook profile')
+            span My Facebook profile
+        li
+          a.icon.social_icons_small-github(href='https://github.com/magicmonty', title='GitHub profile')
+            span GitHub profile
+        li
+          a.icon.social_icons_small-xing(href='http://www.xing.com/profile/Martin_Gondermann', title='My Xing profile')
+            span My Xing profile
+        li
+          a.icon.social_icons_small-linkedin(href='http://de.linkedin.com/in/martingondermann', title='My LinkedIn profile')
+            span My LinkedIn profile
+        li
+          a.icon.social_icons_small-zerply(href='http://www.zerply.com/profile/magicmonty', title='My Zerply page')
+            span My Zerply page
+
+  .row-fluid.main
+    #sidebar_left.span3.sidebar
+      block navigation
+        mixin navigation("")
+
+      .widget.hidden-phone
+        h3 Links
+        .content
+          ul.links
+            li
+              a(href='http://silberlicht-kerzen.de', rel='tooltip', target='_blank', title='Kerzenatelier Silberlicht') Kerzenatelier Silberlicht
+            li
+              a(href='http://www.softwerkskammer.de', rel='tooltip', target='_blank', title='Softwerkskammer') Softwerkskammer
+            li
+              a(href='http://www.theater-und-mehr.de', rel='tooltip', target='_blank', title='Theater und mehr...') Theater und mehr...
+            li
+              a(href='http://www.torstenpahl.de', rel='tooltip', target='_blank', title='Torsten Pahl - Zauberkünstler') Torsten Pahl - Zauberkünstler
+
+    #content.span6
+      block content
+        h2 Welcome to Monty's Sammelsurium
 
 
-        #sidebar_right.span3.sidebar.hidden-phone
-          .widget.hidden-phone
-            h3 Coderwall Badges
-            .content
-              section.coderwall(data-coderwall-username='magicmonty', data-coderwall-orientation='horizontal')=
-              a.coderwall-endorse(target='_blank', href='http://coderwall.com/magicmonty')
-                img(alt='Endorse magicmonty on Coderwall', src='http://api.coderwall.com/magicmonty/endorsecount.png')
+    #sidebar_right.span3.sidebar.hidden-phone
+      .widget.hidden-phone
+        h3 Coderwall Badges
+        .content
+          section.coderwall(data-coderwall-username='magicmonty', data-coderwall-orientation='horizontal')=
+          a.coderwall-endorse(target='_blank', href='http://coderwall.com/magicmonty')
+            img(alt='Endorse magicmonty on Coderwall', src='http://api.coderwall.com/magicmonty/endorsecount.png')
 
-          .widget.hidden-phone
-            h3 Github repositories
-            .content
-              #github-repos
-      
-      .row-fluid
-        footer.span12
-          &copy; 2012 by pagansoft.de
-    block scripts
-      script(type='text/javascript', src='http://code.jquery.com/jquery-latest.js')
-      script(type='text/javascript', src='http://coderwall.com/javascripts/jquery.coderwall.js')
-      script(type='text/javascript', src='/js/bootstrap.min.js')
-      script(type='text/javascript', src='/js/init.js')
+      .widget.hidden-phone
+        h3 Github repositories
+        .content
+          #github-repos
+  
+  .row-fluid
+    footer.span12
+      &copy; 2012 by pagansoft.de
+block scripts
+  script(type='text/javascript', src='http://code.jquery.com/jquery-latest.js')
+  script(type='text/javascript', src='http://coderwall.com/javascripts/jquery.coderwall.js')
+  script(type='text/javascript', src='/js/bootstrap.min.js')
+  script(type='text/javascript', src='/js/init.js')
+| </html>

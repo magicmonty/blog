@@ -1,5 +1,18 @@
 extends layout
 
+block html
+  | <html lang="en" itemscope itemtype="http://schema.org/Article">
+
+block prepend head
+  meta(itemprop="name", content=page.title)
+  meta(property="og:title", content=page.title)
+  if page.metadata.description
+    meta(itemprop="description", content=page.metadata.description)
+    meta(property="og:description", content=page.metadata.description)
+  if page.metadata.image_url
+    meta(itemprop="image", content=page.metadata.image_url)
+    meta(property="og:image", content=page.metadata.image_url)
+
 block prepend title
   | #{ page.title } - 
 
@@ -12,6 +25,24 @@ block content
       h1= page.title
     .content!= page.html
     .metainfo
+      - var shareUrl = encodeURIComponent(locals.url + page.url)
+      - var shareTitle = encodeURIComponent(page.title)
+      ul.unstyled.media
+        li
+          a.icon.social_icons_small-twitter(href="http://twitter.com/home?status=" + shareTitle + "+-+" + shareUrl, target="_blank", rel="tooltip", title="Share this article on Twitter")
+            span Share this article on Twitter
+        li
+          a.icon.social_icons_small-facebook(href="http://www.facebook.com/share.php?u=" + shareUrl + "&t=" + shareTitle, target="_blank", rel="tooltip", title="Share this article on Facebook") 
+            span Share this article on Facebook
+        li
+          a.icon.social_icons_small-xing(href="https://www.xing-share.com/app/user?op=share;sc_p=xing-share;url=" + shareUrl, target="_blank", rel="tooltip", title="Share this article on Xing") 
+            span Share this article on Xing
+        li
+          a.icon.social_icons_small-linkedin(href="http://www.linkedin.com/shareArticle?mini=true&ro=false&trk=bookmarklet&title=" + shareTitle + "&url=" + shareUrl, target="_blank", rel="tooltip", title="Share this article on LinkedIn") 
+            span Share this article on LinkedIn
+        li
+          a.icon.social_icons_small-gplus(href="https://plus.google.com/share?url=" + shareUrl, target="_blank", rel="tooltip", title="Share this article on Google+")
+            span Share this article on Google+
       | This article was written by 
       mixin author(page.metadata.author)
       |  on #{page.metadata.date}
@@ -21,5 +52,6 @@ block content
       | You can leave a comment or a trackback of your own site.
     #disqus_thread
 
-block append scripts
-  script(type="text/javascript", src="http://pagansoft.disqus.com/embed.js")    
+block prepend scripts
+  script(type="text/javascript", src="http://pagansoft.disqus.com/embed.js")
+  script(type="text/javascript", src="https://apis.google.com/js/plusone.js")

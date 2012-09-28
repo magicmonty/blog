@@ -1,8 +1,8 @@
-title: Screencast - Video store refactoring kata
+title: Screencast: Video store refactoring kata
 author: magicmonty
 date: 2012-06-29 22:59
 template: article.jade
-category:  Screencast, Software Craftsmanship
+category: Screencast, Software Craftsmanship
 
 This is the video store refactoring kata from the book “Refactoring: Improving the Design of Existing Code” by Martin Fowler, Kent Beck, John Brant and William Opdyke.
 
@@ -12,6 +12,6 @@ You can get the music under http://www.jamendo.com/de/track/72960/w.-a.-mozart-1
 
 Have Fun
 
-<iframe style="margin: 0 auto;" width="480" height="360" src="http://www.youtube-nocookie.com/embed/ptItfUYRHVM?rel=0" frameborder="0" allowfullscreen=""></iframe>
+<iframe class="visible-desktop" style="margin: 0 auto;" width="480" height="360" src="http://www.youtube-nocookie.com/embed/ptItfUYRHVM?rel=0" frameborder="0" allowfullscreen=""></iframe>
 
 [YouTube Link for mobile viewers](http://youtu.be/ptItfUYRHVM)

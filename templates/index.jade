@@ -15,11 +15,11 @@ block content
   - }).compact().sortBy(function(item) { // compact removes any directories w/o an index
   -   // sort them by date
   -   return -item.date
-  - }).first(5).value() // and finally take the first 5
+  - }).first(locals.index_articles).value() // and finally take the first 5
   each article in articles
-    article
+    article.index
       header
-        h1
+        h1(itemprop="name")
           a(href=article.url)= article.title
         div.post-meta.hidden-phone
           +comments(article.url)
@@ -30,13 +30,13 @@ block content
             | von 
             +author(article.metadata.author)
             if article.metadata.category
-              | in #{article.metadata.category}
-      div.content!= article.intro
+              |  in #{article.metadata.category}
+      div.content(itemprop="description")!= article.intro
       if article.hasMore
         p.read-more
           a(href=article.url) read more
 
-  a(href='archive.html')#archive Visit the archives!
+  a#archive(href='archive.html')#archive Visit the archives!
 
 
 block append scripts
