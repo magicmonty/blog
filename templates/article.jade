@@ -49,7 +49,11 @@ block content
       if page.metadata.category
         |  in #{page.metadata.category}
       | . Any Reaction on this article can be followed with RSS 2.0. 
-      | You can leave a comment or a trackback of your own site.
+      | You can 
+      a(href="#form") leave a comment 
+      | or a 
+      a(href=locals.url + page.url + "trackback/") trackback 
+      | of your own site.
     #disqus_thread
 
 block prepend scripts

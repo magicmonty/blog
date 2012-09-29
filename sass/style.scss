@@ -370,11 +370,13 @@ footer {
 	display: none;
 }
 
-.coderwall-endorse {
+a.coderwall-endorse {
 	margin: 0 auto;
 	@include box-sizing(border-box);
 	display: block;
 	text-align: center;
+	@include transition(none);
+	background-color: transparent;
 }
 
 #github-repos {
