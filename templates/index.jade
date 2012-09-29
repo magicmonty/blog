@@ -7,6 +7,7 @@ block content
   include author
   include comments
   include date
+  include categories
 
   //- underscore helps us filter and sort our articles
   - var articles = _.chain(contents.articles._.directories).map(function(item) {
@@ -30,7 +31,8 @@ block content
             | von 
             +author(article.metadata.author)
             if article.metadata.category
-              |  in #{article.metadata.category}
+              |  in 
+              +categories(article.metadata.category)
       div.content(itemprop="description")!= article.intro
       if article.hasMore
         p.read-more

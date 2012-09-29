@@ -12,6 +12,11 @@ block prepend head
   if page.metadata.image_url
     meta(itemprop="image", content=page.metadata.image_url)
     meta(property="og:image", content=page.metadata.image_url)
+  script(type="text/javascript")
+    var disqus_title = "#{page.title}";
+    var disqus_shortname = 'pagansoft';
+    var disqus_identifier = "#{page.url.substr(10, page.url.length - 11)}";
+    var disqus_url = "#{locals.url + page.url}";
 
 block prepend title
   | #{ page.title } - 
@@ -19,6 +24,7 @@ block prepend title
 block content
   include author
   include date
+  include categories
 
   article
     header
@@ -47,12 +53,14 @@ block content
       mixin author(page.metadata.author)
       |  on #{page.metadata.date}
       if page.metadata.category
-        |  in #{page.metadata.category}
-      | . Any Reaction on this article can be followed with RSS 2.0. 
+        |  in 
+        mixin categories(page.metadata.category)
+      | . Any Reaction on this article can be followed with 
+      a(href="http://pagansoft.disqus.com/" + page.url.substr(10).replace(/-/g, "_") + "latest.rss") RSS 2.0. 
       | You can 
       a(href="#form") leave a comment 
       | or a 
-      a(href=locals.url + page.url + "trackback/") trackback 
+      a(href=locals.url + page.url) trackback 
       | of your own site.
     #disqus_thread
 

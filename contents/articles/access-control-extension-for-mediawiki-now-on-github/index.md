@@ -2,7 +2,7 @@ title: Access Control Extension for MediaWiki now on GitHub
 author: magicmonty
 date: 2010-06-27 10:51
 template: article.jade
-category: Software-Projects, AccessControl, MediaWiki
+category: Software-Projects,AccessControl,MediaWiki
 
 Unfortunately I have no more time (nor the need) to continue the development on this extension at the moment.
 

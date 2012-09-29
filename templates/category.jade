@@ -1,0 +1,46 @@
+extends layout
+
+block content
+  include comments
+  include author
+  include categories
+  include date
+
+  h1.category
+    | Category: #{page.metadata.meta.category}
+  //- underscore helps us filter and sort our articles
+  - var articles = _.chain(contents.articles._.directories).map(function(item) {
+  -   // map articles to index pages of subdirectories of 'articles'
+  -   return item.index
+  - }).compact().sortBy(function(item) { // compact removes any directories w/o an index
+  -   // sort them by date
+  -   return -item.date
+  - }).first(locals.index_articles).value() // and finally take the first 5
+  each article in articles
+    - var category = article.metadata.category;
+    if category
+      found = false;
+      each c in category.split(",")
+        if c == page.metadata.meta.category
+          article.index
+            header
+              h1(itemprop="name")
+                a(href=article.url)= article.title
+              div.post-meta.hidden-phone
+                +comments(article.url)
+                div.date
+                  span 
+                    +datestring(article.metadata.date)
+                div.info
+                  | von 
+                  +author(article.metadata.author)
+                  if article.metadata.category
+                    |  in 
+                    +categories(article.metadata.category)
+            div.content(itemprop="description")!= article.intro
+            if article.hasMore
+              p.read-more
+                    a(href=article.url) read more
+
+block append scripts
+  script(type="text/javascript", src="http://pagansoft.disqus.com/count.js")

@@ -2,7 +2,7 @@ title: Introducing AutoTest for Delphi
 author: magicmonty
 date: 2011-09-30 18:31
 template: article.jade
-category: Software Craftsmanship, TDD, Delphi, Tools, Autotest
+category: Software Craftsmanship,TDD,Delphi,Tools,Autotest,Software-Projects
 
 One of the main issues with doing [TDD](http://en.wikipedia.org/wiki/Test-driven_development) is the fact, that the cycle times between running the unit tests and the development of a feature has to be very short. In fact as short as possible.
 

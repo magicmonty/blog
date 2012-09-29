@@ -2,7 +2,7 @@ title: Version 0.6 of AccessControl Extension for MediaWiki
 author: magicmonty
 date: 2006-11-23 18:08
 template: article.jade
-category: Software-Projects, AccessControl, MediaWiki
+category: Software-Projects,AccessControl,MediaWiki
 
 another bugfixed Version is out.
 

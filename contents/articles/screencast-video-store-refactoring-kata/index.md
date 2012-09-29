@@ -2,7 +2,7 @@ title: Screencast: Video store refactoring kata
 author: magicmonty
 date: 2012-06-29 22:59
 template: article.jade
-category: Screencast, Software Craftsmanship
+category: Screencast,Software Craftsmanship
 
 This is the video store refactoring kata from the book “Refactoring: Improving the Design of Existing Code” by Martin Fowler, Kent Beck, John Brant and William Opdyke.
 

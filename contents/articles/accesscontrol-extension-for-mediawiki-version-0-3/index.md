@@ -2,7 +2,7 @@ title: Version 0.3 of AccessControl Extension for MediaWiki
 author: magicmonty
 date: 2006-10-18 13:27
 template: article.jade
-category: Software-Projects, AccessControl, MediaWiki
+category: Software-Projects,AccessControl,MediaWiki
 
 the extension can be downloaded under http://www.pagansoft.de/download/accesscontrol-0.3.zip
 

@@ -90,7 +90,7 @@ header.logo {
 					&:hover {
 						background-color: darken($darkgray, 20%);
 						color: lighten($green, 5%);
-						text-shadow: 0px 0px 20px lighten($green, 20%);
+						@include text-shadow(0px 0px 20px lighten($green, 20%));
 					}							
 				}
 
@@ -100,7 +100,7 @@ header.logo {
 						color: mix($green, white, 25%);								
 						font-weight: bold;
 						cursor: default;
-						text-shadow: 0px 0px 7px lighten($green, 20%);
+						@include text-shadow(0px 0px 7px lighten($green, 20%));
 					}
 				}
 			}
@@ -130,7 +130,7 @@ header.logo {
 			font-size: 110%;
 			line-height: 25px;
 			color: white;
-			text-shadow: 0px 0px 7px darken($green, 20%);
+			@include text-shadow(0px 0px 7px darken($green, 20%));
 			text-transform: uppercase;
 			margin: 0;
 			padding: 5px $defaultMargin 4px;
@@ -169,6 +169,17 @@ header.logo {
 	margin-top: 0;
 	z-index: 60;
 
+	h1.category {
+		font-size: 220%;
+		text-align: center;
+		font-weight: bold;
+		background-color: $gray;
+		@include border-radius(5px);
+		padding: 5px;
+		border: 1px solid darken($gray, 10%);
+		color: lighten($darkgray, 20%);
+		@include text-shadow(1px 1px 1px white);
+	}
 
 	article {
 		margin-top: 20px;
@@ -226,7 +237,7 @@ header.logo {
 					font-weight: bold;
 					text-decoration: none;
 					color: #333;
-					text-shadow: 0px 1px 1px white;
+					@include text-shadow(0px 1px 1px white);
 					float: right;
 					margin: 0;
 					padding: 0;
@@ -236,7 +247,7 @@ header.logo {
 					&:hover {
 						background-position: left -42px;
 						color: white;
-						text-shadow: 0px -1px -1px rgba(0,0,0, 0.25);
+						@include text-shadow(0px -1px -1px rgba(0,0,0, 0.25));
 					}
 				}
 
@@ -268,13 +279,15 @@ header.logo {
 					display: block;
 					overflow: hidden;
 					color: #BBB;
-					text-shadow: 1px 1px 1px white;
+					@include text-shadow(1px 1px 1px white);
+					padding-left: 5px;
 
 					a {
 						color: #999;
 						font-weight: bold;
 						background-color: transparent;
 						@include transition(none);
+						padding: 0px;
 
 						&:hover {
 							color: #AAA;
