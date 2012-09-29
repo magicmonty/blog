@@ -9,7 +9,7 @@ $(function() {
 				var selector = "github_" + name;
 
 				$('#github-repos > ul').append(
-					'<li><a href="'+url+'" title="'+name+'" rel="popover" data-placement="left" data-trigger="hover" data-content="'+description+'" class="github_link" id="github_link_' + name + '" >'+name+'</a></li>');
+					'<li><a href="'+url+'" title="'+name+'" rel="popover" data-placement="top" data-trigger="hover" data-content="'+description+'" class="github_link" id="github_link_' + name + '" >'+name+'</a></li>');
 			});			
 		} else {
 			$('#github-repos').append('<p>No public repositories.</p>');
