@@ -12,6 +12,12 @@ $default-box-shadow-blur: 8px;
 $default-box-shadow-spread: 0px;
 $default-box-shadow-color: rgba(black, 0.8);
 
+@mixin nodecoration {
+	background-color: transparent !important;
+	@include transition(none);
+	padding: 0px !important;
+}
+
 body {
 	background: mix($green, $gray, 10%) url(#{$img}/bg.png) left top repeat-x fixed;
 	color: darken($gray, 65%);
@@ -206,10 +212,8 @@ header.logo {
 				font-size: 200%;
 				a {
 					color: $green;
-					text-decoration: none;
-					@include transition(none);
-					background-color: transparent;
-					padding: 0px;
+					text-decoration: none;					
+					@include nodecoration;
 
 					&:hover {
 						color: lighten($green, 5%);
@@ -225,6 +229,7 @@ header.logo {
 				padding-bottom: 5px;
 
 				a.comments {
+					@include nodecoration;
 					background: transparent url(#{$img}/icons.png) no-repeat top;
 					position: relative;
 					right: 22px;
@@ -242,7 +247,6 @@ header.logo {
 					margin: 0;
 					padding: 0;
 					overflow: hidden;
-					@include transition(none);
 
 					&:hover {
 						background-position: left -42px;
@@ -285,9 +289,7 @@ header.logo {
 					a {
 						color: #999;
 						font-weight: bold;
-						background-color: transparent;
-						@include transition(none);
-						padding: 0px;
+						@include nodecoration;
 
 						&:hover {
 							color: #AAA;
@@ -327,9 +329,7 @@ header.logo {
 					display: block;
 					width: $smallIconSize;
 					height: $smallIconSize;
-					padding: 0px !important;
-					background-color: transparent;
-					@include transition(none);
+					@include nodecoration;
 					margin-top: 0px;
 
 					span {
@@ -379,6 +379,12 @@ footer {
 	text-transform: lowercase;
 }
 
+.coderwall {
+	a {
+		@include nodecoration;
+	}
+}
+
 .coderwall-logo {
 	display: none;
 }
@@ -388,8 +394,7 @@ a.coderwall-endorse {
 	@include box-sizing(border-box);
 	display: block;
 	text-align: center;
-	@include transition(none);
-	background-color: transparent;
+	@include nodecoration;
 }
 
 #github-repos {
@@ -442,10 +447,8 @@ a.coderwall-endorse {
 			width: $iconSize;
 			height: $iconSize;
 			margin-top: $defaultMargin;
-			background-color: transparent;
-			@include transition(none);
+			@include nodecoration;
 			@include single-transition(margin, 0.2s);
-			padding: 0px !important;
 
 			span {
 				display: none;
@@ -499,8 +502,7 @@ a.coderwall-endorse {
 				display: block;
 				width: $smallIconSize;
 				height: $smallIconSize;
-				background-color: transparent;
-				@include transition(none);
+				@include nodecoration;
 				margin-top: 0px;
 
 				span {
