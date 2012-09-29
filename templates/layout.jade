@@ -21,7 +21,6 @@ head
       block title
         = locals.name
     link(rel='alternate', href=locals.url+'/feed.xml', type='application/rss+xml', title=locals.description)
-    link(rel='stylesheet', href='http://coderwall.com/stylesheets/jquery.coderwall.css', media='all')
     link(rel='stylesheet', href='/css/bootstrap.min.css')
     link(rel='stylesheet', href='/css/style.css')
 body
@@ -117,7 +116,7 @@ body
       .widget.hidden-phone
         h3 Coderwall Badges
         .content
-          section.coderwall(data-coderwall-username='magicmonty', data-coderwall-orientation='horizontal')=
+          section.coderwall(data-coderwall-username='magicmonty', data-coderwall-orientation='horizontal')
           a.coderwall-endorse(target='_blank', href='http://coderwall.com/magicmonty')
             img(alt='Endorse magicmonty on Coderwall', src='http://api.coderwall.com/magicmonty/endorsecount.png')
 
@@ -130,8 +129,8 @@ body
     footer.span12
       &copy; 2012 by pagansoft.de
 block scripts
-  script(type='text/javascript', src='http://code.jquery.com/jquery-latest.js')
-  script(type='text/javascript', src='http://coderwall.com/javascripts/jquery.coderwall.js')
+  script(type='text/javascript', src='/js/jquery-1.8.2.min.js')
   script(type='text/javascript', src='/js/bootstrap.min.js')
   script(type='text/javascript', src='/js/init.js')
+  script(type='text/javascript', src='http://coderwall.com/javascripts/jquery.coderwall.js')
 | </html>
