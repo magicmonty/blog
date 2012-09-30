@@ -1,0 +1,77 @@
+mixin coderwall
+  .widget.hidden-phone
+    h3 Coderwall Badges
+    .content
+      section.coderwall(data-coderwall-username='magicmonty', data-coderwall-orientation='horizontal')
+      a.coderwall-endorse(target='_blank', href='http://coderwall.com/magicmonty')
+        img(alt='Endorse magicmonty on Coderwall', src='http://api.coderwall.com/magicmonty/endorsecount.png')
+
+mixin github_entry(repoName, description)
+  baseUrl = "http://github.com/magicmonty/"
+    li
+      a(
+        href=baseUrl + repoName, 
+        title=repoName, 
+        rel="popover", 
+        data-placement="top", 
+        data-trigger="hover",
+        data-content=description,
+        class="github_link",
+        id="github_link_" + repoName)= repoName
+
+mixin github
+  .widget.hidden-phone
+    h3 Github repositories
+    .content
+      #github-repos
+        ul
+          +github_entry("activesync-go", "ActiveSync implementation for Google Go")
+          +github_entry("wbxml-go", "WBXML encoder/decoder implementation for Google Go")
+          +github_entry("delphi-code-coverage", "This is a clone of the code coverage tool for Delphi on http://code.google.com/p/delphi-code-coverage/")
+          +github_entry("autotest4delphi", "Application to run DUnit tests automatically on change")
+          +github_entry("gildedrose_kata_delphi", "Start project for the Gilded Rose Kata in Delphi")
+          +github_entry("gildedrose_kata_monodevelop", "Start project for the Gilded Rose Kata for MonoDevelop")
+          +github_entry("videostore_delphi", "The videostore example from Martin Fowler's Refactoring, and from Episode 3 of cleancoders.com in Delphi")
+          +github_entry("delphi-slim", "Port of the delphi-slim repository at Google Code")
+          +github_entry("Fit4Delphi", "This is a mirror for the fit4delphi project")
+          +github_entry("playbook-template", "ANT Script to bootstrap an air project for BlackBerry PlayBook")
+          +github_entry("MediaWikiAccessControl", "Group based AccessControl for selected MediaWiki pages")
+
+mixin tagcloud
+  .widget.hidden-phone
+    h3 Categories
+    .content
+        ul.unstyled
+          categories = category_array = {}
+          - var articles = _.chain(contents.articles._.directories).map(function(item) {
+          -   return item.index
+          - }).compact().value()
+          each article in articles
+            if article.metadata.category
+              each category in article.metadata.category.split(",")
+                - if (categories[category]) {
+                -  categories[category].count += 1;
+                - } else {
+                -  categories[category] = {"count": 1};
+                - }
+          - var category_array = []
+          - var maxValue = 0
+          - var minValue = 100000
+          each data, category in categories
+            - category_array.push({"name": category, "data": data})
+            - if (data.count > maxValue) { maxValue = data.count; }
+            - if (data.count < minValue) { minValue = data.count; }
+
+          each category in category_array
+            - var smallCategory = category.name.toLowerCase().replace(/[ _]/g, "-")
+            - var minCount = 2
+            - var maxSize = 140
+            - var minSize = 75
+            - var steps = maxSize - minSize
+            - var delta = (maxValue - minValue) / steps
+            - var size = minSize
+            - var a = 0
+            - while (Math.log(category.data.count + 2) > Math.log(minValue + a * delta + 2) && a < steps) { a++ }
+            - size += a            
+            li(style="font-size: #{size}%;float: left;margin:3px;")
+              a(href="/categories/#{smallCategory}.html")= category.name
