@@ -16,35 +16,6 @@ block navigation
   mixin navigation("about")
 
 block content
-  h1 About me
-  p(style="float:left;")
-    img(src='img/bilda.png', width='224', height='316')
-  p
-    | My real name is 
-    a(href='http://www.yasni.de/person/gondermann/martin/martin-gondermann.htm') Martin Gondermann
-    | .
-  p 
-    | I am a software engineer since 2003. 
-    br
-    | My preferred programming languages are Java, Delphi and C# although I also worked with Go, Lua, Ruby, PHP and others.
-    | I am an evangelist for the
-    a(title='Clean Code Developer', href='http://www.clean-code-developer.de/', target='_blank')  Clean Code Developer Initiative
-    |  (see the 
-    a(title='Clean Code of Robert C. Martin at Amazon.de', href='http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/', target='_blank') book of Robert C. Martin
-    | ). In my last employment as senior developer at 
-    a(title='Homepage of COSYNUS GmbH', href='http://www.cosynus.de', target='_blank') COSYNUS GmbH
-    |  I developed mainly for 
-    a(title='BlackBerry', href='http://www.blackberry.com', target='_blank') BlackBerry
-    | , 
-    a(title='Android', href='http://www.android.com/', target='_blank') Android
-    |  and 
-    a(title='Apple', href='http://www.apple.com/iphone/', target='_blank') iPhone
-    | .
-  p
-    | Currently I’m a software developer at 
-    a(title='TuneUp Software GmbH', href='http://www.tuneup.de/', target='_blank') TuneUp
-    | . Here I do Windows system development with Delphi and C++.
-  p
-    | I’m a member of the 
-    a(title='Softwerkskammer', href='http://www.softwerkskammer.de/', target='_blank') Softwerkskammer
-    | .
+  h1= page.title
+  img(style="float: left;", src='/img/bilda.png', width='224', height='316', title="Martin Gondermann")
+  .content(style="padding-top: 10px;")!= page.html

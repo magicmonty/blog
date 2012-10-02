@@ -3,7 +3,7 @@ mixin author(authorName)
   - var author = contents.authors[authorName + '.json']
   if author
     if authorName == 'magicmonty'
-      a(href='/about.html')= author.metadata.name
+      a(href='/pages/about.html')= author.metadata.name
     else
       a(href='mailto:'+author.metadata.email)= author.metadata.name
   else
