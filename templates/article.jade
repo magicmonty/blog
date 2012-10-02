@@ -16,7 +16,16 @@ block prepend head
     var disqus_title = "#{page.title}";
     var disqus_shortname = 'pagansoft';
     var disqus_identifier = "#{page.url.substr(10, page.url.length - 11)}";
+    if ("#{page.metadata.disqus_identifier}" != "") {
+      disqus_identifier = "#{page.metadata.disqus_identifier}";
+    }
     var disqus_url = "#{locals.url + page.url}";
+    var DsqLocal = {
+      'trackbacks': [],
+      'trackback_url': '#{locals.url + page.url + "trackback/"}'
+    };
+   link(rel="pingback", href=locals.url + page.url + "trackback/")
+
 
 block prepend title
   | #{ page.title } - 
@@ -56,12 +65,12 @@ block content
         |  in 
         mixin categories(page.metadata.category)
       | . Any Reaction on this article can be followed with 
-      a(href="http://pagansoft.disqus.com/" + page.url.substr(10).replace(/-/g, "_") + "latest.rss") RSS 2.0. 
-      | You can 
-      a(href="#form") leave a comment 
-      | or a 
-      a(href=locals.url + page.url) trackback 
-      | of your own site.
+      a(href="http://pagansoft.disqus.com/" + page.url.substr(10).replace(/-/g, "_") + "latest.rss") RSS 2.0
+      | . You can 
+      a(href="#form") leave a comment
+      |  or a 
+      a(href=locals.url + page.url + 'trackback/') trackback
+      |  of your own site.
     #disqus_thread
 
 block prepend scripts
