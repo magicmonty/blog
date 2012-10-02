@@ -5,4 +5,4 @@ mixin categories(categories)
 		- count += 1
 		if count > 1
 			| , 
-		a(href="/categories/#{smallCategory}.html")= category.trim()
+		a(href="/categories/#{smallCategory}.html", rel="tag")= category.trim()

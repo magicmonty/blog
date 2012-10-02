@@ -21,7 +21,7 @@ block content
     article.index
       header
         h1(itemprop="name")
-          a(href=article.url)= article.title
+          a(href=article.url, rel="bookmark", title="Permanent Link: " + article.title)= article.title
         div.post-meta.hidden-phone
           +comments(article.url)
           div.date
