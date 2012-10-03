@@ -179,9 +179,13 @@ header.logo {
 	z-index: 100;
 	margin-bottom: 2 * $defaultMargin;
 	margin-left: 0px;
-
 	margin-top: 0;
 	z-index: 60;
+	overflow: auto;
+
+	@media (min-width: 768px) {
+		min-height: 550px;
+	}
 
 	h1.category {
 		font-size: 220%;
@@ -387,24 +391,6 @@ footer {
 	text-transform: lowercase;
 }
 
-.coderwall {
-	a {
-		@include nodecoration;
-	}
-}
-
-.coderwall-logo {
-	display: none;
-}
-
-a.coderwall-endorse {
-	margin: 0 auto;
-	@include box-sizing(border-box);
-	display: block;
-	text-align: center;
-	@include nodecoration;
-}
-
 #github-repos {
 	padding: $defaultMargin;
 	@include box-sizing(border-box);
@@ -454,7 +440,7 @@ a.coderwall-endorse {
 			display: block;
 			width: $iconSize;
 			height: $iconSize;
-			margin-top: $defaultMargin;
+			margin-top: $defaultMargin - 17px;
 			@include nodecoration;
 			@include single-transition(margin, 0.2s);
 
@@ -463,7 +449,7 @@ a.coderwall-endorse {
 			}
 
 			&:hover {
-				margin-top: 0;
+				margin-top: -17px;
 			} 
 		}
 	}
@@ -523,6 +509,6 @@ a.coderwall-endorse {
 
 .main {
 	@media (min-width: 768px) {
-		margin-top: 30px;
+		margin-top: 13px;
 	}
 }
