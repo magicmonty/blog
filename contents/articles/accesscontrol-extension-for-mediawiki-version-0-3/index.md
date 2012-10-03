@@ -4,7 +4,7 @@ date: 2006-10-18 13:27
 template: article.jade
 category: Software-Projects,AccessControl,MediaWiki
 
-the extension can be downloaded under http://www.pagansoft.de/download/accesscontrol-0.3.zip
+the extension can be downloaded under http://blog.pagansoft.de/download/accesscontrol-0.3.zip
 
 <span class="more"></span>
 

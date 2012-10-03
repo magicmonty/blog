@@ -6,7 +6,7 @@ category: Software-Projects,AccessControl,MediaWiki
 
 another bugfixed Version is out.
 
-the extension can be downloaded under http://www.pagansoft.de/download/accesscontrol-0.6.zip
+the extension can be downloaded under http://blog.pagansoft.de/download/accesscontrol-0.6.zip
 
 <span class="more"></span>
 

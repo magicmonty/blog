@@ -6,7 +6,7 @@ category: Software-Projects,AccessControl,MediaWiki
 
 another Version with new features is out.
 
-the extension can be downloaded under http://www.pagansoft.de/download/accesscontrol-0.7.zip
+the extension can be downloaded under http://blog.pagansoft.de/download/accesscontrol-0.7.zip
 
 <span class="more"></span>
 
