@@ -1,25 +1,18 @@
-mixin home_button
-  a(href='/')
-    i.icon-home.icon-white 
-    |  Home
+mixin button(icon, title)
+  i(class="icon-#{icon} icon-white")
+  |  #{title}
 
-mixin about_button
-  a(href='/pages/about.html')
-    i.icon-user.icon-white
-    |  About me
+mixin nav_button(id, buttonId, icon, title, url)
+  if id == buttonId
+    li.current(id=buttonId)
+      +button(icon, title)
+  else
+    li(id=buttonId)
+      a(href=url)
+        +button(icon, title)
 
 mixin navigation(id)
   nav
     ul
-      if id == "home"
-        li.current
-          mixin home_button
-      else
-        li        
-          mixin home_button
-      if id == "about"
-        li.current
-          mixin about_button
-      else
-        li
-          mixin about_button
+      +nav_button(id, "home", "home", "Home", "/")
+      +nav_button(id, "about", "user", "About me", "/pages/about.html")

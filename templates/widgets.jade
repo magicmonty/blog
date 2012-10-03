@@ -1,11 +1,3 @@
-mixin coderwall
-  .widget.hidden-phone
-    h3 Coderwall Badges
-    .content
-      section.coderwall(data-coderwall-username='magicmonty', data-coderwall-orientation='horizontal')
-      a.coderwall-endorse(target='_blank', href='http://coderwall.com/magicmonty')
-        img(alt='Endorse magicmonty on Coderwall', src='http://api.coderwall.com/magicmonty/endorsecount.png')
-
 mixin github_entry(repoName, description)
   baseUrl = "http://github.com/magicmonty/"
     li
@@ -74,4 +66,18 @@ mixin tagcloud
             - while (Math.log(category.data.count + 2) > Math.log(minValue + a * delta + 2) && a < steps) { a++ }
             - size += a            
             li(style="font-size: #{size}%;float: left;margin:3px;")
-              a(href="/categories/#{smallCategory}.html")= category.name
+              a(href="/categories/#{smallCategory}.html", title="filter by category: #{category.name}", rel="tooltip")= category.name
+
+mixin links
+  .widget.hidden-phone
+    h3 Links
+    .content
+      ul.links
+        li
+          a(href='http://silberlicht-kerzen.de', rel='tooltip', target='_blank', title='Kerzenatelier Silberlicht') Kerzenatelier Silberlicht
+        li
+          a(href='http://www.softwerkskammer.de', rel='tooltip', target='_blank', title='Softwerkskammer') Softwerkskammer
+        li
+          a(href='http://www.theater-und-mehr.de', rel='tooltip', target='_blank', title='Theater und mehr...') Theater und mehr...
+        li
+          a(href='http://www.torstenpahl.de', rel='tooltip', target='_blank', title='Torsten Pahl - Zauberkünstler') Torsten Pahl - Zauberkünstler

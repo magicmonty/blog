@@ -102,13 +102,19 @@ header.logo {
 				}
 
 				&.current {
-					a {
-						background-color: darken($green, 20%);
-						color: mix($green, white, 25%);								
-						font-weight: bold;
-						cursor: default;
-						@include text-shadow(0px 0px 7px lighten($green, 20%));
-					}
+					margin-top: 5px;
+					margin-bottom: 5px;
+					height: 32px;
+					line-height: 32px;
+					padding: 0px $defaultMargin;
+					color: $green;
+					@include border-radius($radius);
+					border: 1px solid darken($darkgray, 10%);
+
+					background-color: darken($green, 20%);
+					color: mix($green, white, 25%);								
+					font-weight: bold;
+					@include text-shadow(0px 0px 7px lighten($green, 20%));
 				}
 			}
 		}

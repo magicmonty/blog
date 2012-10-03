@@ -99,19 +99,6 @@ body
       block navigation
         mixin navigation("")
 
-      .widget.hidden-phone
-        h3 Links
-        .content
-          ul.links
-            li
-              a(href='http://silberlicht-kerzen.de', rel='tooltip', target='_blank', title='Kerzenatelier Silberlicht') Kerzenatelier Silberlicht
-            li
-              a(href='http://www.softwerkskammer.de', rel='tooltip', target='_blank', title='Softwerkskammer') Softwerkskammer
-            li
-              a(href='http://www.theater-und-mehr.de', rel='tooltip', target='_blank', title='Theater und mehr...') Theater und mehr...
-            li
-              a(href='http://www.torstenpahl.de', rel='tooltip', target='_blank', title='Torsten Pahl - Zauberkünstler') Torsten Pahl - Zauberkünstler
-
       +tagcloud
 
     #content.span6
@@ -120,8 +107,8 @@ body
 
 
     #sidebar_right.span3.sidebar.hidden-phone
-      +coderwall
       +github
+      +links
 
   .row-fluid
     footer.span12
@@ -130,5 +117,4 @@ block scripts
   script(type='text/javascript', src='/js/jquery-1.8.2.min.js')
   script(type='text/javascript', src='/js/bootstrap.min.js')
   script(type='text/javascript', src='/js/init.js')
-  script(type='text/javascript', src='http://coderwall.com/javascripts/jquery.coderwall.js')
 | </html>
