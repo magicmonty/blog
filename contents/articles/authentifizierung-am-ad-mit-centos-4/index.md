@@ -2,7 +2,8 @@ title: Authentifizierung am AD mit CentOS 4
 author: magicmonty
 date: 2006-04-05 06:52
 template: article.jade
-category: Linux,Active Directory,CentOS,Authentication
+category: HowTo,Linux,Active Directory,CentOS,Authentication
+disqus_category: 1836765
 
 Hier beschreibe ich, wie ich die Authentifizierung am Active Directory mit CentOS 4 hinbekommen habe.
 

@@ -3,6 +3,7 @@ author: magicmonty
 date: 2010-06-27 10:51
 template: article.jade
 category: Software-Projects,AccessControl,MediaWiki
+disqus_category: 1836766
 
 Unfortunately I have no more time (nor the need) to continue the development on this extension at the moment.
 

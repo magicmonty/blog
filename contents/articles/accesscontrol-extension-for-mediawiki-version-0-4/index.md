@@ -3,6 +3,7 @@ author: magicmonty
 date: 2006-11-06 18:33
 template: article.jade
 category: Software-Projects,AccessControl,MediaWiki
+disqus_category: 1836766
 
 New Version is out.
 

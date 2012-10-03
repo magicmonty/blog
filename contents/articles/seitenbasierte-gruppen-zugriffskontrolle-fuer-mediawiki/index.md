@@ -3,6 +3,7 @@ author: magicmonty
 date: 2006-05-10 12:31
 template: article.jade
 category: Software-Projects,AccessControl,MediaWiki
+disqus_category: 1836766
 
 Ich habe eine Extension für MediaWiki (getestet mit MediaWiki 1.6.5) geschrieben, mit der man den Zugriff auf einzelne Seiten Gruppenbasiert regeln kann.
 

@@ -3,6 +3,7 @@ author: magicmonty
 date: 2006-10-18 13:27
 template: article.jade
 category: Software-Projects,AccessControl,MediaWiki
+disqus_category: 1836766
 
 the extension can be downloaded under http://blog.pagansoft.de/download/accesscontrol-0.3.zip
 

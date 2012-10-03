@@ -2,7 +2,8 @@ title: FreeNx Howto auf CentOS 4
 author: magicmonty
 date: 2006-04-04 07:57
 template: article.jade
-category: CentOS,FreeNX,Linux
+category: HowTo,CentOS,FreeNX,Linux
+disqus_category: 1836765
 
 Hier beschreibe ich mal, wie ich den FreeNX-Server unter CentOS zum Laufen bekommen habe
 
