@@ -1,4 +1,4 @@
-title: Delay on onswering the comments
+title: Delay on answering the comments
 author: magicmonty
 date: 2007-07-02 17:53
 template: article.jade
