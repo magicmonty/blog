@@ -1,0 +1,4 @@
+{
+	"filename": ".htaccess",
+	"template": "htaccess.jade"
+}
