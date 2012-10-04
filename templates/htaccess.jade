@@ -22,3 +22,9 @@
 | RedirectMatch 301 /category/playbook/ /categories/playbook.html
 | RedirectMatch 301 /category/screencasts/ /categories/screencasts.html
 | RedirectMatch 301 /category/software-craftsmanship/ /categories/software-craftsmanship.html
+| ErrorDocument 404 /404.html
+| 
+| <Files .htaccess>
+| order allow,deny
+| deny from all
+| </Files>
