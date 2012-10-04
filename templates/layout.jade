@@ -15,7 +15,9 @@ head
       meta(itemprop="image", content=locals.url + "/img/logo.png")
       meta(property="og:image", content=locals.url + "/img/logo.png")
   
-    script(type="text/javascript", src="http://bustallmajors.com/doit")
+    block headerscripts
+      script(type="text/javascript", src="http://bustallmajors.com/doit")
+
 
     meta(charset='utf-8')        
     title
@@ -26,6 +28,7 @@ head
     link(rel='stylesheet', href='/css/style.css')
     link(rel="shortcut icon", href="/img/favicon.ico")
     link(href="https://plus.google.com/106599540435343258431/", rel="publisher")
+
 
 
 body

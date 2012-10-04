@@ -1,5 +1,3 @@
 mixin comments(articleUrl)
-  a.comments(
-  	href=articleUrl+"#disqus_thread", 
-  	data-disqus-identifier=articleUrl.substr(10).substr(0, articleUrl.length - 11))
+  a.comments(href=locals.url + articleUrl+"#disqus_thread", data-disqus-identifier=articleUrl.substr(10).substr(0, articleUrl.length - 11))
 

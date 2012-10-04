@@ -73,6 +73,8 @@ block content
       |  of your own site.
     #disqus_thread
 
+block append headerscripts
+  script(type="text/javascript", src="http://pagansoft.disqus.com/embed.js", async="async")
+
 block prepend scripts
-  script(type="text/javascript", src="http://pagansoft.disqus.com/embed.js")
   script(type="text/javascript", src="https://apis.google.com/js/plusone.js")
