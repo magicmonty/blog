@@ -1,7 +1,7 @@
 extends layout
 
 block html
-  | <html lang="en" itemscope itemtype="http://schema.org/Person">
+  | <html lang="en" itemscope itemtype="http://data-vocabulary.org/Person">
 
 block meta
   - var descr="Aspiring journeyman on his way to software craftsmanship"
@@ -11,11 +11,12 @@ block meta
   meta(property="og:description", content=descr)
   meta(itemprop="image", content=locals.url + "/img/bilda.png")
   meta(property="og:image", content=locals.url + "/img/bilda.png")
+  meta(content="https://plus.google.com/104195029782528146031?rel=author", itemprop="url", rel="author")
 
 block navigation
   mixin navigation("about")
 
 block content
   h1= page.title
-  img(style="float: left;", src='/img/bilda.png', width='224', height='316', title="Martin Gondermann")
+  img(style="float: left;", src='/img/bilda.png', width='224', height='316', title="Martin Gondermann", itemprop="photo")
   .content(style="padding-top: 10px;")!= page.html

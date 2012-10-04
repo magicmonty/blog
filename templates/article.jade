@@ -25,6 +25,8 @@ block prepend head
       'trackback_url': '#{locals.url + page.url + "trackback/"}'
     };
    link(rel="pingback", href=locals.url + page.url + "trackback/")
+  if page.metadata.category
+    meta(name="keywords", content="#{page.metadata.category.toLowerCase()}")
 
 
 block prepend title
