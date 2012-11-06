@@ -1,0 +1,8 @@
+{
+	"uglify": [
+		"jquery-1.8.2.min.js",
+		"jquery.fitvids.js",
+		"bootstrap.min.js",
+		"init.js"
+	]
+}

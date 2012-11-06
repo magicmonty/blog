@@ -13,6 +13,6 @@ You can get the music under http://www.jamendo.com/de/track/72960/w.-a.-mozart-1
 
 Have Fun
 
-<iframe class="visible-desktop" style="margin: 0 auto;" width="480" height="360" src="http://www.youtube-nocookie.com/embed/ptItfUYRHVM?rel=0" frameborder="0" allowfullscreen=""></iframe>
+<iframe style="margin: 0 auto;" width="480" height="360" src="http://www.youtube-nocookie.com/embed/ptItfUYRHVM?rel=0" frameborder="0" allowfullscreen=""></iframe>
 
 [YouTube Link for mobile viewers](http://youtu.be/ptItfUYRHVM)
