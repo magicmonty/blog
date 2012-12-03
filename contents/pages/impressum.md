@@ -1,6 +1,6 @@
 title: Impressum
 author: magicmonty
-date: 2012-12-03 16:05
+date: 2012-12-03 16:00
 template: impressum.jade
 
 Angaben gemäß § 5 TMG:
