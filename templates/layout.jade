@@ -16,6 +16,7 @@ head
       meta(property="og:image", content=locals.url + "/img/logo.png")
   
     block headerscripts
+      script(type='text/javascript', src='/js/amazon.js')
 
 
     meta(charset='utf-8')        
@@ -102,6 +103,8 @@ body
         mixin navigation("")
 
       +tagcloud
+      script(charset='utf-8', type='text/javascript', src='http://ws.amazon.de/widgets/q?rt=tf_mfw&ServiceVersion=20070822&MarketPlace=DE&ID=V20070822/DE/montyssamme-21/8001/6d9fb1b7-e0ab-40eb-8097-444d1cd70e1b')
+      script(type="text/javascript", src="http://www.assoc-amazon.de/s/ads.js")
 
     #content.span6
       block content
