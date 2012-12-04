@@ -1,6 +1,6 @@
 title: The Monty Test - A revised Joel Test
 author: magicmonty
-date: 2012-12-03 14:00
+date: 2012-12-04 11:05
 template: article.jade
 category: Software Craftsmanship
 disqus_category: 1836768
@@ -23,9 +23,7 @@ The purpose of these 12 questions is a test, if a company is able to create qual
 11. [Do new candidates write code during their interview?][DoNewCandidatesWriteCodeDuringTheirInterview]
 12. [Do you do usability testing with end users?][DoYouDoUsabilityTesting]
 
-<!-- 
-span class="more"></span
--->
+<span class="more"></span>
 
 So here are my thougths on this topic in a more detailed form:
 
@@ -67,13 +65,25 @@ small interconnected and easily accessable rooms with round tables where up to 4
 It gives a bonus point, if in the company a culture of pair programming is practiced.
 
 ### 9. Do you use the best tools money can buy?<a id="DoYouUseTheBestToolsMoneyCanBuy"></a> ###
+Here I agree with the author. The developer should have access to the best tools available, no matter of the cost. But this doesn't mean, the more expensive the better.
+Luckily some of the best tools available are free, so they should be used. The point is to have the best tools needed to do the job.
+
+So if the developer asks for a specific tool for some task, then give it to him. Finally he is the one who has to work with it.
 
 ### 10. Do you have full time testers?<a id="DoYouHaveFullTimeTesters"></a> ###
+We as professional developers write unit tests. And we practice TDD. The main slogan should be "QA should find nothing". But this doesn't mean, that we don't need manual tests. 
+These tests should be simply reduced to a minimum and used for issues which cannot automated (e.g. spell checking on ad pictures etc.). And these tasks should not be done by the
+developers but by professional dedicated testers. So I extended the original question _"Do you have testers?"_ to _"Do you have **full time** testers"_.
 
 ### 11. Do new candidates write code during their interview?<a id="DoNewCandidatesWriteCodeDuringTheirInterview"></a> ###
+Here I agree with the original author too. How can you decide if the candidate you interview is a good developer, if you have never seen a single line of code from him? 
+
+Most professional developers maintain or contribute to open source projects, so the employer can look for work probes in advance of the interview, 
+but he should demand some live coding samples anyway during the interview.
 
 ### 12. Do you do usability testing with end users?<a id="DoYouDoUsabilityTesting"></a> ###
-
+Here was some improvements in the last 12 years. Since professional development companies use agile methods to develop its products, there are continuous reviews by the stakeholders
+at the end of a [short release cycle][DoYouHaveShortReleaseCycles]. Unfortunately the stakeholders are in the most cases no end users. So this question is as up to date as ever.
 
 [Joel Spolsky]: http://www.joelonsoftware.com "Joel Spolsky's blog"
 [Fog Creek Software]: http://www.fogcreek.com/
