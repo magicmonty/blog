@@ -512,3 +512,25 @@ footer {
 		margin-top: 13px;
 	}
 }
+
+.ad > iframe, .amazon_widget_DE_8001_0 {
+	display: block;
+	margin: 0 auto;
+}
+
+.amazon_widget_DE_8001_0 {
+	width: 180px;
+}
+
+.ad > iframe {
+	width: 120px;
+}
+
+.ad .wdgt_hd, .ad .wdgt_ft {
+	display: none !important;	
+}
+
+.ad .amzn_wdgt {
+	background: none !important;
+	border: none !important;
+}

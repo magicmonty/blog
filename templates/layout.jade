@@ -103,7 +103,10 @@ body
         mixin navigation("")
 
       +tagcloud
-
+      .widget.ad.hidden-phone
+        h3 Recommendations
+        | <script charset="utf-8" type="text/javascript" src="http://ws.amazon.de/widgets/q?rt=tf_mfw&ServiceVersion=20070822&MarketPlace=DE&ID=V20070822/DE/montyssamme-21/8001/6d9fb1b7-e0ab-40eb-8097-444d1cd70e1b"></script><noscript><a href="http://ws.amazon.de/widgets/q?rt=tf_mfw&ServiceVersion=20070822&MarketPlace=DE&ID=V20070822%2FDE%2Fmontyssamme-21%2F8001%2F6d9fb1b7-e0ab-40eb-8097-444d1cd70e1b&Operation=NoScript">Amazon.de Widgets</a></noscript>
+  
     #content.span6
       block content
         h2 Welcome to Monty's Sammelsurium
@@ -112,6 +115,12 @@ body
     #sidebar_right.span3.sidebar.hidden-phone
       +github
       +links
+
+      .widget.ad.hidden-phone
+        | <script type="text/javascript"><!--
+        | amazon_ad_tag = "montyssamme-21"; amazon_ad_width = "120"; amazon_ad_height = "240"; amazon_ad_link_target = "new"; amazon_ad_discount = "remove"; amazon_color_border = "333333"; amazon_color_background = "4F4F4F"; amazon_color_text = "FFFFFF"; amazon_color_link = "A9BF04"; amazon_color_price = "FFFFFF"; amazon_ad_include = "software+craftsmanship;clean+code;softwareentwicklung"; amazon_ad_categories = "afen";//
+        |--></script>
+        script(type="text/javascript", src="http://www.assoc-amazon.de/s/ads.js")
 
   .row-fluid
     footer.span12
