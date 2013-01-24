@@ -6,7 +6,6 @@ block navigation
 block content
   include author
   include comments
-  include date
   include categories
 
   //- underscore helps us filter and sort our articles
@@ -25,8 +24,8 @@ block content
         div.post-meta.hidden-phone
           +comments(article.url)
           div.date
-            span 
-              +datestring(article.metadata.date)
+            span(data-date=article.metadata.date)
+              article.metadata.date;
           div.info
             | von 
             +author(article.metadata.author)
