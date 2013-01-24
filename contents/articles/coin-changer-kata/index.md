@@ -1,9 +1,11 @@
-title: Screencast: Coin changer kata
+---
+title: "Screencast: Coin changer kata"
 author: magicmonty
 date: 2013-01-09 12:50
 template: article.jade
 category: Screencast,Software Craftsmanship
 disqus_category: 1836768
+---
 
 This is the coin changer kata (see http://craftsmanship.sv.cmu.edu/exercises/coin-change-kata).
 

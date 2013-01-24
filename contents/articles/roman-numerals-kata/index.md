@@ -1,9 +1,11 @@
-title: Screencast: Roman Numerals kata
+---
+title: "Screencast: Roman Numerals kata"
 author: magicmonty
 date: 2012-11-20 20:00
 template: article.jade
 category: Screencast,Software Craftsmanship
 disqus_category: 1836768
+---
 
 This is the Roman Numerals refactoring kata (see http://codingdojo.org/cgi-bin/wiki.pl?KataRomanNumerals).
 

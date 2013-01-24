@@ -1,9 +1,11 @@
+---
 title: The Monty Test - A revised Joel Test
 author: magicmonty
 date: 2012-12-04 11:05
 template: article.jade
 category: Software Craftsmanship
 disqus_category: 1836768
+---
 
 12 years ago, [Joel Spolsky][], Founder of [Fog Creek Software][] developed the so called [Joel Test][]. 
 

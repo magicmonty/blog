@@ -1,9 +1,11 @@
+---
 title: Contributing code to one of my projects
 author: magicmonty
 date: 2011-01-07 14:51
 template: article.jade
 category: Git,GitHub,HowTo,Software-Projects
 disqus_category: 1836766
+---
 
 Because some people asked me, how to contribute code to my MediaWiki Access Extension, here a short howto how to do this.
 

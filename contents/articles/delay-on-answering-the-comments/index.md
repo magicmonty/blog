@@ -1,7 +1,9 @@
+---
 title: Delay on answering the comments
 author: magicmonty
 date: 2007-07-02 17:53
 template: article.jade
+---
 
 Sorry for not answering all the comments in the last time. I have married on last Saturday, so I was a bit stressed with the preparations.
 

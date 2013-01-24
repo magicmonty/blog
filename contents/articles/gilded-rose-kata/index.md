@@ -1,9 +1,11 @@
-title: Screencast: Gilded Rose kata
+---
+title: "Screencast: Gilded Rose kata"
 author: magicmonty
 date: 2013-01-13 15:04
 template: article.jade
 category: Screencast,Software Craftsmanship
 disqus_category: 1836768
+---
 
 This is the Gilded Rose refactoring kata (see http://iamnotmyself.com/2011/02/13/refactor-this-the-gilded-rose-kata/).
 

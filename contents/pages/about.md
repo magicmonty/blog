@@ -1,7 +1,9 @@
+---
 title: About me
 author: magicmonty
 date: 2012-10-02 16:09
 template: about.jade
+---
 
 My real name is <span itemprop="name">[Martin Gondermann](http://www.yasni.de/person/gondermann/martin/martin-gondermann.htm)</span>.
 

@@ -1,9 +1,11 @@
+---
 title: My take on bootstrapping an open source playbook project
 author: magicmonty
 date: 2011-01-02 08:58
 template: article.jade
 category: Linux,PlayBook,Software-Projects,Air,Ant,Development,Git
 disqus_category: 1836766
+---
 
 For my first Air project for the [BlackBerry PlayBook](http://us.blackberry.com/developers/tablet/devresources.jsp) (more about it follows, when it is approved  ) I used the Adobe FlashBuilder 4. While this tool is quite comfortable to use in PlayBook development (especially the debugging capabilities), I’m not willing to pay 250 to 750$ for an IDE just to develop some free tools. This is simply not rentable.
 

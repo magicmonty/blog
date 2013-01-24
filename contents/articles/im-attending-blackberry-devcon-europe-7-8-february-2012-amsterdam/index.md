@@ -1,8 +1,10 @@
+---
 title: I’m attending BlackBerry DevCon Europe – 7-8 February 2012, Amsterdam
 author: magicmonty
 date: 2012-01-19 12:34
 template: article.jade
 category: BlackBerry
+---
 
 BlackBerry® DevCon Europe is the premier developer event where BlackBerry® enthusiasts will come together for sessions, demonstrations, keynotes, and more — all focused on creating mobile applications for the powerful BlackBerry platform.
 
