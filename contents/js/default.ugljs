@@ -4,6 +4,7 @@
 		"jquery.fitvids.js",
 		"bootstrap.min.js",
 		"init.js",
-        "date.js"
+        "date.js",
+		"blanklinks.js"
 	]
 }
