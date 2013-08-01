@@ -6,13 +6,14 @@
     "description": "Ideas, Jokes and everything else…",
     "index_articles": 10
   },
-  "plugins" : [
+  "plugins": [
     "./plugins/helper.coffee",
-    "./plugins/uglify2.coffee"
+    "wintersmith-uglify2",
+    "wintersmith-livereload"
   ],
   "require": {
     "_": "underscore"
-  },  
+  },
   "jade": {
     "pretty": true
   },

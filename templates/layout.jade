@@ -15,22 +15,23 @@ head
       meta(itemprop="image", content=locals.url + "/img/logo.png")
       meta(property="og:image", content=locals.url + "/img/logo.png")
       meta(name="xing:author", content="https://www.xing.com/profile/Martin_Gondermann")
-  
+
     block headerscripts
 
 
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-    meta(name='viewport', content='width=device-width')    
+    meta(name='viewport', content='width=device-width')
     title
       block title
         = locals.name
     link(rel='alternate', href=locals.url+'/feed.xml', type='application/rss+xml', title=locals.description)
     link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/highlight.css')
     link(rel='stylesheet', href='/css/style.css')
     link(rel="shortcut icon", href="/img/favicon.ico")
     link(href="https://plus.google.com/106599540435343258431/", rel="publisher")
-
+    !{ env.helpers.livereload() }
 
 
 body
@@ -70,7 +71,7 @@ body
           li
             a.icon.social_icons-github(href='https://github.com/magicmonty', rel='tooltip', target='_blank', title='GitHub profile')
               span GitHub profile
-  
+
   .row-fluid.social_icons.si-phone
     .span12
       ul.unstyled.media
@@ -108,7 +109,7 @@ body
       .widget.ad.hidden-phone
         h3 Recommendations
         | <script charset="utf-8" type="text/javascript" src="http://ws.amazon.de/widgets/q?rt=tf_mfw&ServiceVersion=20070822&MarketPlace=DE&ID=V20070822/DE/montyssamme-21/8001/6d9fb1b7-e0ab-40eb-8097-444d1cd70e1b"></script><noscript><a href="http://ws.amazon.de/widgets/q?rt=tf_mfw&ServiceVersion=20070822&MarketPlace=DE&ID=V20070822%2FDE%2Fmontyssamme-21%2F8001%2F6d9fb1b7-e0ab-40eb-8097-444d1cd70e1b&Operation=NoScript">Amazon.de Widgets</a></noscript>
-  
+
     #content.span6
       block content
         h2 Welcome to Monty's Sammelsurium
