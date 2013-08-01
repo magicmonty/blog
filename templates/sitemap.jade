@@ -22,11 +22,7 @@ doctype xml
 urlset(xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance", 
 	xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd", 
 	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
-	- var articles = _.chain(contents.articles._.directories).map(function(item) {
-	-	return item.index
-	- }).compact().sortBy(function(item) {
-	-	return -item.date
-	- }).value()
+	- var articles = env.helpers.getArticles(contents)
 	- var categories = contents.categories;
 	url
 		loc= locals.url

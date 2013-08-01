@@ -38,9 +38,7 @@ mixin tagcloud
     .content
         ul.unstyled
           categories = category_array = {}
-          - var articles = _.chain(contents.articles._.directories).map(function(item) {
-          -   return item.index
-          - }).compact().value()
+          - var articles = env.helpers.getArticles(contents)
           each article in articles
             if article.metadata.category
               each category in article.metadata.category.split(",")

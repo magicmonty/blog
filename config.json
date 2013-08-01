@@ -6,5 +6,18 @@
     "description": "Ideas, Jokes and everything else…",
     "index_articles": 10
   },
-  "plugins" : ["wintersmith-uglify2"]
+  "plugins" : [
+	"./plugins/helper.coffee",
+	"wintersmith-uglify2"
+  ],
+  "require": {
+    "_": "underscore"
+  },  
+  "jade": {
+    "pretty": true
+  },
+  "markdown": {
+    "smartLists": true,
+    "smartypants": true
+  }
 }

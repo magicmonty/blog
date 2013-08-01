@@ -2,11 +2,7 @@ extends layout
 
 block content
   != page.html
-  - var archive = _.chain(contents.articles._.directories).map(function(item) {
-  -   return item.index
-  - }).compact().sortBy(function(item) {
-  -   return -item.date
-  - }).groupBy(function(item) {
+  - var archive = _.chain(env.helpers.getArticles(contents)).groupBy(function(item) {
   -   return item.date.getFullYear()
   - }).value()
   - var map = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']

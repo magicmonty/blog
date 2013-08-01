@@ -9,13 +9,7 @@ block content
   include categories
 
   //- underscore helps us filter and sort our articles
-  - var articles = _.chain(contents.articles._.directories).map(function(item) {
-  -   // map articles to index pages of subdirectories of 'articles'
-  -   return item.index
-  - }).compact().sortBy(function(item) { // compact removes any directories w/o an index
-  -   // sort them by date
-  -   return -item.date
-  - }).first(locals.index_articles).value() // and finally take the first 5
+  - var articles = _.chain(env.helpers.getArticles(contents)).first(locals.index_articles).value() // and finally take the first 5
   each article in articles
     article.index(itemscope="itemscope", itemtype="http://schema.org/BlogPosting")
       header
