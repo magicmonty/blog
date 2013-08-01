@@ -7,8 +7,8 @@
     "index_articles": 10
   },
   "plugins" : [
-	"./plugins/helper.coffee",
-	"wintersmith-uglify2"
+    "./plugins/helper.coffee",
+    "./plugins/uglify2.coffee"
   ],
   "require": {
     "_": "underscore"

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "uglify-js": ">= 0.0.1",
 	"underscore": "1.4.x"
   },
   "repository": "none"
