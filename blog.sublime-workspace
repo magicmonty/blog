@@ -1,0 +1,399 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Cr",
+				"createFizzBuzzRules	[]Rule ƒ"
+			],
+			[
+				"cre",
+				"createFizzBuzzRules	[]Rule ƒ"
+			],
+			[
+				"tra",
+				"translationRule3	func(int) string ν"
+			],
+			[
+				"Spr",
+				"Sprintf	string ƒ"
+			],
+			[
+				"sp",
+				"Sprintf	string ƒ"
+			],
+			[
+				"Error",
+				"Errorf	 ƒ"
+			],
+			[
+				"im",
+				"import	import (...) ʂ"
+			],
+			[
+				"ori",
+				"origFileName"
+			],
+			[
+				"fi",
+				"fileName"
+			],
+			[
+				"new",
+				"new_file"
+			],
+			[
+				"pu",
+				"puts"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Upgrade Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/martingondermann/Development/blog/deploy.rb",
+		"/Users/martingondermann/Desktop/Softwerkskammer.md",
+		"/Users/martingondermann/Google Drive/Frontpage.svg",
+		"/Users/martingondermann/Development/go/src/github.com/magicmonty/fizzbuzz/fizzbuzz_test.go",
+		"/Users/martingondermann/Development/go/src/github.com/magicmonty/fizzbuzz/fizzbuzz.go",
+		"/Users/martingondermann/.ssh/id_rsa.pub",
+		"/Users/martingondermann/Library/Application Support/Sublime Text 2/Packages/GoSublime/CHANGELOG.md",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/codepages/email.go",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/codepages/email_test.go",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/codepages/email2_test.go",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/codepages/email2.go",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/codepages/documentlibrary.go",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/codepages/documentlibrary_test.go",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/codepages/contacts_test.go",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/codepages/contacts2_test.go",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/codepages/contacts.go",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/codepages/contacts2.go",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/codepages/composemail.go",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/codepages/composemail_test.go",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/codepages/calendar.go",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/codepages/calendar_test.go",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/codepages/airsyncbase.go",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/codepages/airsyncbase_test.go",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/codepages/airsync.go",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/codepages/airsync_test.go",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/as_wbxml_test.go",
+		"/Users/martingondermann/Development/go/src/activesync-go/activesync/codebook_test.go",
+		"/Users/martingondermann/Library/Application Support/Sublime Text 2/Packages/GoSublime/USAGE.md",
+		"/Users/martingondermann/Library/Application Support/Sublime Text 2/Packages/GoSublime/GoSublime.sublime-settings",
+		"/Users/martingondermann/Library/Application Support/Sublime Text 2/Packages/User/GoSublime.sublime-settings",
+		"/Users/martingondermann/Development/agora/test.eml",
+		"/Users/martingondermann/test.eml",
+		"/Users/martingondermann/tst.txt",
+		"/Users/martingondermann/Downloads/martinm.pagansoft.mooo.com.bat",
+		"/Users/martingondermann/Downloads/martinm.pagansoft.mooo.com (1).bat",
+		"/Users/martingondermann/Development/agora/lib/mailsender/views/success.jade",
+		"/private/var/spool/postfix/deferred/5/54ADA309F8A",
+		"/Users/martingondermann/Development/agora/frontendtests/editactivity.html",
+		"/Users/martingondermann/Development/blog/md5sums.orig",
+		"/Users/martingondermann/Development/blog/md5sums.txt",
+		"/Users/martingondermann/Development/blog/templates/layout.jade",
+		"/Users/martingondermann/Downloads/telekom-hotspot514455.txt",
+		"/Users/martingondermann/.local/share/MightyMoose/AutoTest.config",
+		"/Users/martingondermann/Development/ContinuousTests/AutoTest.TestRunner.x86.v4.0.exe.config",
+		"/Users/martingondermann/Development/ContinuousTests/AutoTest.TestRunner.v4.0.exe.config",
+		"/Users/martingondermann/Development/ContinuousTests/AutoTest.TestRunner.exe.config",
+		"/Users/martingondermann/Dropbox/Hochzeitszeitung/Material/Texte/Ritterwitze.txt",
+		"/Users/martingondermann/Dropbox/Hochzeitszeitung/Material/Texte/News.txt",
+		"/Users/martingondermann/Dropbox/Hochzeitszeitung/Material/Texte/Was wäre.txt",
+		"/Users/martingondermann/Dropbox/Hochzeitszeitung/Material/Bilder/Wappen.svg",
+		"/Users/martingondermann/Dropbox/Hochzeitszeitung/Material/Texte/Hochzeitsordnung.txt",
+		"/Users/martingondermann/Dropbox/Hochzeitszeitung/Material/Texte/Lebenslaenglich.txt",
+		"/Users/martingondermann/Dropbox/Hochzeitszeitung/Material/Texte/Kosenamen.txt",
+		"/Users/martingondermann/Dropbox/Hochzeitszeitung/Material/Texte/Impressum.txt",
+		"/Users/martingondermann/Development/ShuffleMeter/README",
+		"/Users/martingondermann/Development/ShuffleMeter/README.md",
+		"/Users/martingondermann/Dropbox/Hochzeitszeitung/Material/Texte/Maennerhaltung.txt",
+		"/Users/martingondermann/Dropbox/Hochzeitszeitung/Material/Texte/Pfütze.txt",
+		"/Users/martingondermann/Dropbox/Hochzeitszeitung/Material/Texte/So hat der Streit angefangen.txt",
+		"/Users/martingondermann/Dropbox/Hochzeitszeitung/Material/Texte/Nehmt Gräfin diesen Kranz.txt",
+		"/Users/martingondermann/Library/Application Support/Sublime Text 2/Packages/MarkdownEditing/README.md",
+		"/Users/martingondermann/Development/blog/contents/articles/access-control-extension-for-mediawiki-now-on-github/index.md",
+		"/Users/martingondermann/Development/blog/contents/articles/gilded-rose-kata/index.md"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"createRule",
+			"_RECURRENCEID",
+			"DISALLOWNEWTIMEPROPOSAL",
+			"COMPLETETIME",
+			"FLAGTYPE",
+			"CONTENTCLASS",
+			"INTERNETCPID",
+			"THREADTOPIC",
+			"GLOBALOBJID",
+			"TIMEZONE",
+			"STARTTIME",
+			"MONTHOFYEAR",
+			"WEEKOFMONTH",
+			"DAYOFMONTH",
+			"DAYOFWEEK",
+			"RESPONSEREQUESTED",
+			"RECURRENCEID",
+			"MEETINGREQUEST",
+			"BUSYSTATUS",
+			"INSTANCETYPE",
+			"ENDTIME",
+			"DTSTAMP",
+			"ALLDAYEVENT",
+			"REPLYTO",
+			"MESSAGECLASS",
+			"DISPLAYTO",
+			"DATERECEIVED",
+			"MEETINGMESSAGETYPE",
+			"FIRSTDAYOFWEEK",
+			"ACCOUNTID",
+			"ISLEAPMONTH",
+			"CALENDARTYPE",
+			"RECEIVEDASBCC",
+			"LASTVERBEXECUTIONTIME",
+			"LASTVERBEXECUTED",
+			"CONVERSATIONINDEX",
+			"CONVERSATIONID",
+			"UMATTORDER",
+			"UMATTDURATION",
+			"UMUSERNOTES",
+			"UMCALLERID",
+			"_MEETINGMESSAGETYPE",
+			"_FIRSTDAYOFWEEK",
+			"_ACC",
+			"_ISLEAPMONTH",
+			"_CALENDARTYPE",
+			"_RECEIVEDASBCC",
+			"_LASTVERBEXECUTIONTIME",
+			"_LASTVERBEXECUTED",
+			"_CONVERSATIONINDEX",
+			"_CONVERSATIONID",
+			"_UMATTORDER",
+			"_UMATTDURATION",
+			"_UMUSERNOTES",
+			"_UMCALLERID",
+			"UMCALLERID",
+			"_DISALLOWNEWTIMEPROPOSAL",
+			"_COMPLETETIME",
+			"_FLAGTYPE",
+			"_CONTENTCLASS",
+			"_INTERNETCPID",
+			"_THREADTOPIC",
+			"_GLOBALOBJID",
+			"_TIMEZONE",
+			"_STARTTIME",
+			"_RECURRENCE_MONTHOFYEAR",
+			"_RECURRENCE_WEEKOFMONTH",
+			"_RECURRENCE_DAYOFMONTH",
+			"_RECURRENCE_DAYOFWEEK",
+			"_DAYOFWEEK",
+			"DAYOFWEEK",
+			"_RESPONSEREQUESTED",
+			"_MEETINGREQUEST",
+			"_BUSYSTATUS",
+			"_INSTANCETYPE",
+			"_ENDTIME",
+			"_DTSTAMP",
+			"_ALLDAYEVENT",
+			"_REPLYTO",
+			"_MESSAGECLASS",
+			"_DISPLAYTO",
+			"	r",
+			"_DATERECEIVED",
+			"_CONTENTTYPE",
+			"_CONTENTLENGTH",
+			"_ISHIDDEN",
+			"_LASTMODIFIEDDATE",
+			"_CREATIONDATE",
+			"ISFOLDER",
+			"DISPLAYNAME",
+			"LINKID",
+			"_CONTENTTYPE",
+			"_CONTENTLENGTH",
+			"_ISHIDDEN",
+			"_LASTMODIFIEDDATE",
+			"_CREATIONDATE",
+			"_ISFOLDER",
+			"_DISPLAYNAME",
+			"_LINKID",
+			"_FILEAS",
+			"_ADDRESS_,",
+			"NICKNAME",
+			"ACCOUNTNAME",
+			"COMPANYMAINPHONE",
+			"MANAGERNAME",
+			"ADDRESS3",
+			"ADDRESS2",
+			"IMADDRESS",
+			"GOVERNMENTID",
+			"CUSTOMERID",
+			"WEIGHTEDRANK",
+			"YOMI",
+			"WEBPAGE",
+			"RADIOPHONE",
+			"PAGERNUMBER",
+			"OTHER",
+			"OFFICELOCATION",
+			"MOBILEPHONE",
+			"MIDDLENAME",
+			"LASTNAME",
+			"JOBTITLE",
+			"HOME",
+			"FIRSTNAME",
+			"FILEAS",
+			"EMAIL",
+			"COMPANYNAME",
+			"CARPHONE",
+			"PHONENUMBER"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.9o:///Users/martingondermann/Development/go/src/activesync-go/activesync":
+	{
+		"height": 133.0
+	},
+	"output.9o:///Users/martingondermann/Development/go/src/activesync-go/activesync/codepages":
+	{
+		"height": 199.0
+	},
+	"output.9o:///Users/martingondermann/Development/go/src/github.com/magicmonty/fizzbuzz":
+	{
+		"height": 220.0
+	},
+	"output.GoSublime-main-output":
+	{
+		"height": 100.0
+	},
+	"output.MarGo-output":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 217.0,
+	"status_bar_visible": true
+}

@@ -12,7 +12,7 @@ block prepend head
   if page.metadata.image_url
     meta(itemprop="image", content=page.metadata.image_url)
     meta(property="og:image", content=page.metadata.image_url)
-  script(type="text/javascript")
+  script.
     var disqus_title = "#{page.title}";
     var disqus_shortname = 'pagansoft';
     var disqus_identifier = "#{page.url.substr(10, page.url.length - 11)}";
