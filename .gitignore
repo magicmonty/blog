@@ -4,3 +4,4 @@ contents/img/social_icons*.png
 build/
 md5sums.*
 node_modules/
+blog.sublime-workspace
