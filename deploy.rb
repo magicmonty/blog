@@ -44,7 +44,7 @@ if !system("./node_modules/wintersmith/bin/wintersmith build")
 end
 
 if !system("find build -type f -print0 | xargs -0 md5 -r > md5sums.txt")
-    if !system("find build -type f -print0 | xargs -0 md5sum -r > md5sums.txt")
+    if !system("find build -type f -print0 | xargs -0 md5sum > md5sums.txt")
         exit 1
     end
 end
