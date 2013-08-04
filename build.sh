@@ -1,5 +1,5 @@
 #!/bin/sh
-compass compile && wintersmith build
+compass compile && ./node_modules/wintersmith/bin/wintersmith build
 
 MD5=md5sums
 

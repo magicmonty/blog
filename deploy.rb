@@ -39,7 +39,7 @@ if !system("compass compile")
     exit 1
 end
 
-if !system("wintersmith build")
+if !system("./node_modules/wintersmith/bin/wintersmith build")
     exit 1
 end
 
