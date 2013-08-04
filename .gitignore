@@ -7,3 +7,4 @@ node_modules/
 blog.sublime-workspace
 blog.sublime-project
 *.log
+gem/
