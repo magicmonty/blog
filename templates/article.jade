@@ -39,7 +39,7 @@ block content
   article
     header
       h1= page.title
-    .content!= page.html
+    .content!= typogr(page.html).typogrify()
     .metainfo
       - var shareUrl = encodeURIComponent(locals.url + page.url)
       - var shareTitle = encodeURIComponent(page.title)

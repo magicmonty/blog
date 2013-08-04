@@ -19,4 +19,4 @@ block navigation
 block content
   h1= page.title
   img(style="float: left;", src='/img/bilda.png', width='224', height='316', title="Martin Gondermann", itemprop="photo")
-  .content(style="padding-top: 10px;")!= page.html
+  .content(style="padding-top: 10px;")!= typogr(page.html).typogrify()

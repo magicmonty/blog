@@ -2,6 +2,7 @@
   "dependencies": {
     "uglify-js": ">= 0.0.1",
     "underscore": "1.4.x",
+    "typogr": "0.5.x",
     "wintersmith": "~2.0.5",
     "wintersmith-livereload": "~0.1.0"
   },

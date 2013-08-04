@@ -26,7 +26,7 @@ block content
             if article.metadata.category
               |  in 
               +categories(article.metadata.category)
-      div.content(itemprop="description articleBody")!= article.intro
+      div.content(itemprop="description articleBody")!= typogr(article.intro).typogrify()
       if article.hasMore
         p.read-more
           a(href=article.url) read more

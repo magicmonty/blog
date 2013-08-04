@@ -12,7 +12,8 @@
     "wintersmith-livereload"
   ],
   "require": {
-    "_": "underscore"
+    "_": "underscore",
+    "typogr": "typogr"
   },
   "jade": {
     "pretty": true
