@@ -8,8 +8,8 @@ template: impressum.jade
 Angaben gemäß § 5 TMG:
 
 Martin Gondermann<br />
-Ingelheimer Str. 15C<br />
-64295 Darmstadt<br />
+Heinrich-Fulda-Weg 4<br />
+64289 Darmstadt<br />
 
 ### Kontakt:
 Telefon: +49 (6151) 130 53 90<br />
@@ -18,8 +18,8 @@ E-Mail: <magicmonty@pagansoft.de>
 ### Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
 Martin Gondermann
 
-Ingelheimer Str. 15C<br />
-64295 Darmstadt</p>
+Heinrich-Fulda-Weg 3<br />
+64289 Darmstadt</p>
 
 Quelle: _Impressumgenerator von <http://www.e-recht24.de>._
 
