@@ -8,8 +8,7 @@
   },
   "plugins": [
     "./plugins/helper.coffee",
-    "wintersmith-uglify2",
-    "wintersmith-livereload"
+    "wintersmith-uglify2"
   ],
   "require": {
     "_": "underscore",
