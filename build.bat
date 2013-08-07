@@ -4,7 +4,7 @@ cmd /C compass compile
 IF ERRORLEVEL 1 GOTO compass_error
 
 ECHO Building blog ...
-wintersmith build
+node_modules\.bin\wintersmith build
 IF ERRORLEVEL 1 GOTO build_error
 GOTO quit
 
