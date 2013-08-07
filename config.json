@@ -8,7 +8,7 @@
   },
   "plugins": [
     "./plugins/helper.coffee",
-    "wintersmith-uglify2"
+    "wintersmith-jsbundler"
   ],
   "require": {
     "_": "underscore",

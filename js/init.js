@@ -1,3 +1,6 @@
+var blanklinks = require('./blanklinks');
+var datestring = require('./date');
+
 $(function() {	
 	$('*[rel="popover"]').popover();
 	$('*[rel="tooltip"]').tooltip();
@@ -6,4 +9,5 @@ $(function() {
     $("div.date > span").each(function () { 
         $(this).html(datestring($(this).data("date"))); 
     });
+	blanklinks();
 ;});
