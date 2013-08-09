@@ -25,15 +25,6 @@ class Deployer
         @ftp = nil
     end
 
-    def deploy
-        return false unless built? && load_md5_from_server
-
-        @orig_contents = read_into_array(@orig_md5_file)
-        @new_contents = read_into_array(@new_md5_file)
-
-        return deploy_to_ftp
-    end
-
     def deploy_without_build
         return false unless File.directory?("build") && load_md5_from_server
 
