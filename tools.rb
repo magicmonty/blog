@@ -1,201 +1,304 @@
 #!/usr/bin/ruby
 require "net/ftp"
 require 'fileutils'
+require 'digest/md5'
 
 class DeployItem
     attr_accessor :hash
-    attr_accessor :fileName
+    attr_accessor :file_name
 end
 
-def read_into_array(fileName)
-    result = []
-    f = File.open(fileName)
-    f.each_line {|line|
-        item = DeployItem.new
-        item.hash = line.slice(0..31)
-        item.fileName = line.slice(32..-1).strip
+class Deployer
 
-        result.push item
-    }
+    def initialize
+        @orig_md5_file = "md5sums.orig"
+        @new_md5_file = "md5sums.txt"
+        @wintersmith = "./node_modules/.bin/wintersmith"
 
-    return result
-end
+        @orig_contents = []
+        @new_contents = []
 
-def remove_bundled_js_files
-    FileUtils.rm_rf './build/js/lib'
-end
+        @ftp_url = ""
+        @ftp_user = ""
+        @ftp_password = ""
 
-def environment_set?
-    if !ENV["BLOG_FTP_USER"]
-        puts("Variable \"BLOG_FTP_USER\" not set!")
-        return false
+        @ftp = nil
     end
 
-    if !ENV["BLOG_FTP_PASSWORD"]
-        puts("Variable \"BLOG_FTP_PASSWORD\" not set!")
-        return false
-    end
-
-    if !ENV["BLOG_FTP_URL"]
-        puts("Variable \"BLOG_FTP_URL\" not set!")
-        return false
-    end
-
-    true
-end
-
-def sass_compiled?
-    system("compass compile")
-end
-
-def site_build?
-    result = system("./node_modules/wintersmith/bin/wintersmith build")
-    remove_bundled_js_files
-    result
-end
-
-def md5_created?
-    unless system("find build -type f -print0 | xargs -0 md5 -r > md5sums.txt")
-        system("find build -type f -print0 | xargs -0 md5sum > md5sums.txt")
-    end
-
-    true
-end
-
-
-
-def deploy
-    unless environment_set? && sass_compiled? && site_build? && md5_created?
-        exit 1
-    end
-
-    origFileName = "md5sums.orig"
-    newFileName = "md5sums.txt"
-
-    unless File.exists?(newFileName)
-        puts "#{newFileName} not found!"
-        exit 1
-    end
-
-    if File.exists?(origFileName)
-        puts "#{origFileName} found. Deleting..."
-        File.delete(origFileName)
-    end
-
-    Net::FTP.open(ENV["BLOG_FTP_URL"], ENV["BLOG_FTP_USER"], ENV["BLOG_FTP_PASSWORD"]) do |ftp|
-        puts "Loading #{newFileName} from FTP and saving into #{origFileName}"
-        begin
-            ftp.gettextfile(newFileName, origFileName)
-        rescue Exception => e
-            puts "#{origFileName} not found on FTP"
+    def deploy
+        unless built? && load_md5_from_server
+            return false
         end
-        ftp.close
+
+        @orig_contents = read_into_array(@orig_md5_file)
+        @new_contents = read_into_array(@new_md5_file)
+
+        return deploy_to_ftp
     end
 
-    if !File.exists?(origFileName)
-        puts "#{origFileName} not found!"
-        exit 1
+    def built?
+        return sass_compiled? && site_build? && md5_created?
     end
 
+    private
 
-    origContents = read_into_array(origFileName)
-    newContents = read_into_array(newFileName)
-    changed = []
-    deleted = []
-    added = []
+    def sass_compiled?
+        puts "compiling SASS with Compass"
+        return system("compass compile")
+    end
 
-    orig_list = []
-    new_list = []
+    def site_build?
+        puts "building site..."
+        if system("#{@wintersmith} build")
+            remove_bundled_js_files
+            return true
+        end
+        puts "error building site #{@wintersmith}"
 
-    origContents.each {|orig_file|
-        newContents.each {|new_file|
-            if new_file.fileName == orig_file.fileName
-                if new_file.hash != orig_file.hash
-                    if new_file.fileName.start_with?("build/")
-                        changed.push new_file.fileName.strip.slice("build/".length..-1)
-                    else
-                        changed.push new_file.fileName.strip
-                    end
+        return false
+    end
+
+    def remove_bundled_js_files
+        FileUtils.rm_rf './build/js/lib'
+    end
+
+    def md5_created?
+        if File.exists?(@new_md5_file)
+            File.delete(@new_md5_file)
+        end
+
+        begin
+            md5sums = ""
+
+            Dir.glob("build/**/*", File::FNM_DOTMATCH).each do |filename|
+                next if File.directory?(filename)
+                key = Digest::MD5.hexdigest(IO.read(filename)).to_sym
+                md5sums += "#{key} #{filename}\n"
+            end
+
+            File.open(@new_md5_file, 'w') { |file| file.write(md5sums) }
+        rescue Exception => e
+            return false
+        end
+
+        return File.exists?(@new_md5_file)
+    end
+
+    def load_md5_from_server
+        unless environment_set?
+            return false
+        end
+
+        if File.exists?(@orig_md5_file)
+            puts "#{@orig_md5_file} found. Deleting..."
+            File.delete(@orig_md5_file)
+        end
+
+        begin
+            open_ftp
+
+            puts "Loading #{@new_md5_file} from FTP and saving into #{@orig_md5_file}"
+            begin
+                @ftp.gettextfile(@new_md5_file, @orig_md5_file)
+            rescue Exception => e
+                puts "#{@orig_md5_file} not found on FTP"
+            end
+
+            close_ftp
+        rescue Exception => e
+            puts e
+            return false
+        end
+
+        unless File.exists?(@orig_md5_file)
+            puts "#{@orig_md5_file} not found!"
+        end
+
+        return File.exists?(@orig_md5_file)
+    end
+
+    def environment_set?
+        environment_set = true
+
+        unless ENV["BLOG_FTP_USER"]
+            puts("Variable \"BLOG_FTP_USER\" not set!")
+            environment_set = false
+        end
+
+        unless ENV["BLOG_FTP_PASSWORD"]
+            puts("Variable \"BLOG_FTP_PASSWORD\" not set!")
+            environment_set = false
+        end
+
+        unless ENV["BLOG_FTP_URL"]
+            puts("Variable \"BLOG_FTP_URL\" not set!")
+            environment_set = false
+        end
+
+        if environment_set
+            @ftp_url = ENV["BLOG_FTP_URL"]
+            @ftp_user = ENV["BLOG_FTP_USER"]
+            @ftp_password = ENV["BLOG_FTP_PASSWORD"]
+        end
+
+        return environment_set
+    end
+
+    def open_ftp
+        @ftp = Net::FTP.open(@ftp_url, @ftp_user, @ftp_password)
+    end
+
+    def close_ftp
+        @ftp.close
+        @ftp = nil
+    end
+
+    def read_into_array(file_name)
+        result = []
+
+        f = File.open(file_name)
+        f.each_line {|line|
+            item = DeployItem.new
+            item.hash = line.slice(0..31)
+            item.file_name = line.slice(32..-1).strip
+
+            result.push item
+        }
+
+        return result
+    end
+
+    def deploy_to_ftp
+        @changed = changed_files
+        @added = added_files
+        @deleted = deleted_files
+
+        if is_something_to_deploy?
+            begin
+                open_ftp
+
+                send_changed_files
+                remove_deleted_files
+                send_added_files
+
+                puts "pushing new #{new_md5_file} to FTP"
+                ftp.puttextfile(new_md5_file, new_md5_file)
+
+                close_ftp
+            rescue Exception => e
+                puts e
+                return false
+            end
+        else
+            puts "Nothing has changed!"
+        end
+
+        return true
+    end
+
+    def changed_files
+        changed = []
+
+        @orig_contents.each {|orig_file|
+            @new_contents.each {|new_file|
+                if files_different?(new_file, orig_file)
+                    changed.push strip_filename(new_file)
                 end
+            }
+        }
+
+        return changed
+    end
+
+    def files_different?(new_file, orig_file)
+        return new_file.file_name == orig_file.file_name && new_file.hash != orig_file.hash
+    end
+
+    def strip_filename(file)
+        if file.file_name.start_with?("build/")
+            return file.file_name.strip.slice("build/".length..-1)
+        else
+            return file.file_name.strip
+        end
+    end
+
+    def added_files
+        return get_difference(@new_contents, @orig_contents)
+    end
+
+    def get_difference(contents1, contents2)
+        difference = []
+
+        c1_stripped = strip_filenames(contents1)
+        c2_stripped = strip_filenames(contents2)
+
+        c1_stripped.each {|item|
+            unless c2_stripped.index(item)
+                difference.push item
             end
         }
-    }
 
-    origContents.each {|orig_file|
-        if orig_file.fileName.start_with?("build/")
-            orig_list.push orig_file.fileName.strip.slice("build/".length..-1)
-        else
-            orig_list.push orig_file.fileName.strip
+        return difference
+    end
+
+    def strip_filenames(contents)
+        list = []
+
+        contents.each {|file|
+            list.push strip_filename(file)
+        }
+
+        return list
+    end
+
+    def deleted_files
+        return get_difference(@orig_contents, @new_contents)
+    end
+
+    def is_something_to_deploy?
+        @changed.length > 0 || @added.length > 0 || @deleted.length > 0
+    end
+
+    def send_changed_files
+        @changed.each {|destination|
+            delete_item_from_ftp(destination)
+            send_item_to_ftp("build/" + destination, destination)
+        }
+    end
+
+    def delete_item_from_ftp(item)
+        begin
+            puts "removing #{item} from FTP"
+            @ftp.delete(item)
+        rescue Exception => e
+            puts "#{item} not found on FTP"
         end
-    }
+    end
 
-    newContents.each {|new_file|
-        if new_file.fileName.start_with?("build/")
-            new_list.push new_file.fileName.strip.slice("build/".length..-1)
-        else
-            new_list.push new_file.fileName.strip
+    def send_item_to_ftp(local, destination)
+        puts "pushing #{local} to FTP"
+        @ftp.putbinaryfile(local, destination)
+    end
+
+    def remove_deleted_files
+        @deleted.each {|item|
+            delete_item_from_ftp(item)
+        }
+    end
+
+    def send_added_files
+        @added.each {|destination|
+            create_dir_on_ftp(File.dirname(destination))
+            send_item_to_ftp("build/" + destination, destination)
+        }
+    end
+
+    def create_dir_on_ftp(dirname)
+        begin
+            puts "creating directory #{dirname}"
+            @ftp.mkdir(dirname)
+        rescue
+            puts "#{dirname} seems to exist already"
         end
-    }
-
-    orig_list.each {|item|
-        if !new_list.index(item)
-            deleted.push item
-        end
-    }
-
-    new_list.each {|item|
-        if !orig_list.index(item)
-            added.push item
-        end
-    }
-
-    if changed.length > 0 || added.length > 0 || deleted.length > 0
-        Net::FTP.open(ENV["BLOG_FTP_URL"], ENV["BLOG_FTP_USER"], ENV["BLOG_FTP_PASSWORD"]) do |ftp|
-            changed.each {|item|
-                src = "build/" + item
-                begin
-                  puts "removing changed #{item} from FTP"
-                  ftp.delete(item)
-                rescue Exception => e
-                  puts "#{item} not found on FTP"
-                end
-                puts "pushing changed #{src} to FTP"
-                ftp.putbinaryfile(src, item)
-            }
-
-            deleted.each {|item|
-                begin
-                    puts "removing deleted #{item} from FTP"
-                    ftp.delete(item)
-                rescue Exception => e
-                  puts "#{item} not found on FTP"
-                end
-            }
-
-            added.each {|item|
-                if item.start_with?("build/")
-                  src = item
-                  item = item.slice("build/".length..-1)
-                else
-                  src = "build/" + item
-                end
-                dir = File.dirname(item)
-                begin
-                  puts "creating directory #{dir}"
-                  ftp.mkdir(dir)
-                rescue
-                  puts "#{dir} seems to exist already"
-                end
-                puts "pushing added #{src} to FTP"
-                ftp.putbinaryfile(src, item)
-            }
-
-            puts "pushing new #{newFileName} to FTP"
-            ftp.puttextfile(newFileName, newFileName)
-
-            ftp.close
-        end
-    else
-        puts "Nothing has changed!"
     end
 end

@@ -1,4 +1,7 @@
 #!/usr/bin/ruby
 require './tools'
 
-deploy
+deployer = Deployer.new
+unless deployer.deploy
+	exit 1
+end
