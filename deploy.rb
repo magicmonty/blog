@@ -2,6 +2,4 @@
 require './tools'
 
 deployer = Deployer.new
-unless deployer.deploy
-	exit 1
-end
+exit 1 unless deployer.deploy

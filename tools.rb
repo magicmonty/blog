@@ -26,9 +26,16 @@ class Deployer
     end
 
     def deploy
-        unless built? && load_md5_from_server
-            return false
-        end
+        return false unless built? && load_md5_from_server
+
+        @orig_contents = read_into_array(@orig_md5_file)
+        @new_contents = read_into_array(@new_md5_file)
+
+        return deploy_to_ftp
+    end
+
+    def deploy_without_build
+        return false unless File.directory?("build") && load_md5_from_server
 
         @orig_contents = read_into_array(@orig_md5_file)
         @new_contents = read_into_array(@new_md5_file)
@@ -53,8 +60,8 @@ class Deployer
             remove_bundled_js_files
             return true
         end
-        puts "error building site #{@wintersmith}"
 
+        puts "error building site #{@wintersmith}"
         return false
     end
 
@@ -85,9 +92,7 @@ class Deployer
     end
 
     def load_md5_from_server
-        unless environment_set?
-            return false
-        end
+        return false unless environment_set?
 
         if File.exists?(@orig_md5_file)
             puts "#{@orig_md5_file} found. Deleting..."
@@ -181,8 +186,8 @@ class Deployer
                 remove_deleted_files
                 send_added_files
 
-                puts "pushing new #{new_md5_file} to FTP"
-                ftp.puttextfile(new_md5_file, new_md5_file)
+                puts "pushing new #{@new_md5_file} to FTP"
+                @ftp.puttextfile(@new_md5_file, @new_md5_file)
 
                 close_ftp
             rescue Exception => e
