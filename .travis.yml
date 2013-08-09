@@ -8,6 +8,4 @@ env:
     - secure: "Gx539CBOUkepokHOSckLufmhM09TwwrNksQGUt1YPR2/XMZmOfUA2Y90aC0RXtPlIgkEti8kMjYuXEKlBiazCgdPjFGlnFKskxZPffqH0L/vkJPogROjRD4u5oLdUD/HYgbURkCIRvO/L47ug/I6UoVfv+AP3TsDWTgdoJp97Wc="
     - secure: "TFASjPNVACLkttTDd2ANIQjA+slNjKhbw3aN1dbU9uUJ+rP81fqqi8bwr6lvGd/2FLuSGcVsK9OWcuMo3yMHsl8NBlVNh9+sy4Z3fOucAgGpFVrm6r+vPnSLJlNoSx1sC0xn9+BYVJMjJiroiov6MpQyVvu+juchXcaHzT4GoAM="
     - secure: "DYpwLktdDZL6eZ/WK5bvhOp3N1K6ERIkMAQwAPnUw6KVpAsILoUc2ugwQ6CIVpNj/1GTdsAq7VoPyPpY+Wu4htezcYJp1KoY9qaloAqAPgMm/TU2xX2ggFVGtTAgFwnZ6lL02b1/CuDfUA+NNAaUWJ1sJC9lixhaYyEzKp1Pp44="
-script: "./build.sh"
-after_success:
-    "./deploy.rb"
+script: "rake deploy"
