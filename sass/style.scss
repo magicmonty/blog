@@ -79,7 +79,7 @@ header.logo {
 		ul {
 			@include nolist;
 			li {
-				@include nolist;						
+				@include nolist;
 				@include box-sizing(border-box);
 				a {
 					text-decoration: none;
@@ -98,7 +98,7 @@ header.logo {
 						background-color: darken($darkgray, 20%);
 						color: lighten($green, 5%);
 						@include text-shadow(0px 0px 20px lighten($green, 20%));
-					}							
+					}
 				}
 
 				&.current {
@@ -112,7 +112,7 @@ header.logo {
 					border: 1px solid darken($darkgray, 10%);
 
 					background-color: darken($green, 20%);
-					color: mix($green, white, 25%);								
+					color: mix($green, white, 25%);
 					font-weight: bold;
 					@include text-shadow(0px 0px 7px lighten($green, 20%));
 				}
@@ -224,7 +224,7 @@ header.logo {
 				font-size: 200%;
 				a {
 					color: $green;
-					text-decoration: none;					
+					text-decoration: none;
 					@include nodecoration;
 
 					&:hover {
@@ -232,7 +232,7 @@ header.logo {
 					}
 				}
 			}
-		
+
 			.post-meta {
 				overflow: hidden;
 				background: transparent url(#{$img}/post-std.png) no-repeat left -42px;
@@ -348,7 +348,7 @@ header.logo {
 						display: none;
 					}
 				}
-			}			
+			}
 		}
 
 		p:first-child {
@@ -378,7 +378,7 @@ header.logo {
 
 		&:hover {
 			background: $green;
-			color: mix($green, white, 5%);		
+			color: mix($green, white, 5%);
 			text-decoration: none;
 		}
 	}
@@ -404,9 +404,9 @@ footer {
 
 			.github-description {
 				display: none;
-			}		
+			}
 		}
-	}	
+	}
 }
 
 .social_icons {
@@ -424,7 +424,7 @@ footer {
 	@media (min-width: 1035px) {
 		display: block !important;
 	}
-	
+
 	div.span6 {
 		margin: 0 !important;
 	}
@@ -450,13 +450,13 @@ footer {
 
 			&:hover {
 				margin-top: -17px;
-			} 
+			}
 		}
 	}
 
 	div.span3:last-child {
 		margin-left: 15px !important;
-	
+
 		.media {
 			li {
 				float: right;
@@ -471,12 +471,12 @@ footer {
 	height: $smallIconSize !important;
 	padding: 0px !important;
 	margin: 0px !important;
-	display: none !important; 
+	display: none !important;
 	margin-bottom: $defaultMargin !important;
 
 	@media (max-width: 767px) {
 		display: block !important;
-	}	
+	}
 
 	.span12 {
 		height: $smallIconSize !important;
@@ -527,10 +527,24 @@ footer {
 }
 
 .ad .wdgt_hd, .ad .wdgt_ft {
-	display: none !important;	
+	display: none !important;
 }
 
 .ad .amzn_wdgt {
 	background: none !important;
 	border: none !important;
+}
+
+.fluid-width-video-wrapper {
+	width: 100%;
+	position: relative;
+	padding: 0;
+
+	iframe, object, embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
 }
