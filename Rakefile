@@ -24,3 +24,8 @@ task :deploy => [:build] do
 	deployer = Deployer.new
 	deployer.deploy_without_build
 end
+
+desc "Previews the blog"
+task :preview => [:build] do
+	exec("./node_modules/.bin/Wintersmith preview")
+end
