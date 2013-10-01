@@ -1,0 +1,80 @@
+---
+title: Temenos
+author: magicmonty
+date: 2013-10-01 21:49
+template: article.jade
+category: Software Craftsmanship
+disqus_category: 1836768
+---
+
+Yesterday at the last meeting of my [local software craftsmanship group](http://www.softwerkskammer.org), [Olaf Lewitz](http://trustartist.com/) from Berlin held a short introduction to [Temenos](http://trusttemenos.com/).
+
+This was as quite interesting experience, so here is a little braindump from me.
+
+# Why
+
+In many companies a huge amount of time is wasted by fear and politics. That can range from fear about the own job, the position to things like "watermelon reporting" (all green on the outside, but don't look inside). All this interferes an open communication.
+
+Effective teamwork needs trust and trust brings saftey which leads to a more open and therefore efficient communication, because if you trust each other, there is no more any need to question everything oneself or the others have to say, there is no need for politics and fear.
+This saves time, increases bandwith (by exchanging meaning and not just information). You also have more options in situations where you have to decide about things, because one knows about the otherwise hidden knowledge and skills of the other team members. 
+
+<span class="more"></span>
+
+# What is Temenos
+
+Temenos is a greek word meaning the sacred room around a temple. C. G. Jung used this word to describe the room in the inner self, where our self is developing in contrast to the Ego which is our representation to the outside.
+
+In this context, I describe here, Temenos is a room where the group and the individual can reflect about itself. Here we can ease concurrency, strains and old "wounds" and it opens room for positive authentic relations.
+
+It was developed by [Siraj Sirajuddin](http://www.stiatemenos.com/siraj/) over the last 20 years. 
+
+So far to the official descriptions…
+
+# How
+
+Temenos is a group workshop, which is all about storytelling. 
+Storytelling is one of the things the human brain is very good at.
+
+## The Past
+
+We started with looking at the past of ourselves. In this case we had a timebox of 5 minutes to draw a so called **Influence map**. This is a constrained (in our case one blank A4-Paper) drawing about what influenced you in the past, what made you to the person you are now. This could be a influencial person, an event or something else.
+
+Don't write just draw. It doesn't matter if you can't draw very good, this is not about art but as a helper to tell your story. 
+
+After the drawing phase there is a timeboxed phase, where you tell your story to the other people. This can be done in groups or one to one (this depends on the room settings and the people count), but it is important, that everyone hears every story.
+
+You disclose yourself to build up trust but also to learn more about yourself.
+
+In our case the timebox was a bit short (just one minute to tell the story) but even in this short time, after the second or third time I told my story, I realized, that I became better at  knowing what to tell and the associations between the different parts of the story became much clearer. Also the story changed from time to time a little bit after hearing the stories of the other people, because I realized things where we had something in common, what in turn made the connections between my experiences in the past much clearer.
+
+All in all this was a very intense, personal and interesting experience, and I'm happy that I was there.
+
+## The present
+
+The next parts Olaf just described, as we had no more time to do more exercises.
+
+The exercise about the present is called **Clean Slate**. It's about identifying the different systems where we play different roles (e.g. Me, Job, Home, Team, Choir etc.). Then we ask for every system the following questions:
+  
+  - How do I fail the system?
+  - how does the system fails me?
+  
+This is intended to become clear about your current state and to be able to let go of emotional baggage (e.g. how often you came home, frustrated from a meeting and could not let go?)
+
+## The future
+
+Here we have two exercises to do.
+
+  1. a personal vision (where I want to go?) and
+  2. a shared vision (where **we** want to go together?)
+  
+all this is also drawn and told via storytelling.
+
+# Conclusion
+
+I think, this is really a method that could build up trust in every team. I enjoyed hearing the stories of other people as much as telling my own story.
+
+What you need to do such a workshop is IMHO a good (and neutral) facilitator and some acceptance and willingness in the team to lose all the [FUD](http://en.wikipedia.org/wiki/Fear,_uncertainty_and_doubt).
+
+For the first part (and more information) you can go to [http://trusttemenos.com](http://trusttemenos.com/) or [http://trustartist.com](http://trustartist.com/).
+
+For the second part you are on your own ;) 
