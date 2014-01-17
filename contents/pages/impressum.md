@@ -8,7 +8,7 @@ template: impressum.jade
 Angaben gemäß § 5 TMG:
 
 Martin Gondermann<br />
-Heinrich-Fulda-Weg 4<br />
+Heinrich-Fulda-Weg 3<br />
 64289 Darmstadt<br />
 
 ### Kontakt:
