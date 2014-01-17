@@ -2,10 +2,10 @@ mixin github_entry(repoName, description)
   baseUrl = "http://github.com/magicmonty/"
     li
       a(
-        href=baseUrl + repoName, 
-        title=repoName, 
-        rel="popover", 
-        data-placement="top", 
+        href=baseUrl + repoName,
+        title=repoName,
+        rel="popover",
+        data-placement="top",
         data-trigger="hover",
         data-content=description,
         class="github_link",
@@ -38,7 +38,7 @@ mixin tagcloud
     h3 Categories
     .content
         ul.unstyled
-          categories = category_array = {}
+          - categories = category_array = {}
           - var articles = env.helpers.getArticles(contents)
           each article in articles
             if article.metadata.category
@@ -66,7 +66,7 @@ mixin tagcloud
             - var size = minSize
             - var a = 0
             - while (Math.log(category.data.count + 2) > Math.log(minValue + a * delta + 2) && a < steps) { a++ }
-            - size += a            
+            - size += a
             li(style="font-size: #{size}%;float: left;margin:3px;")
               a(href="/categories/#{smallCategory}.html", title="filter by category: #{category.name}", rel="tooltip")= category.name
 
