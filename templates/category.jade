@@ -12,7 +12,7 @@ block content
   each article in articles
     - var category = article.metadata.category;
     if category
-      found = false;
+      - found = false;
       each c in category.split(",")
         if c == page.metadata.meta.category
           article.index(itemscope="itemscope", itemtype="http://schema.org/BlogPosting")
@@ -22,13 +22,12 @@ block content
               div.post-meta.hidden-phone
                 +comments(article.url)
                 div.date
-                  span(data-date=article.metadata.date)
-                    article.metadata.date;
+                  span(data-date=article.metadata.date)= article.metadata.date
                 div.info
-                  | von 
+                  | von
                   +author(article.metadata.author)
                   if article.metadata.category
-                    |  in 
+                    |  in
                     +categories(article.metadata.category)
             div.content(itemprop="description articleBody")!= typogr(article.intro).typogrify()
             if article.hasMore

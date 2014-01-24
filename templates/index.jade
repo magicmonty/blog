@@ -18,20 +18,19 @@ block content
         div.post-meta.hidden-xs
           +comments(article.url)
           div.date
-            span(data-date=article.metadata.date)
-              article.metadata.date;
+            span(data-date=article.metadata.date)= article.metadata.date
           div.info
-            | von 
+            | von
             +author(article.metadata.author)
             if article.metadata.category
-              |  in 
+              |  in
               +categories(article.metadata.category)
       div.content(itemprop="description articleBody")!= typogr(article.intro).typogrify()
       if article.hasMore
         p.read-more
           a(href=article.url) read more
 
-  a#archive(href='archive.html')#archive Visit the archives!
+  a#archive(href='archive.html') Visit the archives!
 
 
 block append scripts
@@ -46,4 +45,4 @@ block append scripts
       s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
       (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
-        
+
