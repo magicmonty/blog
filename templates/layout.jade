@@ -34,14 +34,14 @@ head
 
 
 body
-.container-fluid
-  .row-fluid
-    header.span12.logo= locals.description
+.container
+  .row
+    header.col-md-12.logo= locals.description
 
-  .row-fluid.social_icons
-    .span12
-      .span3
-        ul.unstyled.media
+  .row.social_icons
+    .col-md-12
+      .col-md-3
+        ul.list-unstyled.media
           li
             a.icon.social_icons-rss(href=locals.url+'/feed.xml', rel='tooltip', target='blank', title='RSS Feed')
               span RSS feed
@@ -54,9 +54,9 @@ body
           li
             a.icon.social_icons-facebook(href='http://www.facebook.com/magicmonty', rel='tooltip', target='_blank', title='My Facebook profile')
               span My Facebook profile
-      .span6
-      .span3
-        ul.unstyled.media
+      .col-md-5
+      .col-md-3
+        ul.list-unstyled.media
           li
             a.icon.social_icons-zerply(
                 href='http://www.zerply.com/profile/magicmonty', rel='tooltip', target='_blank', title='My Zerply page')
@@ -71,9 +71,9 @@ body
             a.icon.social_icons-github(href='https://github.com/magicmonty', rel='tooltip', target='_blank', title='GitHub profile')
               span GitHub profile
 
-  .row-fluid.social_icons.si-phone
-    .span12
-      ul.unstyled.media
+  .row.social_icons.si-phone
+    .col-md-12
+      ul.list-unstyled.media
         li
           a.icon.social_icons_small-rss(href=locals.url+'/feed.xml', title='RSS Feed')
             span RSS feed
@@ -99,33 +99,33 @@ body
           a.icon.social_icons_small-zerply(href='http://www.zerply.com/profile/magicmonty', title='My Zerply page')
             span My Zerply page
 
-  .row-fluid.main
-    #sidebar_left.span3.sidebar
+  .row.main
+    #sidebar_left.col-md-3.sidebar
       block navigation
         mixin navigation("")
 
       +tagcloud
-      .widget.ad.hidden-phone
+      .widget.ad.hidden-xs
         h3 Recommendations
         | <script charset="utf-8" type="text/javascript" src="http://ws.amazon.de/widgets/q?rt=tf_mfw&ServiceVersion=20070822&MarketPlace=DE&ID=V20070822/DE/montyssamme-21/8001/6d9fb1b7-e0ab-40eb-8097-444d1cd70e1b"></script><noscript><a href="http://ws.amazon.de/widgets/q?rt=tf_mfw&ServiceVersion=20070822&MarketPlace=DE&ID=V20070822%2FDE%2Fmontyssamme-21%2F8001%2F6d9fb1b7-e0ab-40eb-8097-444d1cd70e1b&Operation=NoScript">Amazon.de Widgets</a></noscript>
 
-    #content.span6
+    #content.col-md-5
       block content
         h2 Welcome to Monty's Sammelsurium
 
 
-    #sidebar_right.span3.sidebar.hidden-phone
+    #sidebar_right.col-md-3.sidebar.hidden-xs
       +github
       +links
 
-      .widget.ad.hidden-phone
+      .widget.ad.hidden-xs
         | <script type="text/javascript"><!--
         | amazon_ad_tag = "montyssamme-21"; amazon_ad_width = "120"; amazon_ad_height = "240"; amazon_ad_link_target = "new"; amazon_ad_discount = "remove"; amazon_color_border = "333333"; amazon_color_background = "4F4F4F"; amazon_color_text = "FFFFFF"; amazon_color_link = "A9BF04"; amazon_color_price = "FFFFFF"; amazon_ad_include = "software+craftsmanship;clean+code;softwareentwicklung"; amazon_ad_categories = "afen";//
         |--></script>
         script(type="text/javascript", src="http://www.assoc-amazon.de/s/ads.js")
 
-  .row-fluid
-    footer.span12
+  .row
+    footer.col-md-12
       &copy; 2012 by pagansoft.de
 block scripts
   script(type='text/javascript', src='/js/default.js')

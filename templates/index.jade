@@ -15,7 +15,7 @@ block content
       header
         h1(itemprop="name")
           a(href=article.url, rel="bookmark", title="Permanent Link: " + article.title)= article.title
-        div.post-meta.hidden-phone
+        div.post-meta.hidden-xs
           +comments(article.url)
           div.date
             span(data-date=article.metadata.date)
