@@ -43,7 +43,7 @@ block content
     .metainfo
       - var shareUrl = encodeURIComponent(locals.url + page.url)
       - var shareTitle = encodeURIComponent(page.title)
-      ul.unstyled.media
+      ul.list-unstyled.media
         li
           a.icon.social_icons_small-twitter(href="http://twitter.com/home?status=" + shareTitle + "+-+" + shareUrl, target="_blank", rel="tooltip", title="Share this article on Twitter")
             span Share this article on Twitter

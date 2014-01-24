@@ -12,7 +12,7 @@ mixin github_entry(repoName, description)
         id="github_link_" + repoName)= repoName
 
 mixin github
-  .widget.hidden-phone
+  .widget.hidden-xs
     h3 Github repositories
     .content
       #github-repos
@@ -34,10 +34,10 @@ mixin github
           +github_entry("MediaWikiAccessControl", "Group based AccessControl for selected MediaWiki pages")
 
 mixin tagcloud
-  .widget.hidden-phone
+  .widget.hidden-xs
     h3 Categories
     .content
-        ul.unstyled
+        ul.list-unstyled
           - categories = category_array = {}
           - var articles = env.helpers.getArticles(contents)
           each article in articles
@@ -71,7 +71,7 @@ mixin tagcloud
               a(href="/categories/#{smallCategory}.html", title="filter by category: #{category.name}", rel="tooltip")= category.name
 
 mixin links
-  .widget.hidden-phone
+  .widget.hidden-xs
     h3 Links
     .content
       ul.links
