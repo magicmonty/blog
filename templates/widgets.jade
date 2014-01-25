@@ -11,8 +11,8 @@ mixin github_entry(repoName, description)
         class="github_link",
         id="github_link_" + repoName)= repoName
 
-mixin github
-  .widget.hidden-xs
+mixin github(classes)
+  .widget(class=classes)
     h3 Github repositories
     .content
       #github-repos
@@ -34,7 +34,7 @@ mixin github
           +github_entry("MediaWikiAccessControl", "Group based AccessControl for selected MediaWiki pages")
 
 mixin tagcloud
-  .widget.hidden-xs
+  .widget.hidden-sm.hidden-xs
     h3 Categories
     .content
         ul.list-unstyled
@@ -70,8 +70,8 @@ mixin tagcloud
             li(style="font-size: #{size}%;float: left;margin:3px;")
               a(href="/categories/#{smallCategory}.html", title="filter by category: #{category.name}", rel="tooltip")= category.name
 
-mixin links
-  .widget.hidden-xs
+mixin links(classes)
+  .widget(class=classes)
     h3 Links
     .content
       ul.links
