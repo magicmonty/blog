@@ -462,7 +462,7 @@ footer {
     .col-md-12 {
         padding-left: 33.33333333333333%;
         .media {
-            width: 8 * $iconSize;
+            width: 10 * $iconSize;
             margin: 0 auto !important;
             padding-top: 20px;
             @include box-sizing(border-box);
@@ -504,7 +504,7 @@ footer {
     .col-md-12 {
         height: $smallIconSize !important;
         .media {
-            width: 8 * $smallIconSize;
+            width: 10 * $smallIconSize;
             height: $smallIconSize + 7px !important;
             margin: 0px auto !important;
             padding-top: 7px;

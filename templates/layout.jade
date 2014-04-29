@@ -23,7 +23,7 @@ head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
     meta(name='viewport', content='width=device-width')
-    title 
+    title
       block title
         = locals.name
     link(rel='alternate', href=locals.url+'/feed.xml', type='application/rss+xml', title=locals.description)
@@ -45,30 +45,36 @@ body
             a.icon.social_icons-rss(href=locals.url+'/feed.xml', rel='tooltip', target='blank', title='RSS Feed')
               span RSS feed
           li
+            a.icon.social_icons-keybase(href='http://keybase.io/magicmonty', rel='tooltip', target='_blank', title='My PGP Keys')
+              span My PGP Keys
+          li
             a.icon.social_icons-twitter(href='http://twitter.com/magicmonty/', rel='tooltip', target='_blank', title='My Twitter feed')
-              span My Twitter feed
+              span Twitter feed
           li
             a.icon.social_icons-gplus(href='https://plus.google.com/104195029782528146031?rel=author', rel='tooltip', target='_blank', title='Me on Google+')
-              span Me on Google+
+              span Google+
           li
             a.icon.social_icons-facebook(href='http://www.facebook.com/magicmonty', rel='tooltip', target='_blank', title='My Facebook profile')
-              span My Facebook profile
+              span Facebook profile
       .col-md-6
       .col-md-3
         ul.list-unstyled.media
           li
             a.icon.social_icons-zerply(
                 href='http://www.zerply.com/profile/magicmonty', rel='tooltip', target='_blank', title='My Zerply page')
-              span My Zerply page
+              span Zerply profile
           li
             a.icon.social_icons-linkedin(href='http://de.linkedin.com/in/martingondermann', rel='tooltip', target='_blank', title='My LinkedIn profile')
-              span My LinkedIn profile
+              span LinkedIn profile
           li
             a.icon.social_icons-xing(href='http://www.xing.com/profile/Martin_Gondermann', rel='tooltip', target='_blank', title='My Xing profile')
-              span My Xing profile
+              span Xing profile
           li
             a.icon.social_icons-github(href='https://github.com/magicmonty', rel='tooltip', target='_blank', title='GitHub profile')
               span GitHub profile
+          li
+            a.icon.social_icons-coderwall(href='https://coderwall.com/magicmonty', rel='tooltip', target='_blank', title='CoderWall profile')
+              span CoderWall profile
 
     .row.social_icons.si-tablet
       .col-md-12
@@ -77,26 +83,32 @@ body
             a.icon.social_icons-rss(href=locals.url+'/feed.xml', title='RSS Feed')
               span RSS feed
           li
+            a.icon.social_icons-keybase(href='http://keybase.io/magicmonty', rel='tooltip', target='_blank', title='My PGP Keys')
+              span My PGP Keys
+          li
             a.icon.social_icons-twitter(href='http://twitter.com/magicmonty/', title='My Twitter feed')
-              span My Twitter feed
+              span Twitter feed
           li
             a.icon.social_icons-gplus(href='https://plus.google.com/104195029782528146031', title='Me on Google+')
-              span Me on Google+
+              span Google+
           li
             a.icon.social_icons-facebook(href='http://www.facebook.com/magicmonty', title='My Facebook profile')
-              span My Facebook profile
+              span Facebook profile
+          li
+            a.icon.social_icons-coderwall(href='https://coderwall.com/magicmonty', rel='tooltip', target='_blank', title='CoderWall profile')
+              span CoderWall profile
           li
             a.icon.social_icons-github(href='https://github.com/magicmonty', title='GitHub profile')
               span GitHub profile
           li
             a.icon.social_icons-xing(href='http://www.xing.com/profile/Martin_Gondermann', title='My Xing profile')
-              span My Xing profile
+              span Xing profile
           li
             a.icon.social_icons-linkedin(href='http://de.linkedin.com/in/martingondermann', title='My LinkedIn profile')
-              span My LinkedIn profile
+              span LinkedIn profile
           li
             a.icon.social_icons-zerply(href='http://www.zerply.com/profile/magicmonty', title='My Zerply page')
-              span My Zerply page
+              span Zerply profile
 
     .row.social_icons.si-phone
       .col-md-12
@@ -105,26 +117,32 @@ body
             a.icon.social_icons_small-rss(href=locals.url+'/feed.xml', title='RSS Feed')
               span RSS feed
           li
+            a.icon.social_icons_small-keybase(href='http://keybase.io/magicmonty', rel='tooltip', target='_blank', title='My PGP Keys')
+              span My PGP Keys
+          li
             a.icon.social_icons_small-twitter(href='http://twitter.com/magicmonty/', title='My Twitter feed')
-              span My Twitter feed
+              span Twitter feed
           li
             a.icon.social_icons_small-gplus(href='https://plus.google.com/104195029782528146031', title='Me on Google+')
-              span Me on Google+
+              span on Google+
           li
             a.icon.social_icons_small-facebook(href='http://www.facebook.com/magicmonty', title='My Facebook profile')
-              span My Facebook profile
+              span Facebook profile
+          li
+            a.icon.social_icons_small-coderwall(href='https://coderwall.com/magicmonty', rel='tooltip', target='_blank', title='CoderWall profile')
+              span CoderWall profile
           li
             a.icon.social_icons_small-github(href='https://github.com/magicmonty', title='GitHub profile')
               span GitHub profile
           li
             a.icon.social_icons_small-xing(href='http://www.xing.com/profile/Martin_Gondermann', title='My Xing profile')
-              span My Xing profile
+              span Xing profile
           li
             a.icon.social_icons_small-linkedin(href='http://de.linkedin.com/in/martingondermann', title='My LinkedIn profile')
-              span My LinkedIn profile
+              span LinkedIn profile
           li
             a.icon.social_icons_small-zerply(href='http://www.zerply.com/profile/magicmonty', title='My Zerply page')
-              span My Zerply page
+              span Zerply profile
 
     .row.main
       #sidebar_left.col-md-3.col-sm-12.col-xs-12.sidebar
