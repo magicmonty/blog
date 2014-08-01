@@ -7,6 +7,8 @@ category: Screencast,Software Craftsmanship
 disqus_category: 1836768
 ---
 
+**UPDATE (2014-08-01)**: I removed the link to Xamarin Studion on request of Xamarin
+
 This week, at the meetup of [my local software craftsmanship group](http://softwerkskammer.org/activities/treffen-20-softwerkskammer-rhein-main "Softwerkskammer Rhein-Main"), we did a mini [code retreat](http://codreretreat.org)
 with the [FizzBuzz kata](http://codingdojo.org/cgi-bin/wiki.pl?KataFizzBuzz). In advance I had a discussion with [Benjamin](http://www.squeakyvessel.com/), that this Kata could be a bit to easy for a code retreat. My point was here, that IMHO is not done completely. Most people stop on a function like this:
 
@@ -46,7 +48,7 @@ Here you can see my take on this kata.
 
 It features a solution completely free of ```if``` statements and is quite good extendable. The resulting Translator class must never been touched anymore. All you have to do for different rules is to write a different RuleFactory. If you want to play you could even implement a RuleFactory which reads its rules from an XML file.
 
-The project for [Xamarin Studio](http://xamarin.com/) can be found [here](https://github.com/magicmonty/FizzBuzzKata-csharp).
+The source can be found [here](https://github.com/magicmonty/FizzBuzzKata-csharp).
 
 You can get the music under http://www.jamendo.com/de/track/259936/scherzo-no.-4-in-e-major-op.-54-1843
 
