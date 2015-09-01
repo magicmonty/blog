@@ -12,7 +12,7 @@ block prepend head
   if page.metadata.image_url
     meta(itemprop="image", content=page.metadata.image_url)
     meta(property="og:image", content=page.metadata.image_url)
-  script.
+  script(type='text/javascript').
     var disqus_title = "#{page.title}";
     var disqus_shortname = 'pagansoft';
     var disqus_identifier = "#{page.url.substr(10, page.url.length - 11)}";
@@ -24,13 +24,13 @@ block prepend head
       'trackbacks': [],
       'trackback_url': '#{locals.url + page.url + "trackback/"}'
     };
-   link(rel="pingback", href=locals.url + page.url + "trackback/")
+  link(rel="pingback", href=locals.url + page.url + "trackback/")
   if page.metadata.category
     meta(name="keywords", content="#{page.metadata.category.toLowerCase()}")
 
 
 block prepend title
-  | #{ page.title } - 
+  | #{ page.title } -
 
 block content
   include author
@@ -48,28 +48,28 @@ block content
           a.icon.social_icons_small-twitter(href="http://twitter.com/home?status=" + shareTitle + "+-+" + shareUrl, target="_blank", rel="tooltip", title="Share this article on Twitter")
             span Share this article on Twitter
         li
-          a.icon.social_icons_small-facebook(href="http://www.facebook.com/share.php?u=" + shareUrl + "&t=" + shareTitle, target="_blank", rel="tooltip", title="Share this article on Facebook") 
+          a.icon.social_icons_small-facebook(href="http://www.facebook.com/share.php?u=" + shareUrl + "&t=" + shareTitle, target="_blank", rel="tooltip", title="Share this article on Facebook")
             span Share this article on Facebook
         li
-          a.icon.social_icons_small-xing(href="https://www.xing-share.com/app/user?op=share;sc_p=xing-share;url=" + shareUrl, target="_blank", rel="tooltip", title="Share this article on Xing") 
+          a.icon.social_icons_small-xing(href="https://www.xing-share.com/app/user?op=share;sc_p=xing-share;url=" + shareUrl, target="_blank", rel="tooltip", title="Share this article on Xing")
             span Share this article on Xing
         li
-          a.icon.social_icons_small-linkedin(href="http://www.linkedin.com/shareArticle?mini=true&ro=false&trk=bookmarklet&title=" + shareTitle + "&url=" + shareUrl, target="_blank", rel="tooltip", title="Share this article on LinkedIn") 
+          a.icon.social_icons_small-linkedin(href="http://www.linkedin.com/shareArticle?mini=true&ro=false&trk=bookmarklet&title=" + shareTitle + "&url=" + shareUrl, target="_blank", rel="tooltip", title="Share this article on LinkedIn")
             span Share this article on LinkedIn
         li
           a.icon.social_icons_small-gplus(href="https://plus.google.com/share?url=" + shareUrl, target="_blank", rel="tooltip", title="Share this article on Google+")
             span Share this article on Google+
-      | This article was written by 
+      | This article was written by
       mixin author(page.metadata.author)
       |  on #{page.metadata.date}
       if page.metadata.category
-        |  in 
+        |  in
         mixin categories(page.metadata.category)
-      | . Any Reaction on this article can be followed with 
+      | . Any Reaction on this article can be followed with
       a(href="http://pagansoft.disqus.com/" + page.url.substr(10).replace(/-/g, "_") + "latest.rss") RSS 2.0
-      | . You can 
+      | . You can
       a(href="#form") leave a comment
-      |  or a 
+      |  or a
       a(href=locals.url + page.url + 'trackback/') trackback
       |  of your own site.
     #disqus_thread
