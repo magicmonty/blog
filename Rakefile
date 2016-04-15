@@ -27,5 +27,5 @@ end
 
 desc "Previews the blog"
 task :preview => [:build] do
-	exec("./node_modules/.bin/Wintersmith preview")
+	exec("./node_modules/.bin/Wintersmith preview -p 9090")
 end
