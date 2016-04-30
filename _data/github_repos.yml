@@ -1,0 +1,36 @@
+- name: bash-git-prompt
+  description: "An informative and fancy bash prompt for Git users"
+
+- name: SharpFun
+  description: Functional Data Types for C#
+
+- name: FizzBuzzKata-csharp
+  description: "FizzBuzz kata project for Xamarin Studio"
+
+- name: gildedrose_kata_monodevelop
+  description: "Start project for the Gilded Rose Kata for MonoDevelop"
+
+- name: wintersmith-uglifyjs
+  description: "Plugin for Wintersmith, which combines and compresses all configured js files into a single file"
+
+- name: marsrover-kata-delphi
+  description: "Mars Rover Kata in Delphi"
+
+- name: activesync-go
+  description: "ActiveSync implementation for Google Go"
+
+- name: wbxml-go
+  description: "WBXML encoder/decoder implementation for Google Go"
+
+- name: autotest4delphi
+  description: "Application to run DUnit tests automatically on change"
+
+- name: gildedrose_kata_delphi
+  description: "Start project for the Gilded Rose Kata in Delphi"
+
+- name: videostore_delphi
+  description: "The videostore example from Martin Fowler's Refactoring, and from Episode 3 of cleancoders.com in Delphi"
+
+- name: MediaWikiAccessControl
+  description: "Group based AccessControl for selected MediaWiki pages"
+

@@ -1,11 +1,19 @@
-language: node_js
-node_js:
-  - "0.10"
-before_install:
-  - "gem install compass"
+language: ruby
+bundler_args: "--without development --path .bundle"
+rvm:
+- 2.3.0
+addons:
+  ssh_known_hosts: blog.pagansoft.de
+install:
+- bundle install --binstubs
+before_script:
+- sudo apt-get install -qq sshpass
+script: rake travis
+branches:
+  only:
+  - master
 env:
   global:
-    - secure: "Gx539CBOUkepokHOSckLufmhM09TwwrNksQGUt1YPR2/XMZmOfUA2Y90aC0RXtPlIgkEti8kMjYuXEKlBiazCgdPjFGlnFKskxZPffqH0L/vkJPogROjRD4u5oLdUD/HYgbURkCIRvO/L47ug/I6UoVfv+AP3TsDWTgdoJp97Wc="
-    - secure: "TFASjPNVACLkttTDd2ANIQjA+slNjKhbw3aN1dbU9uUJ+rP81fqqi8bwr6lvGd/2FLuSGcVsK9OWcuMo3yMHsl8NBlVNh9+sy4Z3fOucAgGpFVrm6r+vPnSLJlNoSx1sC0xn9+BYVJMjJiroiov6MpQyVvu+juchXcaHzT4GoAM="
-    - secure: "DYpwLktdDZL6eZ/WK5bvhOp3N1K6ERIkMAQwAPnUw6KVpAsILoUc2ugwQ6CIVpNj/1GTdsAq7VoPyPpY+Wu4htezcYJp1KoY9qaloAqAPgMm/TU2xX2ggFVGtTAgFwnZ6lL02b1/CuDfUA+NNAaUWJ1sJC9lixhaYyEzKp1Pp44="
-script: "rake deploy"
+  - secure: JQNgeIUCYoAafzduGlKbgf6+Z+CxmIoAVSTuNtFjxtvM7X187L1NkddwxKtvMRu5d9qX62e8UbWUyLhOsTTuYXeqrkYHnJxI1B6B1hBW4kzbeNlX+ZwAeuCuQPFFhVLTjQWmIKeQQEC5HrJ8EiH1R7PPl+OMiqWo4ePrZiQiWNvWRlC6AkS5x5KvRYLpYXuk/Dd9zQEEgQjvXebE3WEAteG9G+M1Mv1zmYcmy8s0QmMPmUQkQAkCtQ57MhZ7RqupzIegrlUA7LrOeVR348ezQZeZ5BOMlzxKqX+9AJy7j98g8qNGdL/YH80n1qhdzq9i000WgPLPSuwdjXfD4Iicm3NjrJsVuZrJFjCSYRsPsQnE69ppI8Iz8Redj3Dd/wmoj1BsIM/StBFl+MPU6mnSxe9IbzLvsdvTB8kyJkEkBLNzjwPl/r/JW3oXWq9+6fn7H5SDyBWpdauhXcatgyMkCDi4LvzUtsGDlyJrja9r6qRBTIWGgBBpgZcYFztcdsgTDkzPIZWGH1AqV9ozsN5mZzebf7YKHKctoUqxVPja+m77KxAW0wcN1WDlfsdtNkozELcq2BQHV0vKoFZInbVghwOPUuLVDBudiqWtM8wRYiHIdHCLH+6ifyhQjA/YJFQWyahnZ4IcuaSZo1eIB2lluP9VPWHFRKP5T0ctkws+XDs=
+  - secure: pnu+G780SLZ7lY0DZtGcpYfFGNjkGT3JvMrz3Ol7lIxpPsSSKsVOxMtCnuDEGaQswDc0italF7+0d2thpaQJZzdSvyy11yilMdJqUc30R0WUdi3pRFV733A4QyWoxuRwtROkuxIL4YRvUfFVunpwUHsyMXv6C5/EoPzEGXHCKUs1DAd7Xb8qYYzSCnKtUrsqc+ReCIdj8+TyJlFgtKzZchtAfTeVS5+v3YmtBzzrj1jR5xz+CSBdrCp5qtNsx0y1/15e7GYg8Y0O1qgQT+n0rQsdhW+ATHA5WLel9cTDQuo+XXAwvtiirynHdsLXg5Mk+hgFB8pDMtl91BdgwOruqdKFtFfeMpuxlo9+n4+3G6C89e+MRKrGgmXrH8iG+fzCrfe1ZnFX0/zs5mEX566hvtrPgvb7o2X5bqB59GjloTE2rWIbKSoDSIEkTP6LX63P8tBBOz0cYDfLvwE91puBHb6U473wMW/WvnoFrS2DckL4/6URCuPbmE5F9veMTBmPI2Baeo7xQO0hKnMoccX6QFZMkOGumD/CL7l1jjXdjwsl8WMAmDbxx923LJNk0yeSZVo7WowgyEZ2pO3XXXu7+K1pHhqeCvruDLIaUlmqgkWWftT0YUwtV2eZfuAWg9zq8Gdj54Zmf0bHfDc+cMwOEiKx9/xjpv48hPEvlMmTaZ0=
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer

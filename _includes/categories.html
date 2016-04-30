@@ -1,0 +1,4 @@
+{% assign index=0 %}
+{% assign postcount = post.tags | size %}
+{% for category in post.tags %}{% if forloop.index > 1 %},{% endif %}
+<a href="/categories/{{ category | slugify: 'pretty' }}.html" rel="tag">{{ category }}</a>{% endfor %}

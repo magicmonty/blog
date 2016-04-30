@@ -1,0 +1,49 @@
+---
+layout: default
+title: Your New Jekyll Site
+id: archive
+permalink: /:path/:basename.html
+---
+<h1>The Archives</h1>
+here you can find all older articles I wrote.
+<ul>
+{% for post in site.posts  %}
+    {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+    {% capture this_month %}{{ post.date | date: "%B" }}{% endcapture %}
+    {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+    {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
+
+    {% if forloop.first %}
+    <li>
+      {{ this_year }}
+      <ul>
+        <li>
+          <b>{{ this_month }}</b><br />
+    {% endif %}
+
+    <a href="{{ post.url }}">{{ post.title }}</a><br />
+
+    {% if forloop.last %}
+        </li>
+      </ul>
+    </li>
+    {% else %}
+        {% if this_year != next_year %}
+        </li>
+      </ul>
+    </li>
+    <li>
+      {{next_year}}
+      <ul>
+        <li>
+          <b>{{ next_month }}</b><br />
+        {% else %}
+            {% if this_month != next_month %}
+        </li>
+        <li>
+          <b>{{ next_month }}</b><br />
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+</ul>

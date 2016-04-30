@@ -1,8 +1,0 @@
-mixin categories(categories)
-	- count = 0
-	each category in categories.split(",")
-		- var smallCategory = category.toLowerCase().replace(/[ _]/g, "-");
-		- count += 1
-		if count > 1
-			| ,
-		a(href="/categories/#{smallCategory}.html", rel="tag")= category.trim()

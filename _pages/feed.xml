@@ -1,0 +1,32 @@
+---
+layout: null
+permalink: /:path/:basename.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version='2.0' xmlns:content='http://purl.org/rss/1.0/modules/content/' xmlns:wfw='http://wellformedweb.org/CommentAPI/' xmlns:dc='http://purl.org/dc/elements/1.1/' xmlns:atom='http://www.w3.org/2005/Atom'>
+  <channel>
+    <title>{{ site.name | xml_escape }}</title>
+    <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
+    <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml"></atom:link>
+    <link href="{{ site.url }}"></link>
+    <pubDate>{{ site.posts[0].date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+    <generator>Jekyll - http://jekyllrb.com</generator>
+    <language>en</language>
+    {% for post in site.posts %}
+      {% unless post.link %}
+      <item>
+        <title>{{ post.title | xml_escape }}</title>
+        <link>{{ site.url }}{{ post.url }}</link>
+        <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+        <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+        <author>post.author</author>
+        {% if post.excerpt %}
+          <description>{{ post.excerpt | xml_escape }}</description>
+        {% else %}
+          <description>{{ post.content | xml_escape }}</description>
+        {% endif %}
+      </item>
+      {% endunless %}
+    {% endfor %}
+  </channel>
+</rss>

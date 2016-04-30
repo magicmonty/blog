@@ -1,0 +1,58 @@
+url: http://blog.pagansoft.de
+name: "Monty's Sammelsurium"
+description: "Ideas, Jokes and everything else…"
+markdown: KramdownPygments
+kramdown:
+  auto_ids: true
+  input: GFM
+  footnote_nr: 1
+  entity_output: symbolic # as_char or symbolic or as_input
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  input: GFM
+gems:
+- jekyll-compass
+- jekyll-twitter-plugin
+- jekyll-paginate
+- jekyll-youtube
+defaults:
+- scope:
+    path: "" # empty string for all files
+  values:
+    sitemap:
+      priority: 0.7
+      changefreq: monthly
+    excerpt_separator: <!-- more -->
+    layout: post
+    author: magicmonty
+- scope:
+    path: "categories"
+  values:
+    permalink: /categories/:basename.html
+exclude:
+- blog_jekyll.sublime-project
+- blog_jekyll.sublime-workspace
+- Gemfile
+- Gemfile.lock
+- Rakefile
+- bin
+- .vscode
+- transfer.sh
+- vendor
+lsi: false
+permalink: /articles/:title/
+paginate: 10
+tag_page_layout: tag_page
+tag_page_dir: categories
+tag_permalink_style: /categories/:basename.html
+twitter:
+  consumer_key: fm06L11ryx93bZs9IHBhzWFUp
+  consumer_secret: 8gEPVTpOhHOrHN1axlf5xUHAGJ3kw77tHeorqfajdHkc44y0Ux
+  access_token: 14722376-2pk3792cwmDUFqRZfDu70iVwxDfDXhULuxg0JQHOh
+  access_token_secret: AO90YDiQQpwYo8TsJiKStrEJhJDdMm3ivo5NRiEILVn7Q
+extlinks:
+  attributes: {rel: nofollow, target: _blank}
+author:
+  name: magicmonty
+  email: magicmonty@pagansoft.de
+sudo: false

@@ -1,0 +1,33 @@
+---
+layout: default
+---
+<article>
+  <header>
+    <h1>{{ page.title }}</h1>
+  </header>
+  <div class="content">
+  {{ content }}
+  </div>
+  <div class="metainfo">
+    {% capture complete_url %}{{ site.url }}{{ page.url }}{% endcapture %}
+
+    {% assign taglinks = "" | split: "," %}
+    {% for tag in page.tags %}
+    {% capture taglink %}<a href="/categories/{{ tag | slugify: 'pretty' }}.html" rel="tag">{{ tag }}</a>{% endcapture %}
+    {% assign taglinks = taglinks | push: taglink %}
+    {% endfor %}
+    <ul class="list-unstyled media">
+      <li><a href="http://twitter.com/home?status={{ page.title | uri_escape }}+-+{{ complete_url | uri_escape }}" target="_blank" rel="tooltip" class="icon social_icons_small-twitter" data-original-title="Share this article on Twitter"><span>Share this article on Twitter</span></a></li>
+      <li><a href="http://www.facebook.com/share.php?u={{ complete_url | uri_escape }}&amp;t={{ page.title | uri_escape  }}" target="_blank" rel="tooltip" class="icon social_icons_small-facebook" data-original-title="Share this article on Facebook"><span>Share this article on Facebook</span></a></li>
+      <li><a href="https://www.xing-share.com/app/user?op=share;sc_p=xing-share;url={{ complete_url | uri_escape }}" target="_blank" rel="tooltip" class="icon social_icons_small-xing" data-original-title="Share this article on Xing"><span>Share this article on Xing</span></a></li>
+      <li><a href="http://www.linkedin.com/shareArticle?mini=true&amp;ro=false&amp;trk=bookmarklet&amp;title={{ page.title | uri_escape  }}&amp;url={{ complete_url | uri_escape }}" target="_blank" rel="tooltip" class="icon social_icons_small-linkedin" data-original-title="Share this article on LinkedIn"><span>Share this article on LinkedIn</span></a></li>
+      <li><a href="https://plus.google.com/share?url={{ complete_url | uri_escape }}" target="_blank" rel="tooltip" class="icon social_icons_small-gplus" data-original-title="Share this article on Google+"><span>Share this article on Google+</span></a></li>
+    </ul>
+    This article was written by<span itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+    <meta content="https://plus.google.com/104195029782528146031" itemprop="url">
+    <span><a href="/pages/about.html" rel="author"><span itemprop="name">Martin Gondermann</span></a></span> on {{ page.date }} in {{ taglinks | array_to_sentence_string }}.
+  </div>
+  <div id="disqus_thread"></div>
+</article>
+<script type="text/javascript" src="http://pagansoft.disqus.com/embed.js" async="async"></script>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>

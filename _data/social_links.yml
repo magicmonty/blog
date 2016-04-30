@@ -1,0 +1,59 @@
+- url: /feed.xml
+  title: RSS feed
+  icon: rss
+  position: left
+  display: true
+
+- url: https://keybase.io/magicmonty
+  title: Public Keys
+  icon: keybase
+  position: left
+  display: true
+
+- url: http://twitter.com/magicmonty/
+  title: Twitter feed
+  icon: twitter
+  position: left
+  display: true
+
+- url: https://plus.google.com/104195029782528146031?rel=author
+  title: Google+
+  icon: gplus
+  position: left
+  display: true
+
+#- url: http://www.facebook.com/magicmonty
+#  title: Facebook profile
+#  icon: facebook
+#  position: left
+#  display: true
+
+- url: https://coderwall.com/magicmonty
+  title: CoderWall profile
+  icon: coderwall
+  position: right
+  display: true
+
+- url: https://github.com/magicmonty
+  title: GitHub profile
+  icon: github
+  position: right
+  display: true
+
+- url: http://www.xing.com/profile/Martin_Gondermann
+  title: Xing profile
+  icon: xing
+  position: right
+  display: true
+
+- url: http://de.linkedin.com/in/martingondermann
+  title: LinkedIn profile
+  icon: linkedin
+  position: right
+  display: true
+
+#- url: http://www.zerply.com/profile/magicmonty
+#  title: Zerply profile
+#  icon: zerply
+#  position: right
+#  display: true

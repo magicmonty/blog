@@ -1,0 +1,10 @@
+<div class="widget {{ include.classes }}">
+  <h3>Links</h3>
+  <div class="content">
+    <ul class="links">
+      {% for link in site.data.links %}
+      <li><a href="{{ link.url }}" rel="tooltip" target="_blank" title="{{ link.title }}">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
