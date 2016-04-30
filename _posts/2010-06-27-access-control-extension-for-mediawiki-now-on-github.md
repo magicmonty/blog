@@ -2,10 +2,10 @@
 title: Access Control Extension for MediaWiki now on GitHub
 date: 2010-06-27 10:51
 layout: post
-categories: 
+categories:
 - Software-Projects
 - AccessControl
-tags: 
+tags:
 - Software-Projects
 - AccessControl
 - MediaWiki
@@ -16,6 +16,6 @@ Unfortunately I have no more time (nor the need) to continue the development on 
 
 For this reason, I decided to convert my private Subversion repository to Git and put it up to GitHub.
 
-Here is the link: http://github.com/magicmonty/MediaWikiAccessControl
+Here is the link: <http://github.com/magicmonty/MediaWikiAccessControl>
 
 If you want to continue the development, then feel free to use this as base. I will keep maintaining this repo. If you want to collaborate on this, feel free to fork the project.

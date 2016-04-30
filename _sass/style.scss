@@ -540,7 +540,7 @@ footer {
         height: $smallIconSize !important;
         .media {
             width: $iconCount * $smallIconSize;
-            height: $smallIconSize + 7px !important;
+            height: ($smallIconSize + 7px) !important;
             margin: 0px auto !important;
             padding-top: 7px;
             @include box-sizing(border-box);
