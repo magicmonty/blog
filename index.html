@@ -6,8 +6,7 @@ id: home
 
 <div id="home">
   <ul class="posts">
-    {% for post in paginator.posts %}
-      {% include post_display.html  %}
+    {% for page in paginator.posts %}{% include post_display.html  %}
     {% endfor %}
     <a id="archive" href="/archive.html">Visit the archives!</a>
   </ul>

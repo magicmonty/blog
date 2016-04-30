@@ -1,4 +1,5 @@
-{% assign index=0 %}
-{% assign postcount = post.tags | size %}
-{% for category in post.tags %}{% if forloop.index > 1 %},{% endif %}
-<a href="/categories/{{ category | slugify: 'pretty' }}.html" rel="tag">{{ category }}</a>{% endfor %}
+{% assign taglinks = "" | split: "," %}
+{% for tag in page.tags %}
+{% capture taglink %}<a href="/categories/{{ tag | slugify: 'pretty' }}.html" rel="tag">{{ tag }}</a>{% endcapture %}
+{% assign taglinks = taglinks | push: taglink %}
+{% endfor %}{{ taglinks | array_to_sentence_string }}

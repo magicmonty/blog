@@ -10,7 +10,15 @@ end
 
 task test: :build do
   puts "## Validating website via HMTLProofer"
-  HTMLProofer.check_directory("./_site", { :http_status_ignore => [999] }).run
+  HTMLProofer.check_directory("./_site", {
+    :http_status_ignore => [999],
+    :check_favicon => true,
+    :check_html => true,
+    :file_ignore => [
+      "./_site/googleb2485cfad909772b.html",
+      "./_site/y_key_87dbcfe2ce094d82.html"
+    ]
+  }).run
 end
 
 task travis: :test do

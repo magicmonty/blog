@@ -1,12 +1,7 @@
 <nav>
   <ul>
-    {% assign bid = page.id %}
-    {% for nav_item in site.data.navigation %}
-    {% if page.url == nav_item.link %}
-    <li class="current" id="{{ nav_item.icon }}"><i class="glyphicon glyphicon-{{ nav_item.icon }} glyphicon-white"></i> {{ nav_item.title }}</li>
-    {% else %}
-    <li id="{{ nav_item.icon }}"><a href="{{ nav_item.link }}"><i class="glyphicon glyphicon-{{ nav_item.icon }} glyphicon-white"></i> {{ nav_item.title }}</a></li>
-    {% endif %}
+    {% for nav_item in site.data.navigation %}{% if page.url == nav_item.link %}<li class="current"><i class="glyphicon glyphicon-{{ nav_item.icon }} glyphicon-white"></i> {{ nav_item.title }}</li>
+    {% else %}<li><a href="{{ nav_item.link }}"><i class="glyphicon glyphicon-{{ nav_item.icon }} glyphicon-white"></i> {{ nav_item.title }}</a></li>{% endif %}
     {% endfor %}
   </ul>
 </nav>

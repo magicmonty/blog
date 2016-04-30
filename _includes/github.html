@@ -1,10 +1,9 @@
 <div class="widget {{ include.classes }}">
   <h3>Github repositories</h3>
   <div class="content">
-    <div id="github-repos">
+    <div class="github-repos">
       <ul>
-        {% for repository in site.data.github_repos %}
-        <li><a href="http://github.com/magicmonty/{{ repository.name }}" title="{{ repository.name }}" rel="popover" data-placement="top" data-trigger="hover" data-content="{{ repository.description }}" id="github_link_{{ repository.name }}" class="github_link" target="_blank">{{ repository.name }}</a></li>
+        {% for repository in site.data.github_repos %}<li><a href="http://github.com/magicmonty/{{ repository.name }}" title="{{ repository.name }}" rel="popover" data-placement="top" data-trigger="hover" data-content="{{ repository.description }}" class="github_link" target="_blank">{{ repository.name }}</a></li>
         {% endfor %}
       </ul>
     </div>
