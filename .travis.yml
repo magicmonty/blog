@@ -1,11 +1,10 @@
 language: ruby
-bundler_args: "--without development --path .bundle"
 rvm:
 - 2.3.0
 addons:
   ssh_known_hosts: blog.pagansoft.de
 install:
-- bundle install --binstubs
+- bundle install --binstubs --without development --path .bundle
 before_script:
 - sudo apt-get install -qq sshpass
 script: rake travis
