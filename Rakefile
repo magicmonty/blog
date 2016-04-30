@@ -10,7 +10,7 @@ end
 
 task test: :build do
   puts "## Validating website via HMTLProofer"
-  HTMLProofer.check_directory("./_site", { :disable_external => true }).run
+  HTMLProofer.check_directory("./_site", { :http_status_ignore => [999] }).run
 end
 
 task travis: :test do
