@@ -1,0 +1,4 @@
+files:
+  Gemfile:
+    tests:
+      unlicensed: skip
