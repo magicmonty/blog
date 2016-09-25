@@ -1,7 +1,7 @@
 language: ruby
 bundler_args: "--binstubs --without development --path .bundle"
 rvm:
-- 2.3.0
+- 2.3.1
 addons:
   ssh_known_hosts: blog.pagansoft.de
 install:
