@@ -1,14 +1,13 @@
 @import "base";
-@import "social_icons/*.png";
-@import "social_icons_small/*.png";
+@import "social-icons/*.png";
+@import "social-icons-small/*.png";
 
-@include all-social_icons-sprites;
-
-@include all-social_icons_small-sprites;
+@include all-social-icons-sprites;
+@include all-social-icons-small-sprites;
 
 $iconCount: 10;
-$iconSize: social_icons-sprite-height(rss);
-$smallIconSize: social_icons_small-sprite-height(rss);
+$iconSize: social-icons-sprite-height(rss);
+$smallIconSize: social-icons-small-sprite-height(rss);
 $default-box-shadow-h-offset: 0px;
 $default-box-shadow-v-offset: 0px;
 $default-box-shadow-blur: 8px;
@@ -431,7 +430,7 @@ footer {
     }
 }
 
-.social_icons {
+.social-icons {
     @include box-sizing(border-box);
     position: absolute;
     margin: 0 !important;
@@ -655,4 +654,27 @@ ul.posts {
       font-size: 140%;
     }
   }
+}
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
+iframe {
+  border: none;
 }

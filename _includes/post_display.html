@@ -1,14 +1,15 @@
-<article class="index" itemscope="itemscope", itemtype="http://schema.org/BlogPosting">
-  <header>
-    <h1 itemprop="name"><a href="{{ page.url }}" rel="bookmark" title="Permanent Link: {{ page.title }}">{{ page.title }}</a></h1>
-    <div class="post-meta hidden-xs">
-      {% include comments.html %}
-      <div class="date"><span data-date="{{ page.date }}">{{ page.date }}</span></div>
-      <div class="info">by {% include author.html %} in  {% include categories.html %}</div>
-    </div>
-    <div class="content" itemprop="description articleBody">{{ page.content | split: '<!-- more -->' | first }}</div>
-    {% if page.content.contains "<!-- more -->" %}
-      <p class="read-more"><a href="{{ page.url }}">read more</a></p>
-    {% endif %}
-   </header>
-</article>
+<li>
+  <article class="index" itemscope="itemscope", itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 itemprop="name"><a href="{{ page.url }}" rel="bookmark" title="Permanent Link: {{ page.title }}">{{ page.title }}</a></h1>
+      <div class="post-meta hidden-xs">
+        {% include comments.html %}
+        <div class="date"><span data-date="{{ page.date }}">{{ page.date }}</span></div>
+        <div class="info">by {% include author.html %} in  {% include categories.html %}</div>
+      </div>
+      <div class="content" itemprop="description articleBody">{{ page.content | split: '<!-- more -->' | first }}</div>
+      {% if page.content.contains "<!-- more -->" %}
+        <p class="read-more"><a href="{{ page.url }}">read more</a></p>
+      {% endif %}
+     </header>
+  </article>
