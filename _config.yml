@@ -56,3 +56,4 @@ author:
   name: magicmonty
   email: magicmonty@pagansoft.de
 sudo: false
+ampdir: amp

@@ -11,11 +11,11 @@ layout: default
   <div class="metainfo">
     {% capture complete_url %}{{ site.url }}{{ page.url }}{% endcapture %}
     <ul class="list-unstyled media">
-      <li><a href="//twitter.com/home?status={{ page.title | uri_escape }}+-+{{ complete_url | uri_escape }}" target="_blank" rel="tooltip" class="icon social_icons_small-twitter" data-original-title="Share this article on Twitter"><span>Share this article on Twitter</span></a>
+      <li><a href="//twitter.com/home?status={{ page.title | uri_escape }}+-+{{ complete_url | uri_escape }}" target="_blank" rel="tooltip" class="icon social-icons-small-twitter" data-original-title="Share this article on Twitter"><span>Share this article on Twitter</span></a>
       <li><a href="//www.facebook.com/share.php?u={{ complete_url | uri_escape }}&amp;t={{ page.title | uri_escape  }}" target="_blank" rel="tooltip" class="icon social_icons_small-facebook" data-original-title="Share this article on Facebook"><span>Share this article on Facebook</span></a>
-      <li><a href="//www.xing.com/spi/shares/new?url={{ complete_url | uri_escape }}" target="_blank" rel="tooltip" class="icon social_icons_small-xing" data-original-title="Share this article on Xing"><span>Share this article on Xing</span></a>
-      <li><a href="//www.linkedin.com/shareArticle?mini=true&amp;ro=false&amp;trk=bookmarklet&amp;title={{ page.title | uri_escape  }}&amp;url={{ complete_url | uri_escape }}" target="_blank" rel="tooltip" class="icon social_icons_small-linkedin" data-original-title="Share this article on LinkedIn"><span>Share this article on LinkedIn</span></a>
-      <li><a href="//plus.google.com/share?url={{ complete_url | uri_escape }}" target="_blank" rel="tooltip" class="icon social_icons_small-gplus" data-original-title="Share this article on Google+"><span>Share this article on Google+</span></a>
+      <li><a href="//www.xing.com/spi/shares/new?url={{ complete_url | uri_escape }}" target="_blank" rel="tooltip" class="icon social-icons-small-xing" data-original-title="Share this article on Xing"><span>Share this article on Xing</span></a>
+      <li><a href="//www.linkedin.com/shareArticle?mini=true&amp;ro=false&amp;trk=bookmarklet&amp;title={{ page.title | uri_escape  }}&amp;url={{ complete_url | uri_escape }}" target="_blank" rel="tooltip" class="icon social-icons-small-linkedin" data-original-title="Share this article on LinkedIn"><span>Share this article on LinkedIn</span></a>
+      <li><a href="//plus.google.com/share?url={{ complete_url | uri_escape }}" target="_blank" rel="tooltip" class="icon social-icons-small-gplus" data-original-title="Share this article on Google+"><span>Share this article on Google+</span></a>
     </ul>
     This article was written by{% include author.html %} on {{ page.date | date: "%Y-%m-%d" }} in {% include categories.html %}.
   </div>

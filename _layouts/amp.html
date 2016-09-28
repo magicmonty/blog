@@ -1,0 +1,148 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <link rel="canonical" href="{{ page.canonical_url | prepend: site.baseurl | prepend: site.url }}" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+      body { background: #dbddca url(/img/bg.png) left top repeat-x fixed; color: #3a3a3a; font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
+      a { color: #A9BF04; background-color: transparent; padding: 3px; text-decoration: none; }
+      a:hover { background-color: #A9BF04; color: #fbfcf2; }
+      header.logo { background: transparent url(/img/logo_amp.png) 0 top no-repeat; padding-top: 60px; padding-left: 60px; color: white; font-size: 100%; font-style: italic; margin-top: 5px; margin-bottom: 5px; }
+      #content { background: #fbfcf2; -moz-border-radius: 7px; -webkit-border-radius: 7px; border-radius: 7px; padding: 10px; position: relative; line-height: 1.5em; z-index: 100; margin-bottom: 20px; margin-left: 0px; margin-top: 0; }
+      .social-icons-small-facebook { background-position: 0 -40px; }
+      .social-icons-small-gplus { background-position: 0 -120px; }
+      .social-icons-small-linkedin { background-position: 0 -200px; }
+      .social-icons-small-twitter { background-position: 0 -280px; }
+      .social-icons-small-xing { background-position: 0 -320px; }
+      .list-unstyled { padding-left: 0; list-style: none; }
+      #content { border: 1px solid #4F4F4F; }
+      #content, nav { margin: 0 15px; }
+      #content img { max-width: 100%; }
+      #content h1 { margin: 0; color: #93a603; font-weight: bold; font-size: 120%; }
+      #content h1 a { color: #A9BF04; text-decoration: none; background-color: transparent; padding: 0; }
+      #content h1 a:hover { color: #bfd805; }
+      #content article { margin-top: 20px; margin-bottom: 10px; position: relative; padding-bottom: 20px; border-bottom: 1px dotted #c7c7c7; position: relative; }
+      #content article:first-child { margin-top: 0px; }
+      #content article:last-child { border-bottom: none; padding-bottom: 0px; }
+      #content article .metainfo { background-color: #F6F6F6; margin: 1em 0 1em 0; padding: 10px; border-top: 1px solid #DDD; color: #999; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; overflow: auto; position: relative; font-size: small; }
+      #content article .metainfo .media { width: 100%; padding: 0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+      #content article .metainfo .media span { height: 40px; min-width: 40px; margin: 0; }
+      #content article .metainfo .media a.icon { display: inline-block; width: 40px; height: 40px; background-color: transparent; -moz-transition: none; -o-transition: none; -webkit-transition: none; transition: none; padding: 0; margin-top: 0; }
+      #content article .metainfo .media a.icon { background-image: url(/img/social-icons-small-sb60b0b3967.png); background-repeat: no-repeat; }
+      #content article .metainfo .media a.icon span { display: none; }
+      #content article p:first-child { margin-top: 10px; }
+      #content article p:last-child { margin-bottom: 10px; }
+      #content article.index p:first-child, #content article.index p:last-child { margin: 0; }
+      footer { display: block;text-align: center;font-size: 11.2px;text-transform: lowercase;line-height: 2em; }
+      pre code { display: block; background: #1d1f21; color: #c5c8c6; padding: 0.5em; overflow: auto;}
+      .highlight .c { color: #969896; }
+      .highlight .cm { color: #969896; }
+      .highlight .cp { color: #969896; }
+      .highlight .c1 { color: #969896; }
+      .highlight .cs { color: #969896; }
+      .highlight .gu { color: #969896; }
+      .highlight .err { color: #960050; background-color: #1e0010; }
+      .highlight .k { color: #b294bb; }
+      .highlight .kc { color: #b294bb; }
+      .highlight .kd { color: #b294bb; }
+      .highlight .kp { color: #b294bb; }
+      .highlight .kr { color: #b294bb; }
+      .highlight .kt { color: #b294bb; }
+      .highlight .no { color: #b294bb; }
+      .highlight .l { color: #b294bb; }
+      .highlight .m { color: #b294bb; }
+      .highlight .mf { color: #b294bb; }
+      .highlight .mh { color: #b294bb; }
+      .highlight .mi { color: #b294bb; }
+      .highlight .mo { color: #b294bb; }
+      .highlight .se { color: #b294bb; }
+      .highlight .il { color: #b294bb; }
+      .highlight .n { color: #c5c8c6; }
+      .highlight .p { color: #c5c8c6; }
+      .highlight .nb { color: #c5c8c6; }
+      .highlight .ni { color: #c5c8c6; }
+      .highlight .nl { color: #c5c8c6; }
+      .highlight .nn { color: #c5c8c6; }
+      .highlight .py { color: #c5c8c6; }
+      .highlight .nv { color: #c5c8c6; }
+      .highlight .w { color: #c5c8c6; }
+      .highlight .bp { color: #c5c8c6; }
+      .highlight .vc { color: #c5c8c6; }
+      .highlight .vg { color: #c5c8c6; }
+      .highlight .vi { color: #c5c8c6; }
+      .highlight .o { color: #cc6666; }
+      .highlight .kn { color: #cc6666; }
+      .highlight .nt { color: #b294bb; }
+      .highlight .ow { color: #cc6666; }
+      .highlight .gd { color: #cc6666; }
+      .highlight .ld { color: #b5bd68; }
+      .highlight .s { color: #b5bd68; }
+      .highlight .sb { color: #b5bd68; }
+      .highlight .sc { color: #b5bd68; }
+      .highlight .sd { color: #b5bd68; }
+      .highlight .s2 { color: #b5bd68; }
+      .highlight .sh { color: #b5bd68; }
+      .highlight .si { color: #b5bd68; }
+      .highlight .sx { color: #b5bd68; }
+      .highlight .sr { color: #b5bd68; }
+      .highlight .s1 { color: #b5bd68; }
+      .highlight .ss { color: #b5bd68; }
+      .highlight .na { color: #8abeb7; }
+      .highlight .nc { color: #8abeb7; }
+      .highlight .nd { color: #8abeb7; }
+      .highlight .ne { color: #8abeb7; }
+      .highlight .nf { color: #8abeb7; }
+      .highlight .nx { color: #8abeb7; }
+      .highlight .gi { color: #8abeb7; }
+      .highlight .ge { font-style: italic; }
+      .highlight .gs { font-weight: bold; }
+      @font-face{font-family:'Glyphicons Halflings';src:url('/fonts/glyphicons-halflings-regular.eot');src:url('/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),url('/fonts/glyphicons-halflings-regular.woff') format('woff'),url('/fonts/glyphicons-halflings-regular.ttf') format('truetype'),url('/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg')}
+      nav { display: block; font-size: 14px; }
+      nav ul { list-style-type: none; margin: 0; padding: 0;}
+      nav ul li { list-style-type: none; margin: 0; padding: 0; box-sizing: border-box; }
+      nav ul li a { text-decoration: none; display: block; margin-top: 5px; margin-bottom: 5px; height: 32px; line-height: 32px; padding: 0 10px; color: #a9bf04; -moz-border-radius: 7px; -webkit-border-radius: 7px; border-radius: 7px; border: 1px solid #363636; background-color: #363636; }
+      nav ul li a:hover { background-color: #1c1c1c; color: #bfd805; text-shadow: 0 0 20px #e3fb2e; }
+      .glyphicon { font-size: 14px; }
+      .glyphicon:empty { width: 1em; }
+      .glyphicon-white { color: white; }
+      .glyphicon { position: relative; top: 1px; display: inline-block; font-family: 'Glyphicons Halflings'; -webkit-font-smoothing: antialiased; font-style: normal; font-weight: normal; line-height: 1; -moz-osx-font-smoothing: grayscale; }
+      .glyphicon-home:before { content: "\e021"; }
+      .glyphicon-user:before { content: "\e008"; }
+      .glyphicon-briefcase:before { content: "\e139"; }
+      .glyphicon-search:before { content: "\e003"; }
+      code, kbd, pre, samp {font-family: Monaco,Menlo,Consolas,"Courier New",monospace;}
+      code { padding: 2px 4px;font-size: 90%;color: #c7254e;white-space: nowrap;background-color: #f9f2f4;border-radius: 4px;}
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+  </head>
+  <body>
+    <header class="logo">{{ site.description }}</header>
+    {% include navigation.html %}
+    <div id="content">
+      <article>
+        <header>
+          <h1>{{ page.title }}</h1>
+        </header>
+        <div class="content">
+          {% capture slug %}{{ page.url | split: "/" | last }}{% endcapture %}
+          {{ page.body | assetpathify: slug | amp_youtube | markdownify | amp_images }}
+        </div>
+        <div class="metainfo">
+          {% capture complete_url %}{{ site.url }}{{ page.url }}{% endcapture %}
+          This article was written by{% include author.html %} on {{ page.date | date: "%Y-%m-%d" }} in {% include categories.html %}.
+          <div class="media">
+            <span><a href="//twitter.com/home?status={{ page.title | uri_escape }}+-+{{ complete_url | uri_escape }}" target="_blank" class="icon social-icons-small-twitter"><span>Share this article on Twitter</span></a></span>
+            <span><a href="//www.facebook.com/share.php?u={{ complete_url | uri_escape }}&amp;t={{ page.title | uri_escape  }}" target="_blank" class="icon social-icons-small-facebook"><span>Share this article on Facebook</span></a></span>
+            <span><a href="//www.xing.com/spi/shares/new?url={{ complete_url | uri_escape }}" target="_blank" class="icon social-icons-small-xing"><span>Share this article on Xing</span></a></span>
+            <span><a href="//www.linkedin.com/shareArticle?mini=true&amp;ro=false&amp;trk=bookmarklet&amp;title={{ page.title | uri_escape  }}&amp;url={{ complete_url | uri_escape }}" target="_blank" class="icon social-icons-small-linkedin"><span>Share this article on LinkedIn</span></a></span>
+            <span><a href="//plus.google.com/share?url={{ complete_url | uri_escape }}" target="_blank" class="icon  social-icons-small-gplus"><span>Share this article on Google+</span></a></span>
+          </div>
+        </div>
+      </article>
+    </div>
+    <footer>&copy; {{ site.time | date: '%Y' }} by pagansoft.de</footer>
+  </body>
+</html>
