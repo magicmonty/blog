@@ -4,7 +4,7 @@ require 'fastimage'
 module Jekyll
   module AmpFilter
     def amp_youtube(input)
-      input.gsub /\{%\s*youtube\s+.*%\}/, ""
+      input.gsub /\{%\s*youtube\s+"https:\/\/youtu.be\/(.*)"\s*%\}/, '<div class="embed-container"> <amp-iframe width="300" height="300" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" layout="responsive" frameborder="0" src="https://www.youtube.com/embed/\1"></amp-iframe></div>'
     end
 
     # Filter for HTML 'img' elements.
