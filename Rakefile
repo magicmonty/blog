@@ -16,7 +16,11 @@ task test: :build do
     :check_html => true,
     :file_ignore => [
       "./_site/googleb2485cfad909772b.html",
-      "./_site/y_key_87dbcfe2ce094d82.html"
+      "./_site/y_key_87dbcfe2ce094d82.html",
+      /_site\/amp/
+    ],
+    :url_ignore => [
+      /blog.pagansoft.de/
     ]
   }).run
 end
