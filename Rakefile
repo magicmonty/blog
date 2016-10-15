@@ -8,7 +8,11 @@ task :build do
   sh "bin/jekyll build"
 end
 
-task test: :build do
+task test_amp: :build do
+  sh 'amphtml-validator _site/amp/articles/**/*.html'
+end
+
+task test: :test_amp do
   puts "## Validating website via HMTLProofer"
   HTMLProofer.check_directory("./_site", {
     :http_status_ignore => [999],

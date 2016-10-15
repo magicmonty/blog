@@ -2,8 +2,12 @@ language: ruby
 bundler_args: "--binstubs --without development --path .bundle"
 rvm:
 - 2.3.1
+node:
+- 6.8.0
 addons:
   ssh_known_hosts: blog.pagansoft.de
+before_install:
+- npm install -g amphtml-validator
 install:
 - bundle install --binstubs --without development
 before_script:
