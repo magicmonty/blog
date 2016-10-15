@@ -125,8 +125,15 @@
         "dateModified": "{{ page.date }}",
         "publisher": [
           {
-            "@type": "Person",
-            "name": "Martin Gondermann"
+            "@type": "Organization",
+            "name": "Martin Gondermann",
+            "logo":
+            {
+              "@type": "imageObject",
+              "url": "{{ site.url }}/img/logo_amp.png",
+              "height": "61",
+              "width": "320"
+            }
           }
         ],
         "author": "Martin Gondermann",
@@ -136,7 +143,8 @@
           "url": "{{ site.url }}/img/logo_amp.png",
           "height": "61",
           "width": "320"
-        }
+        },
+        "mainEntityOfPage": "{{ page.canonical_url | prepend: '/amp' | prepend: site.baseurl | prepend: site.url }}"
       }
     </script>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
