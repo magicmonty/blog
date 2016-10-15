@@ -123,12 +123,24 @@
         "headline": "{{ page.title }}",
         "datePublished": "{{ page.date }}",
         "dateModified": "{{ page.date }}",
-        "publisher": "Martin Gondermann",
+        "publisher": [
+          {
+            "@type": "Person",
+            "name": "Martin Gondermann",
+            "logo":
+            {
+              "@type": "imageObject",
+              "url": "{{ site.baseurl }}/img/logo_amp.png",
+              "height": "61",
+              "width": "320"
+            }
+          }
+        ],
         "author": "Martin Gondermann",
         "image":
         {
           "@type": "imageObject",
-          "url": "/img/logo_amp.png",
+          "url": "{{ site.baseurl }}/img/logo_amp.png",
           "height": "61",
           "width": "320"
         }
