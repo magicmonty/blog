@@ -122,13 +122,26 @@
         "@type": "BlogPosting",
         "headline": "{{ page.title }}",
         "datePublished": "{{ page.date }}",
-        "image": [
-          "/img/logo_amp.png"
-        ]
+        "dateModified": "{{ page.date }}",
+        "publisher": [
+          {
+            "@type:" : "Person"
+            "name": "Martin Gondermann"
+            "url": "//plus.google.com/+MartinGondermann/"
+          }
+        ],
+        "author": [
+          {
+            "@type:" : "Person"
+            "name": "Martin Gondermann"
+            "url": "//plus.google.com/+MartinGondermann/"
+          }
+        "image": "/img/logo_amp.png"
       }
     </script>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+    <script async custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"></script>
   </head>
   <body>
     <header class="logo">{{ site.description }}</header>
@@ -140,7 +153,7 @@
         </header>
         <div class="content">
           {% capture slug %}{{ page.url | split: "/" | last }}{% endcapture %}
-          {{ page.body | assetpathify: slug | amp_youtube | markdownify | amp_images }}
+          {{ page.body | assetpathify: slug | amp_youtube | markdownify | amp_images | amp_twitter }}
         </div>
         <div class="metainfo">
           {% capture complete_url %}{{ site.url }}{{ page.url }}{% endcapture %}

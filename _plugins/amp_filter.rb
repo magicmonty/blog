@@ -7,7 +7,11 @@ module Jekyll
       input.gsub /\{%\s*youtube\s+"https:\/\/youtu.be\/(.*)"\s*%\}/, '<div class="embed-container"> <amp-iframe width="300" height="300" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" layout="responsive" frameborder="0" src="https://www.youtube.com/embed/\1"></amp-iframe></div>'
     end
 
-    # Filter for HTML 'img' elements.
+    def amp_twitter(input)
+      input.gsub /\{%\s*twitter\s+oembed\s+https:\/\/twitter.com\/[^\/]+\/status\/(\d+).*%\}/,
+      '<amp-twitter layout="responsive" data-tweetid="\1" data-cards="hidden" width=486 height=657 />'
+    end
+
     # Converts elements to 'amp-img' and adds additional attributes
     # Parameters:
     #   input       - the content of the post
