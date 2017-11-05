@@ -148,8 +148,8 @@
       }
     </script>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
-    <script async custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"></script>
+    {% if page.hasIframe %}<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>{% endif %}
+    {% if page.hasTwitter %}<script async custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"></script>{% endif %}
   </head>
   <body>
     <header class="logo">{{ site.description }}</header>

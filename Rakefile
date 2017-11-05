@@ -8,6 +8,11 @@ task :build do
   sh "bin/jekyll build"
 end
 
+task :serve do
+  puts "## Building website with Jekyll"
+  sh "bin/jekyll serve"
+end
+
 task test_amp: :build do
   sh 'amphtml-validator _site/amp/articles/**/*.html'
 end
