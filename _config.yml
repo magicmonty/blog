@@ -10,7 +10,7 @@ kramdown:
   toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   input: GFM
-gems:
+plugins:
 - jekyll-compass
 - jekyll-twitter-plugin
 - jekyll-paginate
@@ -45,11 +45,6 @@ paginate: 10
 tag_page_layout: tag_page
 tag_page_dir: categories
 tag_permalink_style: /categories/:basename.html
-twitter:
-  consumer_key: fm06L11ryx93bZs9IHBhzWFUp
-  consumer_secret: 8gEPVTpOhHOrHN1axlf5xUHAGJ3kw77tHeorqfajdHkc44y0Ux
-  access_token: 14722376-2pk3792cwmDUFqRZfDu70iVwxDfDXhULuxg0JQHOh
-  access_token_secret: AO90YDiQQpwYo8TsJiKStrEJhJDdMm3ivo5NRiEILVn7Q
 extlinks:
   attributes: {rel: nofollow, target: _blank}
 author:
