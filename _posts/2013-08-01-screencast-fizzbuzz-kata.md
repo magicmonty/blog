@@ -10,7 +10,7 @@ disqus_category: 1836768
 ---
 
 This week, at the meetup of [my local software craftsmanship group](http://softwerkskammer.org/activities/treffen-20-softwerkskammer-rhein-main "Softwerkskammer Rhein-Main"), we did a mini [code retreat](http://coderetreat.org)
-with the [FizzBuzz kata](http://codingdojo.org/cgi-bin/index.pl?KataFizzBuzz). In advance I had a discussion with [Benjamin](http://www.squeakyvessel.com/), that this Kata could be a bit to easy for a code retreat. My point was here, that IMHO is not done completely. Most people stop on a function like this:
+with the [FizzBuzz kata](http://codingdojo.org/cgi-bin/index.pl?KataFizzBuzz). In advance I had a discussion with [Benjamin](http://squeakyvessel.com/), that this Kata could be a bit to easy for a code retreat. My point was here, that IMHO is not done completely. Most people stop on a function like this:
 
 ```csharp
 public string Translate(int value)

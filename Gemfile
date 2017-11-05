@@ -13,4 +13,4 @@ gem 'nokogiri'
 gem 'html-proofer'
 gem 'dotyaml'
 gem 'fastimage'
-gem 'rake', :group => :development
+gem 'rake'

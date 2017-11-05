@@ -8,7 +8,7 @@ module Jekyll
     end
 
     def amp_twitter(input)
-      input.gsub /\{%\s*twitter\s+oembed\s+https:\/\/twitter.com\/[^\/]+\/status\/(\d+).*%\}/,
+      input.gsub /\{%\s*twitter\s+https:\/\/twitter.com\/[^\/]+\/status\/(\d+).*%\}/,
       '<amp-twitter layout="responsive" data-tweetid="\1" data-cards="hidden" width=486 height=657 />'
     end
 

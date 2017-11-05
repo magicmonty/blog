@@ -16,4 +16,4 @@ Ich habe eine Extension für MediaWiki (getestet mit MediaWiki 1.6.5) geschriebe
 
 Die Extension kann unter http://blog.pagansoft.de/download/accesscontrol.zip heruntergeladen werden.
 
-Der Code basiert auf der accesscontrol-Extension von [Josh Greenberg](http://www.epistemographer.com/?p=238)
+Der Code basiert auf der accesscontrol-Extension von Josh Greenberg (old link is down)

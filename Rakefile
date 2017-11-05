@@ -24,7 +24,8 @@ task test: :test_amp do
       /_site\/amp/
     ],
     :url_ignore => [
-      /blog.pagansoft.de/
+      /blog.pagansoft.de/,
+      /www.avg.com/
     ]
   }).run
 end
