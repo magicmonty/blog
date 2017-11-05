@@ -1,7 +1,9 @@
 language: ruby
 bundler_args: --binstubs --without development
+rvm:
+- 2.3.4
 node:
-- 8.9.0
+- 8.4
 addons:
   ssh_known_hosts: blog.pagansoft.de
   apt:
