@@ -1,16 +1,11 @@
 language: ruby
 bundler_args: "--binstubs --without development --path .bundle"
-rvm:
-- 2.3.3
 node:
 - 8.9.0
 addons:
   ssh_known_hosts: blog.pagansoft.de
 before_install:
 - npm install -g amphtml-validator
-- gem install rake -v '12.2.1'
-install:
-- bundle install --binstubs --without development
 before_script:
 - sudo apt-get install -qq sshpass
 script: rake travis
