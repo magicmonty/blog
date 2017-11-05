@@ -6,6 +6,9 @@ addons:
   ssh_known_hosts: blog.pagansoft.de
 before_install:
 - npm install -g amphtml-validator
+- gem update --system
+- gem --version
+- bundle check
 before_script:
 - sudo apt-get install -qq sshpass
 script: rake travis
