@@ -37,3 +37,10 @@ task travis: :test do
   fail unless success
 end
 
+task deploy: :test do
+  puts "## Deploying website via rsync"
+  success = system("rsync -avr --delete-after --delete-excluded _site/* -e ssh web:~/blog")
+
+  fail unless success
+end
+
