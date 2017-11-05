@@ -10,7 +10,7 @@ end
 
 task :serve do
   puts "## Building website with Jekyll"
-  sh "bin/jekyll serve"
+  sh "bin/jekyll serve --drafts"
 end
 
 task test_amp: :build do
