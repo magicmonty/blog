@@ -1,5 +1,5 @@
 language: ruby
-bundler_args: "--binstubs --without development --path .bundle"
+bundler_args: --binstubs --without development
 node:
 - 8.9.0
 addons:
