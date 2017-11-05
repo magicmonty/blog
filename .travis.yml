@@ -8,6 +8,7 @@ addons:
   ssh_known_hosts: blog.pagansoft.de
 before_install:
 - npm install -g amphtml-validator
+- gem install rake -v '12.2.1'
 install:
 - bundle install --binstubs --without development
 before_script:
