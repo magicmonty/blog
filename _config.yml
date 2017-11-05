@@ -39,6 +39,8 @@ exclude:
 - .vscode
 - transfer.sh
 - vendor
+- dependencyci.yml
+- README.md
 lsi: false
 permalink: /articles/:title/
 paginate: 10
