@@ -6,7 +6,7 @@ category: .Net
 tags:
 - How-To
 - .Net
-- F#
+- FSharp
 - Fable
 - React
 - Elmish
@@ -16,7 +16,7 @@ disqus_category: 1836768
 
 This post is part of the [F# Advent Calendar 2017](https://sergeytihon.com/2017/10/22/f-advent-calendar-in-english-2017/) series.
 
-In this post I describe how to create useful [Fable] bindings for [Web MIDI] and use them in a Fable-Elmish-React application. 
+In this post I describe how to create useful [Fable] bindings for [Web MIDI] and use them in a Fable-Elmish-React application.
 
 ## TL;DR
 
@@ -45,7 +45,7 @@ Create a new Project and change into project directory
 
 ```sh
 $ dotnet new fable -n volca
-$ cd volca 
+$ cd volca
 ```
 
 Since we want to create a Fable Elmish app add the following entries to the `paket.dependencies`:
@@ -112,7 +112,7 @@ What we want is an app which can handle MIDI Inputs and MIDI outputs and can sen
 
 First we need a model. We want a list of inputs, a list of outputs, the possibility to select either of them
 and the reference to the [MIDIAccess] object, which we
-fill in later. 
+fill in later.
 
 *Please note, Web MIDI currently works only in Chrome!*
 
@@ -137,7 +137,7 @@ type Model =  { MIDIOutputs: (string*string) list
 For now we need some basic messages, which handle the UI state:
 
 ```fsharp
-type Msg = 
+type Msg =
   | MIDIConnected of IMIDIAccess     // MIDI successfully connected
   | MIDIStateChange                  // MIDI ports have changed
   | MIDIError of exn                 // Error connecting MIDI
@@ -164,13 +164,13 @@ let init () : Model*Cmd<Msg> =
 The `update` function updates the model based on the received message:
 
 ```fsharp
-let update (msg:Msg) (model:Model) : Model*Cmd<Msg> =    
+let update (msg:Msg) (model:Model) : Model*Cmd<Msg> =
     let success = Success >> Message >> Cmd.ofMsg
     let info = Info >> Message >> Cmd.ofMsg
     let error = Error >> Message >> Cmd.ofMsg
-    
+
     match msg with
-    | MIDIConnected midiAccess -> 
+    | MIDIConnected midiAccess ->
         { model with MIDIAccess = Some midiAccess
                      IsMIDIEnabled = true }, Cmd.batch [ success "MIDI connected"
                                                          Cmd.ofMsg MIDIStateChange ]
@@ -182,8 +182,8 @@ let update (msg:Msg) (model:Model) : Model*Cmd<Msg> =
                      SelectedMIDIOutput = None  }, error ex.Message
     | Message alert -> { model with Messages = alert :: model.Messages |> List.truncate 5 }, Cmd.none
     | OutputSelected id ->
-        { model with SelectedMIDIOutput = match id with 
-                                          | "" -> None 
+        { model with SelectedMIDIOutput = match id with
+                                          | "" -> None
                                           | id -> Some id }, Cmd.none
     | SendNote -> model, info "TBD: Note on"
 ```
@@ -203,8 +203,8 @@ let view model dispatch =
                     div [ ClassName "card-body" ] [
                         div [ ClassName "form-group" ] [
                             label [ ClassName "col-form-label" ] [ str "Outputs" ]
-                            select [ ClassName "form-control" 
-                                     Value (model.SelectedMIDIOutput |> Option.defaultValue "") 
+                            select [ ClassName "form-control"
+                                     Value (model.SelectedMIDIOutput |> Option.defaultValue "")
                                      OnChange (fun (ev:React.FormEvent) -> dispatch (OutputSelected (!! ev.target?value))) ] [
                                          for key, name in model.MIDIOutputs do
                                             yield option [ Key key ] [ str name ]
@@ -212,16 +212,16 @@ let view model dispatch =
                         ]
                     ]
                     div [ ClassName "card-footer" ] [
-                        button [ ClassName "btn btn-primary" 
+                        button [ ClassName "btn btn-primary"
                                     OnClick (fun _ -> dispatch SendNote) ] [ str "Send Note" ]
                     ]
                 ]
             ]
 
             div [ ClassName "col" ] [
-                div [ ClassName "card" ] [ 
+                div [ ClassName "card" ] [
                     div [ ClassName "card-header" ] [ strong [] [ str "MIDI Messages"] ]
-                    div [ ClassName "card-body" ] [ 
+                    div [ ClassName "card-body" ] [
                         for msg in model.Messages do
                             match msg with
                             | Info msg -> yield div [ ClassName "alert alert-info" ] [ str msg ]
@@ -310,14 +310,14 @@ type IMIDIMessageEvent =
     inherit Browser.EventType
     abstract member receivedTime: double
     abstract member data: byte array
-    
-type IMIDIInput = 
+
+type IMIDIInput =
     inherit IMIDIPort
     abstract member onmidimessage : (IMIDIMessageEvent -> unit) with set
 
 type IMIDIInputMap = JS.Map<string, IMIDIInput>
 
-type IMIDIAccess = 
+type IMIDIAccess =
     inherit Browser.EventTarget
     abstract member inputs : IMIDIInputMap with get
     abstract member outputs : IMIDIOutputMap with get
@@ -374,23 +374,23 @@ This calls `MIDI.requestAccess` on the start of the application (a.k.a. browser 
 the `IsMIDIEnabled` and the `MIDIAccess` settings in the model accordingly. On Success also a `MIDIStateChange` message is send, as we now want to populate our output box with MIDI outputs. I also added helper methods for the Messages, which go to the list on the right side:
 
 ```fsharp
-let update (msg:Msg) (model:Model) : Model*Cmd<Msg> =    
+let update (msg:Msg) (model:Model) : Model*Cmd<Msg> =
     let success = Success >> Message >> Cmd.ofMsg
     let info = Info >> Message >> Cmd.ofMsg
     let error = Error >> Message >> Cmd.ofMsg
-    
-    match msg with  
+
+    match msg with
     ...
     | MIDIStateChange ->
-        let outputs = 
+        let outputs =
             match model.MIDIAccess with
             | Some midiAccess ->
-                midiAccess.outputs 
-                |> JSMap.toList 
-                |> List.map (fun (key, o) -> key, (o.name |> Option.defaultValue "?")) 
+                midiAccess.outputs
+                |> JSMap.toList
+                |> List.map (fun (key, o) -> key, (o.name |> Option.defaultValue "?"))
             | None -> []
-        
-        let selectedOutput = 
+
+        let selectedOutput =
             match outputs with
             | (key, _)::_ -> Some key
             | _ -> None
@@ -407,18 +407,18 @@ For the easier handling of JS.Maps I wrote a litte helper function `JSMap.toList
 module JSMap =
     let toList (m: JS.Map<'key, 'value>): ('key * 'value) list =
         let mutable result = []
-        m.forEach (fun value key _ -> result <- (key, value)::result) 
+        m.forEach (fun value key _ -> result <- (key, value)::result)
         result
 ```
 
 Until now we get only at the start of the app a list of MIDI outputs. What we want, is a dynamic reload of the outputs list, when a new output is added or removed. So enter subscriptions:
 
 ```fsharp
-let update (msg:Msg) (model:Model) : Model*Cmd<Msg> =    
+let update (msg:Msg) (model:Model) : Model*Cmd<Msg> =
     ...
 
     match msg with
-    | MIDIConnected midiAccess -> 
+    | MIDIConnected midiAccess ->
         let stateChangeSub dispatch =
             midiAccess.onstatechange <- (fun (ev:IMIDIConnectionEvent) -> (dispatch MIDIStateChange))
 
@@ -438,16 +438,16 @@ The last puzzle piece is now sending a note event to the MIDI device:
 ```fsharp
 let sendNote (midiAccess: IMIDIAccess) portId =
     let output = midiAccess.outputs.get(portId);
-    
+
     // note on, middle C, full velocity
     let noteOnMessage = [| 0x90uy; 60uy; 0x7fuy |]
-    
-    // note off, middle C, release velocity = 64 
+
+    // note off, middle C, release velocity = 64
     let noteOffMessage = [| 0x80uy; 60uy; 0x40uy |]
-    
+
     //omitting the timestamp means send immediately.
-    output.send noteOnMessage   
-    
+    output.send noteOnMessage
+
     // timestamp = now + 1000ms.
     noteOffMessage |> output.SendAt (Browser.window.performance.now() + 1000.0)
 ```
@@ -455,17 +455,17 @@ let sendNote (midiAccess: IMIDIAccess) portId =
 At last we call it in the update function:
 
 ```fsharp
-let update (msg:Msg) (model:Model) : Model*Cmd<Msg> =    
+let update (msg:Msg) (model:Model) : Model*Cmd<Msg> =
     ...
 
     match msg with
     ...
-    | SendNote -> 
+    | SendNote ->
         match model.MIDIAccess, model.SelectedMIDIOutput with
-        | Some midi, Some out -> 
-            model, Cmd.ofFunc (sendNote midi) 
-                              out 
-                              (fun _ -> Message (Success "sent")) 
+        | Some midi, Some out ->
+            model, Cmd.ofFunc (sendNote midi)
+                              out
+                              (fun _ -> Message (Success "sent"))
                               (fun ex -> Message (Error ex.Message))
         | Some _, None -> model, error "No Output"
         | _, _ -> model, error "No MIDI connection"
