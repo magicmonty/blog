@@ -1,5 +1,6 @@
 ---
 title: "A fable of Web MIDI"
+date: 2017-12-09 12:00
 layout: post
 category: .Net
 tags:
@@ -27,6 +28,8 @@ The resulting output can be found here:
 - Fable bindings for Web MIDI
   - [Project](https://github.com/magicmonty/fable-import-webmidi)
   - [NuGet Package](https://www.nuget.org/packages/Fable.Import.WebMIDI/)
+
+<!-- more -->
 
 ## Prerequisites
 
@@ -480,6 +483,8 @@ The complete source code for this post can be found at http://github.com/magicmo
 A more complex version, which is a Patch-Editor for the [Korg Volca FM](http://www.korg.com/products/dj/volca_fm/) can be found [here](http://magicmonty.github.com/volca-fm-editor/).
 
 I also released a NuGet package with the [Web MIDI] bindings for [Fable]. The source code can be found at [https://github.com/magicmonty/fable-import-webmidi](https://github.com/magicmonty/fable-import-webmidi) and the package at [https://nuget.org/packages/Fable.Import.WebMIDI](https://nuget.org/packages/Fable.Import.WebMIDI)
+
+I would like to thank the awesome fable community for the help to get oversome of the non obvious stuff.
 
 [Fable]: http://fable.io
 [Web MIDI]: https://www.w3.org/TR/webmidi/
