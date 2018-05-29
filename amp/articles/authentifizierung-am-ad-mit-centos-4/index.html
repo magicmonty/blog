@@ -1,0 +1,435 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Authentifizierung am AD mit CentOS 4</title>
+    <link rel="canonical" href="http://blog.pagansoft.de/articles/authentifizierung-am-ad-mit-centos-4/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+      body { background: #dbddca url(/img/bg.png) left top repeat-x fixed; color: #3a3a3a; font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
+      a { color: #A9BF04; background-color: transparent; padding: 3px; text-decoration: none; }
+      a:hover { background-color: #A9BF04; color: #fbfcf2; }
+      header.logo { background: transparent url(/img/logo_amp.png) 0 top no-repeat; padding-top: 60px; padding-left: 60px; color: white; font-size: 100%; font-style: italic; margin-top: 5px; margin-bottom: 5px; }
+      #content { background: #fbfcf2; -moz-border-radius: 7px; -webkit-border-radius: 7px; border-radius: 7px; padding: 10px; position: relative; line-height: 1.5em; z-index: 100; margin-bottom: 20px; margin-left: 0px; margin-top: 0; }
+      .social-icons-small-facebook { background-position: 0 -40px; }
+      .social-icons-small-gplus { background-position: 0 -120px; }
+      .social-icons-small-linkedin { background-position: 0 -200px; }
+      .social-icons-small-twitter { background-position: 0 -280px; }
+      .social-icons-small-xing { background-position: 0 -320px; }
+      .list-unstyled { padding-left: 0; list-style: none; }
+      #content { border: 1px solid #4F4F4F; }
+      #content, nav { margin: 0 15px; }
+      #content img { max-width: 100%; }
+      #content h1 { margin: 0; color: #93a603; font-weight: bold; font-size: 120%; }
+      #content h1 a { color: #A9BF04; text-decoration: none; background-color: transparent; padding: 0; }
+      #content h1 a:hover { color: #bfd805; }
+      #content article { margin-top: 20px; margin-bottom: 10px; position: relative; padding-bottom: 20px; border-bottom: 1px dotted #c7c7c7; position: relative; }
+      #content article:first-child { margin-top: 0px; }
+      #content article:last-child { border-bottom: none; padding-bottom: 0px; }
+      #content article .metainfo { background-color: #F6F6F6; margin: 1em 0 1em 0; padding: 10px; border-top: 1px solid #DDD; color: #999; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; overflow: auto; position: relative; font-size: small; }
+      #content article .metainfo .media { width: 100%; padding: 0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+      #content article .metainfo .media span { height: 40px; min-width: 40px; margin: 0; }
+      #content article .metainfo .media a.icon { display: inline-block; width: 40px; height: 40px; background-color: transparent; -moz-transition: none; -o-transition: none; -webkit-transition: none; transition: none; padding: 0; margin-top: 0; }
+      #content article .metainfo .media a.icon { background-image: url(/img/social-icons-small-sb60b0b3967.png); background-repeat: no-repeat; }
+      #content article .metainfo .media a.icon span { display: none; }
+      #content article p:first-child { margin-top: 10px; }
+      #content article p:last-child { margin-bottom: 10px; }
+      #content article.index p:first-child, #content article.index p:last-child { margin: 0; }
+      footer { display: block;text-align: center;font-size: 11.2px;text-transform: lowercase;line-height: 2em; }
+      pre code { display: block; background: #1d1f21; color: #c5c8c6; padding: 0.5em; overflow: auto;}
+      .highlight .c { color: #969896; }
+      .highlight .cm { color: #969896; }
+      .highlight .cp { color: #969896; }
+      .highlight .c1 { color: #969896; }
+      .highlight .cs { color: #969896; }
+      .highlight .gu { color: #969896; }
+      .highlight .err { color: #960050; background-color: #1e0010; }
+      .highlight .k { color: #b294bb; }
+      .highlight .kc { color: #b294bb; }
+      .highlight .kd { color: #b294bb; }
+      .highlight .kp { color: #b294bb; }
+      .highlight .kr { color: #b294bb; }
+      .highlight .kt { color: #b294bb; }
+      .highlight .no { color: #b294bb; }
+      .highlight .l { color: #b294bb; }
+      .highlight .m { color: #b294bb; }
+      .highlight .mf { color: #b294bb; }
+      .highlight .mh { color: #b294bb; }
+      .highlight .mi { color: #b294bb; }
+      .highlight .mo { color: #b294bb; }
+      .highlight .se { color: #b294bb; }
+      .highlight .il { color: #b294bb; }
+      .highlight .n { color: #c5c8c6; }
+      .highlight .p { color: #c5c8c6; }
+      .highlight .nb { color: #c5c8c6; }
+      .highlight .ni { color: #c5c8c6; }
+      .highlight .nl { color: #c5c8c6; }
+      .highlight .nn { color: #c5c8c6; }
+      .highlight .py { color: #c5c8c6; }
+      .highlight .nv { color: #c5c8c6; }
+      .highlight .w { color: #c5c8c6; }
+      .highlight .bp { color: #c5c8c6; }
+      .highlight .vc { color: #c5c8c6; }
+      .highlight .vg { color: #c5c8c6; }
+      .highlight .vi { color: #c5c8c6; }
+      .highlight .o { color: #cc6666; }
+      .highlight .kn { color: #cc6666; }
+      .highlight .nt { color: #b294bb; }
+      .highlight .ow { color: #cc6666; }
+      .highlight .gd { color: #cc6666; }
+      .highlight .ld { color: #b5bd68; }
+      .highlight .s { color: #b5bd68; }
+      .highlight .sb { color: #b5bd68; }
+      .highlight .sc { color: #b5bd68; }
+      .highlight .sd { color: #b5bd68; }
+      .highlight .s2 { color: #b5bd68; }
+      .highlight .sh { color: #b5bd68; }
+      .highlight .si { color: #b5bd68; }
+      .highlight .sx { color: #b5bd68; }
+      .highlight .sr { color: #b5bd68; }
+      .highlight .s1 { color: #b5bd68; }
+      .highlight .ss { color: #b5bd68; }
+      .highlight .na { color: #8abeb7; }
+      .highlight .nc { color: #8abeb7; }
+      .highlight .nd { color: #8abeb7; }
+      .highlight .ne { color: #8abeb7; }
+      .highlight .nf { color: #8abeb7; }
+      .highlight .nx { color: #8abeb7; }
+      .highlight .gi { color: #8abeb7; }
+      .highlight .ge { font-style: italic; }
+      .highlight .gs { font-weight: bold; }
+      @font-face{font-family:'Glyphicons Halflings';src:url('/fonts/glyphicons-halflings-regular.eot');src:url('/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),url('/fonts/glyphicons-halflings-regular.woff') format('woff'),url('/fonts/glyphicons-halflings-regular.ttf') format('truetype'),url('/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg')}
+      nav { display: block; font-size: 14px; }
+      nav ul { list-style-type: none; margin: 0; padding: 0;}
+      nav ul li { list-style-type: none; margin: 0; padding: 0; box-sizing: border-box; }
+      nav ul li a { text-decoration: none; display: block; margin-top: 5px; margin-bottom: 5px; height: 32px; line-height: 32px; padding: 0 10px; color: #a9bf04; -moz-border-radius: 7px; -webkit-border-radius: 7px; border-radius: 7px; border: 1px solid #363636; background-color: #363636; }
+      nav ul li a:hover { background-color: #1c1c1c; color: #bfd805; text-shadow: 0 0 20px #e3fb2e; }
+      .glyphicon { font-size: 14px; }
+      .glyphicon:empty { width: 1em; }
+      .glyphicon-white { color: white; }
+      .glyphicon { position: relative; top: 1px; display: inline-block; font-family: 'Glyphicons Halflings'; -webkit-font-smoothing: antialiased; font-style: normal; font-weight: normal; line-height: 1; -moz-osx-font-smoothing: grayscale; }
+      .glyphicon-home:before { content: "\e021"; }
+      .glyphicon-user:before { content: "\e008"; }
+      .glyphicon-briefcase:before { content: "\e139"; }
+      .glyphicon-search:before { content: "\e003"; }
+      code, kbd, pre, samp {font-family: Monaco,Menlo,Consolas,"Courier New",monospace;}
+      code { padding: 2px 4px;font-size: 90%;color: #c7254e;white-space: nowrap;background-color: #f9f2f4;border-radius: 4px;}
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Authentifizierung am AD mit CentOS 4",
+        "datePublished": "2006-04-05 06:52:00 +0200",
+        "dateModified": "2006-04-05 06:52:00 +0200",
+        "publisher": [
+          {
+            "@type": "Organization",
+            "name": "Martin Gondermann",
+            "logo":
+            {
+              "@type": "imageObject",
+              "url": "http://blog.pagansoft.de/img/logo_amp.png",
+              "height": "61",
+              "width": "320"
+            }
+          }
+        ],
+        "author": "Martin Gondermann",
+        "image":
+        {
+          "@type": "imageObject",
+          "url": "http://blog.pagansoft.de/img/logo_amp.png",
+          "height": "61",
+          "width": "320"
+        },
+        "mainEntityOfPage": "http://blog.pagansoft.de/amp/articles/authentifizierung-am-ad-mit-centos-4/"
+      }
+    </script>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    
+    
+  </head>
+  <body>
+    <header class="logo">Ideas, Jokes and everything else…</header>
+    <nav>
+  <ul>
+    <li><a href="/"><i class="glyphicon glyphicon-home glyphicon-white"></i> Home</a>
+    <li><a href="/pages/about.html"><i class="glyphicon glyphicon-user glyphicon-white"></i> About me</a>
+    <li><a href="/pages/impressum.html"><i class="glyphicon glyphicon-briefcase glyphicon-white"></i> Impressum</a>
+    <li><a href="/search.html"><i class="glyphicon glyphicon-search glyphicon-white"></i> Search</a>
+    
+  </ul>
+</nav>
+
+    <div id="content">
+      <article>
+        <header>
+          <h1>Authentifizierung am AD mit CentOS 4</h1>
+        </header>
+        <div class="content">
+          
+          <p>Hier beschreibe ich, wie ich die Authentifizierung am Active Directory mit CentOS 4 hinbekommen habe.</p>
+
+<p>Das folgende Howto habe ich mit Hilfe der Mini-Howtow’s von Mike Foley (unter http://www.yelof.com/pam-to-active-directory/index.html) und darkness (unter http://darkness.codefu.org/wordpress/2005/07/23/192) erstellt:</p>
+
+<!-- more -->
+
+<h3 id="netzwerkbeschreibung">Netzwerkbeschreibung</h3>
+
+<ul>
+  <li>Die Active Directory Domäne ist Domain.local</li>
+  <li>Der Primary Domain Controller ist server.domain.local (192.168.0.1)</li>
+  <li>Netzwerk: 192.168.0.0/255.255.255.0</li>
+  <li>Linux-Distribution: CentOS 4.2</li>
+</ul>
+
+<h3 id="kerberos-etckrb5conf">Kerberos: /etc/krb5.conf:</h3>
+<div class="highlight"><pre><code>[logging]
+default = SYSLOG:NOTICE:DAEMON
+default = FILE:/var/log/krb5libs.log
+kdc = FILE:/var/log/krb5kdc.log
+admin_server = FILE:/var/log/kadmind.log
+
+[libdefaults]
+default_realm = DOMAIN.LOCAL
+default_etypes = des-cbc-crc des-cbc-md5
+default_etypes_des = des-cbc-crc des-cbc-md5
+dns_lookup_kdc = true
+clockskew = 300
+
+[realms]
+DOMAIN.LOCAL = {
+    kdc = server.domain.local
+}
+
+[domain_realm]
+.domain.local = DOMAIN.LOCAL
+domain.local = DOMAIN.LOCAL
+.Domain.local = DOMAIN.LOCAL
+Domain.local = DOMAIN.LOCAL
+.Domain.Local = DOMAIN.LOCAL
+Domain.Local = DOMAIN.LOCAL
+.domain.Local = DOMAIN.LOCAL
+domain.Local = DOMAIN.LOCAL
+
+[kdc]
+profile = /var/kerberos/krb5kdc/kdc.conf
+
+[appdefaults]
+pam = {
+    debug = false
+    ticket_lifetime = 1d
+    renew_lifetime = 1d
+    forwardable = true
+    proxiable = false
+    retain_after_close = false
+    minimum_uid = 0
+    krb4_convert = false
+}
+</code></pre></div>
+
+<h3 id="etcnscdconf">/etc/nscd.conf:</h3>
+<div class="highlight"><pre><code>server-user             nscd
+debug-level             0
+paranoia                no
+
+enable-cache            passwd          yes
+positive-time-to-live   passwd          600
+negative-time-to-live   passwd          20
+suggested-size          passwd          211
+check-files             passwd          yes
+persistent              passwd          yes
+shared                  passwd          yes
+enable-cache            group           yes
+positive-time-to-live   group           3600
+negative-time-to-live   group           60
+suggested-size          group           211
+check-files             group           yes
+persistent              group           yes
+shared                  group           yes
+
+enable-cache            hosts           yes
+positive-time-to-live   hosts           3600
+negative-time-to-live   hosts           20
+suggested-size          hosts           211
+check-files             hosts           yes
+persistent              hosts           yes
+shared                  hosts           yes
+</code></pre></div>
+
+<p>Neues Verzeichnis anlegen (Benutzerverzeichnisse für die AD Domain):</p>
+
+<ul>
+  <li><code>mkdir /home/DOMAIN</code></li>
+  <li><code>chmod 755 /home/DOMAIN</code></li>
+</ul>
+
+<p>Kerberos testen:</p>
+
+<ul>
+  <li><code>kinit Administrator@DOMAIN.LOCAL</code></li>
+  <li>Das sollte fehlerfrei durchlaufen</li>
+  <li>beim Aufruf von <code>klist</code> sollte das entsprechende Ticket zu sehen sein</li>
+</ul>
+
+<h3 id="samba--winbind-etcsambasmbconf">Samba / Winbind: /etc/samba/smb.conf:</h3>
+<div class="highlight"><pre><code>[global]
+    log file = /var/log/samba/%m.log
+    load printers = yes
+    idmap gid = 16777216-33554431
+    idmap uid = 16777216-33554431
+    socket options = TCP_NODELAY SO_RCVBUF=8192 SO_SNDBUF=8192
+    client use spnego = yes
+    encrypt passwords = yes
+    realm = DOMAIN.LOCAL
+    winbind use default domain = yes
+    template shell = /bin/bash
+    allow hosts = 192.168.0.0/255.255.255.0
+    dns proxy = no
+    writeable = yes
+    printing = cups
+    server string = Samba Server
+    password server = server.domain.local
+    template homedir = /home/%D/%U
+    workgroup = DOMAIN
+    valid users = @Domänen-Admins,@Domänen-Benutzer
+    printcap name = /etc/printcap
+    security = ads
+    max log size = 50
+
+[Share1]
+    path = /srv/share1
+    writeable = yes
+    valid users = @Domänen-Admins,@Domänen-Benutzer
+
+[Share2]
+    path = /srv/share2
+    writeable = yes
+    valid users = @Domänen-Benutzer
+</code></pre></div>
+
+<p>smb und winbind neustarten:</p>
+
+<ul>
+  <li><code>/sbin/service smb restart</code></li>
+  <li><code>/sbin/service winbind restart</code></li>
+</ul>
+
+<p>smb und winbind in die Start-Konfiguration eintragen:</p>
+
+<ul>
+  <li><code>/sbin/chkconfig –level 345 smb on</code></li>
+  <li><code>/sbin/chkconfig –level 345 winbind on</code></li>
+</ul>
+
+<h3 id="etcnsswitchconf">/etc/nsswitch.conf</h3>
+<div class="highlight"><pre><code>passwd:     files winbind
+shadow:     files winbind
+group:      files winbind
+hosts:      files dns
+bootparams: nisplus [NOTFOUND=return] files
+ethers:     files
+netmasks:   files
+networks:   files
+protocols:  files winbind
+rpc:        files
+services:   files winbind
+netgroup:   files winbind
+publickey:  nisplus
+automount:  files
+aliases:    files nisplus
+</code></pre></div>
+
+<p>Samba zur Domain joinen: <code>net ads join -U administrator</code></p>
+
+<p>Neustart, dann test, ob die entsprechenden Werte ankommen:</p>
+
+<ul>
+  <li>
+<code>wbinfo -u</code> (sollte alle AD-Benutzer anzeigen)</li>
+  <li>
+<code>wbinfo -g</code> (sollte alle AD-Gruppen anzeigen)</li>
+  <li>
+<code>getent passwd</code> (sollte sowohl die lokalen als auch die AD-Benutzer anzeigen)</li>
+  <li>
+<code>getent group</code> (sollte sowohl die lokalen als auch die AD-Gruppen anzeigen)</li>
+</ul>
+
+<p>PAM (vorher von den entsprechenden Dateien ein Backup machen und eine Konsole auflassen)</p>
+
+<h3 id="etcpamdlogin">/etc/pam.d/login</h3>
+<div class="highlight"><pre><code>#%PAM-1.0auth       required     pam_securetty.soauth       required     pam_stack.so service=system-authauth       required     pam_nologin.soaccount    required     pam_stack.so service=system-authpassword   required     pam_stack.so service=system-authsession    required     pam_stack.so service=system-authsession    optional     pam_console.sosession    required     pam_mkhomedir.so skel=/etc/skel/ umask=0077
+</code></pre></div>
+
+<h3 id="etcpamdgdm">/etc/pam.d/gdm</h3>
+<div class="highlight"><pre><code>#%PAM-1.0
+auth       required     pam_env.so
+auth       required     pam_stack.so service=system-auth
+auth       required     pam_nologin.so
+account    required     pam_stack.so service=system-auth
+password   required     pam_stack.so service=system-auth
+session    required     pam_stack.so service=system-auth
+session    optional     pam_console.so
+session    required     pam_mkhomedir.so skel=/etc/skel/ umask=0077
+</code></pre></div>
+
+<h3 id="etcpamdsystem-auth">/etc/pam.d/system-auth</h3>
+<div class="highlight"><pre><code>#%PAM-1.0
+# This file is auto-generated.
+# User changes will be destroyed the next time authconfig is run.
+auth        required      /lib/security/$ISA/pam_env.so
+auth        sufficient    /lib/security/$ISA/pam_unix.so likeauth nullok
+auth        sufficient    /lib/security/$ISA/pam_winbind.so use_first_pass
+auth        required      /lib/security/$ISA/pam_deny.so
+
+account     sufficient    /lib/security/$ISA/pam_succeed_if.so uid &lt; 100
+account     required      /lib/security/$ISA/pam_unix.so
+account     [default=bad success=ok user_unknown=ignore] /lib/security/$ISA/pam_winbind.so
+
+password    requisite     /lib/security/$ISA/pam_cracklib.so retry=3
+password    sufficient    /lib/security/$ISA/pam_unix.so nullok use_authtok md5 shadow
+password    sufficient    /lib/security/$ISA/pam_winbind.so use_authok
+password    required      /lib/security/$ISA/pam_deny.so
+
+session     required      /lib/security/$ISA/pam_limits.so
+session     required      /lib/security/$ISA/pam_unix.so
+session     optional      /lib/security/$ISA/pam_mkhomedir.so
+</code></pre></div>
+
+<p>Auf einer anderen Konsole testen, ob ein Login mit einem AD-Benutzer möglich ist (entweder per DOMAIN\Benutzername oder nur per Benutzername)</p>
+
+<ul>
+  <li>es sollte automatisch unter <code>/home/DOMAIN/</code> ein Benutzerverzeichnis angelegt werden</li>
+  <li>Hinweis: Bei Benutzernamen mit Leerzeichen hat Linux Probleme, also wenn Vor- und Nachname als Benutzername gewünscht sind, am Besten mit einem Punkt (Vorname.Nachname) oder einem Unterstrich (Vorname_Nachname) trennen.</li>
+</ul>
+
+<p><strong>Wenn das Login funktioniert (!!!)</strong> (auch von Lokalen Benutzern, insbesondere root)</p>
+
+<ul>
+  <li>Neustart, damit auch der GDM die neue PAM-Konfiguration lesen kann</li>
+</ul>
+
+<p>Danach sollte die Authentifizierung per AD problemlos laufen ;-)</p>
+
+        </div>
+        <div class="metainfo">
+          
+          This article was written by<span itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta content="//plus.google.com/+MartinGondermann/" itemprop="url" /><a href="/pages/about.html" rel="author"><span itemprop="name">Martin Gondermann</span></a></span>
+ on 2006-04-05 in 
+<a href="/categories/howto.html" rel="tag">HowTo</a>, <a href="/categories/linux.html" rel="tag">Linux</a>, <a href="/categories/active-directory.html" rel="tag">Active Directory</a>, <a href="/categories/centos.html" rel="tag">CentOS</a>, and <a href="/categories/authentication.html" rel="tag">Authentication</a>
+.
+          <div class="media">
+            <span><a href="//twitter.com/home?status=Authentifizierung%20am%20AD%20mit%20CentOS%204+-+http://blog.pagansoft.de/amp/articles/authentifizierung-am-ad-mit-centos-4/" target="_blank" class="icon social-icons-small-twitter"><span>Share this article on Twitter</span></a></span>
+            <span><a href="//www.facebook.com/share.php?u=http://blog.pagansoft.de/amp/articles/authentifizierung-am-ad-mit-centos-4/&amp;t=Authentifizierung%20am%20AD%20mit%20CentOS%204" target="_blank" class="icon social-icons-small-facebook"><span>Share this article on Facebook</span></a></span>
+            <span><a href="//www.xing.com/spi/shares/new?url=http://blog.pagansoft.de/amp/articles/authentifizierung-am-ad-mit-centos-4/" target="_blank" class="icon social-icons-small-xing"><span>Share this article on Xing</span></a></span>
+            <span><a href="//www.linkedin.com/shareArticle?mini=true&amp;ro=false&amp;trk=bookmarklet&amp;title=Authentifizierung%20am%20AD%20mit%20CentOS%204&amp;url=http://blog.pagansoft.de/amp/articles/authentifizierung-am-ad-mit-centos-4/" target="_blank" class="icon social-icons-small-linkedin"><span>Share this article on LinkedIn</span></a></span>
+            <span><a href="//plus.google.com/share?url=http://blog.pagansoft.de/amp/articles/authentifizierung-am-ad-mit-centos-4/" target="_blank" class="icon  social-icons-small-gplus"><span>Share this article on Google+</span></a></span>
+          </div>
+        </div>
+      </article>
+    </div>
+    <footer>&copy; 2018 by pagansoft.de</footer>
+  </body>
+</html>

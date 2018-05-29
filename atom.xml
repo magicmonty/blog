@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Monty's Sammelsurium</title>
+  <link href="http://blog.pagansoft.de/atom.xml" rel="self" />
+  <link href="http://blog.pagansoft.de/"/>
+  <updated>2017-12-09T22:00:00+01:00</updated>
+  <id>http://blog.pagansoft.de</id>
+  <author>
+    <name>magicmonty</name>
+    <email>magicmonty@pagansoft.de</email>
+  </author>
+  
+  <entry>
+    <title>A fable of Web MIDI</title>
+    <link href="http://blog.pagansoft.de/articles/a-fable-of-webmidi/" />
+    <updated>2017-12-09T22:00:00+01:00</updated>
+    <id>http://blog.pagansoft.de/articles/a-fable-of-webmidi</id>
+    
+    <content type="html">&lt;p&gt;This post is part of the &lt;a href=&quot;https://sergeytihon.com/2017/10/22/f-advent-calendar-in-english-2017/&quot;&gt;F# Advent Calendar 2017&lt;/a&gt; series.&lt;/p&gt;
+
+&lt;p&gt;In this post I describe how to create useful &lt;a href=&quot;http://fable.io&quot;&gt;Fable&lt;/a&gt; bindings for &lt;a href=&quot;https://www.w3.org/TR/webmidi/&quot;&gt;Web MIDI&lt;/a&gt; and use them in a Fable-Elmish-React application.&lt;/p&gt;
+
+&lt;h2 id=&quot;tldr&quot;&gt;TL;DR&lt;/h2&gt;
+
+&lt;p&gt;It&amp;rsquo;s quite easy to write Javascript bindings for &lt;a href=&quot;http://fable.io&quot;&gt;Fable&lt;/a&gt;
+The resulting output can be found here:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/magicmonty/fable-webmidi-sample&quot;&gt;Sample app&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/magicmonty/volca-fm-editor&quot;&gt;Volca FM Patch editor&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Fable bindings for Web MIDI
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/magicmonty/fable-import-webmidi&quot;&gt;Project&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.nuget.org/packages/Fable.Import.WebMIDI/&quot;&gt;NuGet Package&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Creating ClickOnce installers with native registration free COM objects (with Paket and F#AKE)</title>
+    <link href="http://blog.pagansoft.de/articles/creating-clickonce-installers-with-fake/" />
+    <updated>2016-04-15T10:00:00+02:00</updated>
+    <id>http://blog.pagansoft.de/articles/creating-clickonce-installers-with-fake</id>
+    
+    <content type="html">&lt;p&gt;I haven&amp;rsquo;t found any good intro to this online (only parts of it), so I will give my best to describe the process I took here.&lt;/p&gt;
+
+&lt;p&gt;The goal is, to create a &lt;a href=&quot;https://en.wikipedia.org/wiki/ClickOnce&quot; title=&quot;ClickOnce description on WikiPedia&quot;&gt;ClickOnce&lt;/a&gt; installer for a .NET project,
+which contains a dependency to a COM object. The quirk here is, that we have to deploy this COM object with
+the project and we have no control over it. We just have been given a DLL, which in turn is a native COM object.&lt;/p&gt;
+
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>SoCraTes 2015 - or how to be catmatic</title>
+    <link href="http://blog.pagansoft.de/articles/socrates2015/" />
+    <updated>2015-09-01T22:52:00+02:00</updated>
+    <id>http://blog.pagansoft.de/articles/socrates2015</id>
+    
+    <content type="html">&lt;p&gt;This year for the first time, I attended the &lt;a href=&quot;https://www.socrates-conference.de/&quot;&gt;SoCraTes&lt;/a&gt; (stands for Software Craftsmanship and Testing Conference) in Soltau, Germany.&lt;/p&gt;
+
+&lt;p&gt;It is organized by the &lt;a href=&quot;http://www.softwerkskammer.org&quot;&gt;Softwerkskammer&lt;/a&gt;, the Software Craftsmanship Communities in Germany.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m a member of this community since over 2 years now and heard a lot of good things about this conference. This year I finally had the time and was also lucky enough to grab a ticket (yes you have to hurry, as the number of participants is limited).&lt;/p&gt;
+
+&lt;p&gt;So let me give you some impressions of this awesome event:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TL;DR it was really (yeah REALLY) awesome&lt;/strong&gt;&lt;/p&gt;
+
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Temenos</title>
+    <link href="http://blog.pagansoft.de/articles/temenos/" />
+    <updated>2013-10-01T21:49:00+02:00</updated>
+    <id>http://blog.pagansoft.de/articles/temenos</id>
+    
+    <content type="html">&lt;p&gt;Yesterday at the last meeting of my &lt;a href=&quot;http://www.softwerkskammer.org&quot;&gt;local software craftsmanship group&lt;/a&gt;, &lt;a href=&quot;http://trustartist.com/&quot;&gt;Olaf Lewitz&lt;/a&gt; from Berlin held a short introduction to &lt;a href=&quot;http://trusttemenos.com/&quot;&gt;Temenos&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This was as quite interesting experience, so here is a little braindump from me.&lt;/p&gt;
+
+&lt;h1 id=&quot;why&quot;&gt;Why&lt;/h1&gt;
+
+&lt;p&gt;In many companies a huge amount of time is wasted by fear and politics. That can range from fear about the own job, the position to things like &amp;ldquo;watermelon reporting&amp;rdquo; (all green on the outside, but don&amp;rsquo;t look inside). All this interferes an open communication.&lt;/p&gt;
+
+&lt;p&gt;Effective teamwork needs trust and trust brings saftey which leads to a more open and therefore efficient communication, because if you trust each other, there is no more any need to question everything oneself or the others have to say, there is no need for politics and fear.
+This saves time, increases bandwith (by exchanging meaning and not just information). You also have more options in situations where you have to decide about things, because one knows about the otherwise hidden knowledge and skills of the other team members.&lt;/p&gt;
+
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Screencast: FizzBuzz kata</title>
+    <link href="http://blog.pagansoft.de/articles/screencast-fizzbuzz-kata/" />
+    <updated>2013-08-01T20:00:00+02:00</updated>
+    <id>http://blog.pagansoft.de/articles/screencast-fizzbuzz-kata</id>
+    
+    <content type="html">&lt;p&gt;This week, at the meetup of &lt;a href=&quot;http://softwerkskammer.org/activities/treffen-20-softwerkskammer-rhein-main&quot; title=&quot;Softwerkskammer Rhein-Main&quot;&gt;my local software craftsmanship group&lt;/a&gt;, we did a mini &lt;a href=&quot;http://coderetreat.org&quot;&gt;code retreat&lt;/a&gt;
+with the &lt;a href=&quot;http://codingdojo.org/cgi-bin/index.pl?KataFizzBuzz&quot;&gt;FizzBuzz kata&lt;/a&gt;. In advance I had a discussion with &lt;a href=&quot;http://squeakyvessel.com/&quot;&gt;Benjamin&lt;/a&gt;, that this Kata could be a bit to easy for a code retreat. My point was here, that IMHO is not done completely. Most people stop on a function like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Translate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Fizz&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Buzz&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ToString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This is fine, as long you don&amp;rsquo;t want to extend the kata with different rules.&lt;/p&gt;
+
+&lt;p&gt;Imagine you got up to this point and now you get a new requirement:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Extend the Translation function so it prints&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;&amp;ldquo;&lt;strong&gt;Bang&lt;/strong&gt;&amp;rdquo; for all values divisible by 7&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;&amp;ldquo;&lt;strong&gt;FizzBang&lt;/strong&gt;&amp;rdquo; for values divisible by 3 and 7&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;&amp;ldquo;&lt;strong&gt;BuzzBang&lt;/strong&gt;&amp;rdquo; for values divisible by 5 and 7 and&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;&amp;ldquo;&lt;strong&gt;FizzBuzzBang&lt;/strong&gt;&amp;rdquo; for values divisible by 3, 5 and 7&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Surely you could just add another if statement but how ugly is that.
+This is the point, where the TDD-Part of the kata converts to a refactoring kata.&lt;/p&gt;
+
+&lt;p&gt;Here you can see my take on this kata.&lt;/p&gt;
+
+&lt;p&gt;It features a solution completely free of &lt;code&gt;if&lt;/code&gt; statements and is quite good extendable. The resulting Translator class must never been touched anymore. All you have to do for different rules is to write a different RuleFactory. If you want to play you could even implement a RuleFactory which reads its rules from an XML file.&lt;/p&gt;
+
+&lt;p&gt;The project for &lt;a href=&quot;http://xamarin.com/&quot;&gt;Xamarin Studio&lt;/a&gt; can be found &lt;a href=&quot;https://github.com/magicmonty/FizzBuzzKata-csharp&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can get the music under http://www.jamendo.com/de/track/259936/scherzo-no.-4-in-e-major-op.-54-1843&lt;/p&gt;
+
+&lt;p&gt;Have Fun&lt;/p&gt;
+
+&lt;div class=&quot;embed-container&quot;&gt;
+  &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;http://www.youtube.com/embed/7NISYoK-hfg&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://youtu.be/7NISYoK-hfg&quot;&gt;YouTube Link for mobile viewers&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Screencast: Gilded Rose kata</title>
+    <link href="http://blog.pagansoft.de/articles/gilded-rose-kata/" />
+    <updated>2013-01-13T15:04:00+01:00</updated>
+    <id>http://blog.pagansoft.de/articles/gilded-rose-kata</id>
+    
+    <content type="html">&lt;p&gt;This is the Gilded Rose refactoring kata (see http://iamnotmyself.com/2011/02/13/refactor-this-the-gilded-rose-kata/).&lt;/p&gt;
+
+&lt;p&gt;The project for &lt;a href=&quot;http://monodevelop.com/&quot;&gt;MonoDevelop&lt;/a&gt; can be found &lt;a href=&quot;https://github.com/magicmonty/gildedrose_kata_monodevelop&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can get the music under http://www.jamendo.com/de/list/a49686/lunar-light&lt;/p&gt;
+
+&lt;p&gt;Have Fun&lt;/p&gt;
+
+&lt;div class=&quot;embed-container&quot;&gt;
+  &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;http://www.youtube.com/embed/iwWqlqXzrwU&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://youtu.be/iwWqlqXzrwU&quot;&gt;YouTube Link for mobile viewers&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Screencast: Coin changer kata</title>
+    <link href="http://blog.pagansoft.de/articles/coin-changer-kata/" />
+    <updated>2013-01-09T12:50:00+01:00</updated>
+    <id>http://blog.pagansoft.de/articles/coin-changer-kata</id>
+    
+    <content type="html">&lt;p&gt;This is the coin changer kata (see http://craftsmanship.sv.cmu.edu/exercises/coin-change-kata).&lt;/p&gt;
+
+&lt;p&gt;You can get the music under http://www.jamendo.com/de/list/a49686/lunar-light&lt;/p&gt;
+
+&lt;p&gt;Have Fun&lt;/p&gt;
+
+&lt;div class=&quot;embed-container&quot;&gt;
+  &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;http://www.youtube.com/embed/31FOrWxxMFU&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://youtu.be/31FOrWxxMFU&quot;&gt;YouTube Link for mobile viewers&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>The Monty Test - A revised Joel Test</title>
+    <link href="http://blog.pagansoft.de/articles/the-monty-test-a-revised-joel-test/" />
+    <updated>2012-12-04T11:05:00+01:00</updated>
+    <id>http://blog.pagansoft.de/articles/the-monty-test-a-revised-joel-test</id>
+    
+    <content type="html">&lt;p&gt;12 years ago, &lt;a href=&quot;http://www.joelonsoftware.com&quot; title=&quot;Joel Spolsky's blog&quot;&gt;Joel Spolsky&lt;/a&gt;, Founder of &lt;a href=&quot;http://www.fogcreek.com/&quot;&gt;Fog Creek Software&lt;/a&gt; developed the so called &lt;a href=&quot;http://www.joelonsoftware.com/articles/fog0000000043.html&quot; title=&quot;The Joel Test on Joel Spolsky's blog&quot;&gt;Joel Test&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The purpose of these 12 questions is a test, if a company is able to create quality software.
+12 years is a long time and as a Software Craftsman I dont&amp;rsquo; agree with all of these questions anymore. So here is an updated proposal:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;/articles/the-monty-test-a-revised-joel-test/#DoYouUseADvcs&quot; title=&quot;Do you use (distributed) source control?&quot;&gt;Do you use (distributed) source control?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/articles/the-monty-test-a-revised-joel-test/#CanYouDeployInOneStep&quot; title=&quot;Can you deploy your software in one step?&quot;&gt;Can you deploy your software in one step?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/articles/the-monty-test-a-revised-joel-test/#DoYouBuildOnEveryCommit&quot; title=&quot;Do you build on every commit?&quot;&gt;Do you build on every commit?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/articles/the-monty-test-a-revised-joel-test/#DoYouHaveABugTracker&quot; title=&quot;Do you have a bug tracker which is connected to your source control system?&quot;&gt;Do you have a bug tracker which is connected to your source control system?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/articles/the-monty-test-a-revised-joel-test/#DoYouFixBugsBeforeWritingNewCode&quot; title=&quot;Do you fix bugs before writing new code?&quot;&gt;Do you fix bugs before writing new code?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/articles/the-monty-test-a-revised-joel-test/#DoYouHaveShortReleaseCycles&quot; title=&quot;Do you have short release cycles?&quot;&gt;Do you have short release cycles?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/articles/the-monty-test-a-revised-joel-test/#DoYouHaveARunnableSpec&quot; title=&quot;Do you have a runnable spec?&quot;&gt;Do you have a runnable spec?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/articles/the-monty-test-a-revised-joel-test/#CanYourDevelopersWorkEasilyTogether&quot; title=&quot;Can your developers work easily together?&quot;&gt;Can your developers work easily together?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/articles/the-monty-test-a-revised-joel-test/#DoYouUseTheBestToolsMoneyCanBuy&quot; title=&quot;Do you use the best tools money can buy?&quot;&gt;Do you use the best tools money can buy?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/articles/the-monty-test-a-revised-joel-test/#DoYouHaveFullTimeTesters&quot; title=&quot;Do you have full time testers?&quot;&gt;Do you have full time testers?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/articles/the-monty-test-a-revised-joel-test/#DoNewCandidatesWriteCodeDuringTheirInterview&quot; title=&quot;Do new candidates write code during their interview?&quot;&gt;Do new candidates write code during their interview?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/articles/the-monty-test-a-revised-joel-test/#DoYouDoUsabilityTesting&quot; title=&quot;Do you do usability testing with end users?&quot;&gt;Do you do usability testing with end users?&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Screencast: Roman Numerals kata</title>
+    <link href="http://blog.pagansoft.de/articles/roman-numerals-kata/" />
+    <updated>2012-11-20T20:00:00+01:00</updated>
+    <id>http://blog.pagansoft.de/articles/roman-numerals-kata</id>
+    
+    <content type="html">&lt;p&gt;This is the Roman Numerals refactoring kata (see http://codingdojo.org/cgi-bin/wiki.pl?KataRomanNumerals).&lt;/p&gt;
+
+&lt;p&gt;You can get the music under http://www.jamendo.com/de/list/a49686/lunar-light&lt;/p&gt;
+
+&lt;p&gt;Have Fun&lt;/p&gt;
+
+&lt;div class=&quot;embed-container&quot;&gt;
+  &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;http://www.youtube.com/embed/DcppRlNQJi0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://youtu.be/DcppRlNQJi0&quot;&gt;YouTube Link for mobile viewers&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Screencast: Video store refactoring kata</title>
+    <link href="http://blog.pagansoft.de/articles/screencast-video-store-refactoring-kata/" />
+    <updated>2012-06-29T22:59:00+02:00</updated>
+    <id>http://blog.pagansoft.de/articles/screencast-video-store-refactoring-kata</id>
+    
+    <content type="html">&lt;p&gt;This is the video store refactoring kata from the book “Refactoring: Improving the Design of Existing Code” by Martin Fowler, Kent Beck, John Brant and William Opdyke.&lt;/p&gt;
+
+&lt;p&gt;The project file for IntelliJ IDEA resides on http://github.com/magicmonty/videostore&lt;/p&gt;
+
+&lt;p&gt;You can get the music under http://www.jamendo.com/de/track/72960/w.-a.-mozart-1756-1791-sonata-in-c-major-k.-521-for-piano-four-hands&lt;/p&gt;
+
+&lt;p&gt;Have Fun&lt;/p&gt;
+
+&lt;div class=&quot;embed-container&quot;&gt;
+  &lt;iframe title=&quot;YouTube video player&quot; width=&quot;640&quot; height=&quot;390&quot; src=&quot;http://www.youtube.com/embed/ptItfUYRHVM&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://youtu.be/ptItfUYRHVM&quot;&gt;YouTube Link for mobile viewers&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>I’m attending BlackBerry DevCon Europe – 7-8 February 2012, Amsterdam</title>
+    <link href="http://blog.pagansoft.de/articles/im-attending-blackberry-devcon-europe-7-8-february-2012-amsterdam/" />
+    <updated>2012-01-19T12:34:00+01:00</updated>
+    <id>http://blog.pagansoft.de/articles/im-attending-blackberry-devcon-europe-7-8-february-2012-amsterdam</id>
+    
+    <content type="html">&lt;p&gt;BlackBerry® DevCon Europe is the premier developer event where BlackBerry® enthusiasts will come together for sessions, demonstrations, keynotes, and more — all focused on creating mobile applications for the powerful BlackBerry platform.&lt;/p&gt;
+
+&lt;p&gt;I’ll be attending! Join me so you can also get the value from the conference content, including previews and demonstrations of the latest innovations and breakthroughs with BlackBerry technology. I’m looking forward to discovering tools that can help me make apps more profitable, technologies that lead to developing more engaging Super Apps, and hot topics such as the BBM™ Social Platform, BlackBerry® 7, Adobe®Flash® and Adobe® AIR®, BlackBerry® WebWorks™, and more.&lt;/p&gt;
+
+&lt;p&gt;I hope to see you there. Find out more about the conference at http://www.blackberrydevcon.com/europe.&lt;/p&gt;
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Introducing AutoTest for Delphi</title>
+    <link href="http://blog.pagansoft.de/articles/introducing-autotest-for-delphi/" />
+    <updated>2011-09-30T18:31:00+02:00</updated>
+    <id>http://blog.pagansoft.de/articles/introducing-autotest-for-delphi</id>
+    
+    <content type="html">&lt;p&gt;One of the main issues with doing &lt;a href=&quot;http://en.wikipedia.org/wiki/Test-driven_development&quot;&gt;TDD&lt;/a&gt; is the fact, that the cycle times between running the unit tests and the development of a feature has to be very short. In fact as short as possible.&lt;/p&gt;
+
+&lt;p&gt;In other languages there are always tools like &lt;a href=&quot;http://www.zenspider.com/ZSS/Products/ZenTest/&quot;&gt;autotest&lt;/a&gt; for ruby or &lt;a href=&quot;http://infinitest.github.com/&quot;&gt;infinitest&lt;/a&gt; or JUnitMax for Java.&lt;/p&gt;
+
+&lt;p&gt;I missed such a tool badly in Delphi, because it makes the development so much faster when the tests are running automatically in the background everytime the code has changed.&lt;/p&gt;
+
+&lt;p&gt;So I created &lt;a href=&quot;http://github.com/magicmonty/autotest4delphi&quot;&gt;autotest4delphi&lt;/a&gt;. It uses &lt;a href=&quot;http://www.growlforwindows.com/gfw/default.aspx&quot;&gt;Growl&lt;/a&gt; as notify engine and outputs all relevant command line output of the compiler / test appropriately colored to the console and it’s configured via a simple INI-file.&lt;/p&gt;
+
+&lt;p&gt;The tool itself is written in Delphi 2006. I have not ported it yet to Delphi XE but this should not be a big problem.&lt;/p&gt;
+
+&lt;p&gt;Feel free to fork an use it.&lt;/p&gt;
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Contributing code to one of my projects</title>
+    <link href="http://blog.pagansoft.de/articles/contributing-code-to-one-of-my-projects/" />
+    <updated>2011-01-07T14:51:00+01:00</updated>
+    <id>http://blog.pagansoft.de/articles/contributing-code-to-one-of-my-projects</id>
+    
+    <content type="html">&lt;p&gt;Because some people asked me, how to contribute code to my MediaWiki Access Extension, here a short howto how to do this.&lt;/p&gt;
+
+&lt;p&gt;At first, you have to get yourself a free account on &lt;a href=&quot;http://www.github.com/&quot;&gt;GitHub&lt;/a&gt;.  This is as easy as clicking “Pricing and Signup”, selecting the Free Account, fill in the required fields and submit. Maybe you have to activate the account via email (don’t know, it a while since I got my account).&lt;/p&gt;
+
+&lt;p&gt;I leave the bold setup and finetuning up to you (maybe &lt;a href=&quot;https://help.github.com/&quot;&gt;this will help on this issue&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;After the account is set up you go the project you wish to contribute to (i.e. &lt;a href=&quot;https://github.com/magicmonty/MediaWikiAccessControl&quot;&gt;https://github.com/magicmonty/MediaWikiAccessControl&lt;/a&gt;) and click on the “Fork”-Button. With this you have made your own fork, where you can develop by your hearts content. If you are ready, the code is tested and so on, you can send me a pull request with the changes you want to contribute. I will review this changes as soon as my time it allows and if I happy with it, I will merge the changes into my code.&lt;/p&gt;
+
+&lt;p&gt;Hope that helps a bit.&lt;/p&gt;
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>My take on bootstrapping an open source playbook project</title>
+    <link href="http://blog.pagansoft.de/articles/my-take-on-bootstrapping-an-open-source-playbook-project/" />
+    <updated>2011-01-02T08:58:00+01:00</updated>
+    <id>http://blog.pagansoft.de/articles/my-take-on-bootstrapping-an-open-source-playbook-project</id>
+    
+    <content type="html">&lt;p&gt;For my first Air project for the BlackBerry PlayBook (more about it follows, when it is approved  ) I used the Adobe FlashBuilder 4. While this tool is quite comfortable to use in PlayBook development (especially the debugging capabilities), I’m not willing to pay 250 to 750$ for an IDE just to develop some free tools. This is simply not rentable.&lt;/p&gt;
+
+&lt;p&gt;The next thing is, that I wanted to have a possibility to build the project outside the IDE (already with CI in mind).&lt;/p&gt;
+
+&lt;p&gt;As a java developer my choice falls to &lt;a href=&quot;http://ant.apache.org/bindownload.cgi&quot;&gt;Apache Ant&lt;/a&gt; as a build tool and &lt;a href=&quot;http://git-scm.com/&quot;&gt;Git&lt;/a&gt; as version control.&lt;/p&gt;
+
+&lt;p&gt;So I created an Ant script and some templates, which bootstraps me a new Air project in a new GIT repository.&lt;/p&gt;
+
+&lt;p&gt;As a base for the template I used the build.xml template from &lt;a href=&quot;http://www.planetb.ca/2010/12/how-to-use-apache-ant-to-automate-blackberry-playbook-builds/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I put it on &lt;a href=&quot;https://github.com/magicmonty/playbook-template&quot;&gt;Github&lt;/a&gt;, so feel free to use and/or fork it.&lt;/p&gt;
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Access Control Extension for MediaWiki now on GitHub</title>
+    <link href="http://blog.pagansoft.de/articles/access-control-extension-for-mediawiki-now-on-github/" />
+    <updated>2010-06-27T10:51:00+02:00</updated>
+    <id>http://blog.pagansoft.de/articles/access-control-extension-for-mediawiki-now-on-github</id>
+    
+    <content type="html">&lt;p&gt;Unfortunately I have no more time (nor the need) to continue the development on this extension at the moment.&lt;/p&gt;
+
+&lt;p&gt;For this reason, I decided to convert my private Subversion repository to Git and put it up to GitHub.&lt;/p&gt;
+
+&lt;p&gt;Here is the link: &lt;a href=&quot;http://github.com/magicmonty/MediaWikiAccessControl&quot;&gt;http://github.com/magicmonty/MediaWikiAccessControl&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If you want to continue the development, then feel free to use this as base. I will keep maintaining this repo. If you want to collaborate on this, feel free to fork the project.&lt;/p&gt;
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Version 0.8 of AccessControl Extension for MediaWiki</title>
+    <link href="http://blog.pagansoft.de/articles/accesscontrol-extension-for-mediawiki-version-0-8/" />
+    <updated>2007-09-29T10:43:00+02:00</updated>
+    <id>http://blog.pagansoft.de/articles/accesscontrol-extension-for-mediawiki-version-0-8</id>
+    
+    <content type="html">&lt;p&gt;another Version with new features is out.&lt;/p&gt;
+
+&lt;p&gt;the extension can be downloaded under http://blog.pagansoft.de/download/accesscontrol-0.8.zip&lt;/p&gt;
+
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Delay on answering the comments</title>
+    <link href="http://blog.pagansoft.de/articles/delay-on-answering-the-comments/" />
+    <updated>2007-07-02T17:53:00+02:00</updated>
+    <id>http://blog.pagansoft.de/articles/delay-on-answering-the-comments</id>
+    
+    <content type="html">&lt;p&gt;Sorry for not answering all the comments in the last time. I have married on last Saturday, so I was a bit stressed with the preparations.&lt;/p&gt;
+
+&lt;p&gt;I hope to answer the remaining comments in the next two or three weeks.&lt;/p&gt;
+
+&lt;p&gt;So long&lt;/p&gt;
+
+&lt;p&gt;Martin&lt;/p&gt;
+
+&lt;p&gt;Sorry, dass ich in der letzten Zeit nicht zum Beantworten der Kommentare gekommen bin. Ich habe letzten Samstag geheiratet und war wegen der Vorbereitungen etwas im Stress.&lt;/p&gt;
+
+&lt;p&gt;Ich hoffe, ich schaffe es, innerhalb der nächsten zwei bis drei Wochen, die verbleibenden Kommentare zu beantworten.&lt;/p&gt;
+
+&lt;p&gt;Bis dann&lt;/p&gt;
+
+&lt;p&gt;Martin&lt;/p&gt;
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Version 0.7 of AccessControl Extension for MediaWiki</title>
+    <link href="http://blog.pagansoft.de/articles/accesscontrol-extension-for-mediawiki-version-0-7/" />
+    <updated>2007-01-12T13:28:00+01:00</updated>
+    <id>http://blog.pagansoft.de/articles/accesscontrol-extension-for-mediawiki-version-0-7</id>
+    
+    <content type="html">&lt;p&gt;another Version with new features is out.&lt;/p&gt;
+
+&lt;p&gt;the extension can be downloaded under http://blog.pagansoft.de/download/accesscontrol-0.7.zip&lt;/p&gt;
+
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Version 0.6 of AccessControl Extension for MediaWiki</title>
+    <link href="http://blog.pagansoft.de/articles/accesscontrol-extension-for-mediawiki-version-0-6/" />
+    <updated>2006-11-23T18:08:00+01:00</updated>
+    <id>http://blog.pagansoft.de/articles/accesscontrol-extension-for-mediawiki-version-0-6</id>
+    
+    <content type="html">&lt;p&gt;another bugfixed Version is out.&lt;/p&gt;
+
+&lt;p&gt;the extension can be downloaded under http://blog.pagansoft.de/download/accesscontrol-0.6.zip&lt;/p&gt;
+
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Version 0.5 of AccessControl Extension for MediaWiki</title>
+    <link href="http://blog.pagansoft.de/articles/accesscontrol-extension-for-mediawiki-version-0-5/" />
+    <updated>2006-11-21T20:18:00+01:00</updated>
+    <id>http://blog.pagansoft.de/articles/accesscontrol-extension-for-mediawiki-version-0-5</id>
+    
+    <content type="html">&lt;p&gt;another Version is out.&lt;/p&gt;
+
+&lt;p&gt;the extension can be downloaded under http://blog.pagansoft.de/download/accesscontrol-0.5.zip&lt;/p&gt;
+
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Version 0.4 of AccessControl Extension for MediaWiki</title>
+    <link href="http://blog.pagansoft.de/articles/accesscontrol-extension-for-mediawiki-version-0-4/" />
+    <updated>2006-11-06T18:33:00+01:00</updated>
+    <id>http://blog.pagansoft.de/articles/accesscontrol-extension-for-mediawiki-version-0-4</id>
+    
+    <content type="html">&lt;p&gt;New Version is out.&lt;/p&gt;
+
+&lt;p&gt;the extension can be downloaded under http://blog.pagansoft.de/download/accesscontrol-0.4.zip&lt;/p&gt;
+
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Version 0.3 of AccessControl Extension for MediaWiki</title>
+    <link href="http://blog.pagansoft.de/articles/accesscontrol-extension-for-mediawiki-version-0-3/" />
+    <updated>2006-10-18T13:27:00+02:00</updated>
+    <id>http://blog.pagansoft.de/articles/accesscontrol-extension-for-mediawiki-version-0-3</id>
+    
+    <content type="html">&lt;p&gt;the extension can be downloaded under http://blog.pagansoft.de/download/accesscontrol-0.3.zip&lt;/p&gt;
+
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Extension für MediaWiki: Seitenbasierte Gruppen-Zugriffskontrolle</title>
+    <link href="http://blog.pagansoft.de/articles/seitenbasierte-gruppen-zugriffskontrolle-fuer-mediawiki/" />
+    <updated>2006-05-10T12:31:00+02:00</updated>
+    <id>http://blog.pagansoft.de/articles/seitenbasierte-gruppen-zugriffskontrolle-fuer-mediawiki</id>
+    
+    <content type="html">&lt;p&gt;Ich habe eine Extension für MediaWiki (getestet mit MediaWiki 1.6.5) geschrieben, mit der man den Zugriff auf einzelne Seiten Gruppenbasiert regeln kann.&lt;/p&gt;
+
+&lt;p&gt;Die Extension kann unter http://blog.pagansoft.de/download/accesscontrol.zip heruntergeladen werden.&lt;/p&gt;
+
+&lt;p&gt;Der Code basiert auf der accesscontrol-Extension von Josh Greenberg (old link is down)&lt;/p&gt;
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Apache2 mit SSL/TLS</title>
+    <link href="http://blog.pagansoft.de/articles/apache2-mit-ssltls/" />
+    <updated>2006-04-12T09:49:00+02:00</updated>
+    <id>http://blog.pagansoft.de/articles/apache2-mit-ssltls</id>
+    
+    <content type="html">&lt;p&gt;unter http://www.securityfocus.com/infocus/1818 gibt es ein sehr ausführliches Tutorial, wie man Apache2 mit SSL/TLS und Benutzerauthentifizierung zum Laufen bekommt.&lt;/p&gt;
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>Authentifizierung am AD mit CentOS 4</title>
+    <link href="http://blog.pagansoft.de/articles/authentifizierung-am-ad-mit-centos-4/" />
+    <updated>2006-04-05T06:52:00+02:00</updated>
+    <id>http://blog.pagansoft.de/articles/authentifizierung-am-ad-mit-centos-4</id>
+    
+    <content type="html">&lt;p&gt;Hier beschreibe ich, wie ich die Authentifizierung am Active Directory mit CentOS 4 hinbekommen habe.&lt;/p&gt;
+
+&lt;p&gt;Das folgende Howto habe ich mit Hilfe der Mini-Howtow’s von Mike Foley (unter http://www.yelof.com/pam-to-active-directory/index.html) und darkness (unter http://darkness.codefu.org/wordpress/2005/07/23/192) erstellt:&lt;/p&gt;
+
+</content>
+    
+  </entry>
+  
+  <entry>
+    <title>FreeNx Howto auf CentOS 4</title>
+    <link href="http://blog.pagansoft.de/articles/freenx-howto-auf-centos-4/" />
+    <updated>2006-04-04T07:57:00+02:00</updated>
+    <id>http://blog.pagansoft.de/articles/freenx-howto-auf-centos-4</id>
+    
+    <content type="html">&lt;p&gt;Hier beschreibe ich mal, wie ich den FreeNX-Server unter CentOS zum Laufen bekommen habe&lt;/p&gt;
+
+</content>
+    
+  </entry>
+  
+</feed>

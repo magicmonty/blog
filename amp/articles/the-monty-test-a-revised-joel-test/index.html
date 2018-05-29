@@ -1,0 +1,287 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>The Monty Test - A revised Joel Test</title>
+    <link rel="canonical" href="http://blog.pagansoft.de/articles/the-monty-test-a-revised-joel-test/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+      body { background: #dbddca url(/img/bg.png) left top repeat-x fixed; color: #3a3a3a; font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
+      a { color: #A9BF04; background-color: transparent; padding: 3px; text-decoration: none; }
+      a:hover { background-color: #A9BF04; color: #fbfcf2; }
+      header.logo { background: transparent url(/img/logo_amp.png) 0 top no-repeat; padding-top: 60px; padding-left: 60px; color: white; font-size: 100%; font-style: italic; margin-top: 5px; margin-bottom: 5px; }
+      #content { background: #fbfcf2; -moz-border-radius: 7px; -webkit-border-radius: 7px; border-radius: 7px; padding: 10px; position: relative; line-height: 1.5em; z-index: 100; margin-bottom: 20px; margin-left: 0px; margin-top: 0; }
+      .social-icons-small-facebook { background-position: 0 -40px; }
+      .social-icons-small-gplus { background-position: 0 -120px; }
+      .social-icons-small-linkedin { background-position: 0 -200px; }
+      .social-icons-small-twitter { background-position: 0 -280px; }
+      .social-icons-small-xing { background-position: 0 -320px; }
+      .list-unstyled { padding-left: 0; list-style: none; }
+      #content { border: 1px solid #4F4F4F; }
+      #content, nav { margin: 0 15px; }
+      #content img { max-width: 100%; }
+      #content h1 { margin: 0; color: #93a603; font-weight: bold; font-size: 120%; }
+      #content h1 a { color: #A9BF04; text-decoration: none; background-color: transparent; padding: 0; }
+      #content h1 a:hover { color: #bfd805; }
+      #content article { margin-top: 20px; margin-bottom: 10px; position: relative; padding-bottom: 20px; border-bottom: 1px dotted #c7c7c7; position: relative; }
+      #content article:first-child { margin-top: 0px; }
+      #content article:last-child { border-bottom: none; padding-bottom: 0px; }
+      #content article .metainfo { background-color: #F6F6F6; margin: 1em 0 1em 0; padding: 10px; border-top: 1px solid #DDD; color: #999; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; overflow: auto; position: relative; font-size: small; }
+      #content article .metainfo .media { width: 100%; padding: 0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+      #content article .metainfo .media span { height: 40px; min-width: 40px; margin: 0; }
+      #content article .metainfo .media a.icon { display: inline-block; width: 40px; height: 40px; background-color: transparent; -moz-transition: none; -o-transition: none; -webkit-transition: none; transition: none; padding: 0; margin-top: 0; }
+      #content article .metainfo .media a.icon { background-image: url(/img/social-icons-small-sb60b0b3967.png); background-repeat: no-repeat; }
+      #content article .metainfo .media a.icon span { display: none; }
+      #content article p:first-child { margin-top: 10px; }
+      #content article p:last-child { margin-bottom: 10px; }
+      #content article.index p:first-child, #content article.index p:last-child { margin: 0; }
+      footer { display: block;text-align: center;font-size: 11.2px;text-transform: lowercase;line-height: 2em; }
+      pre code { display: block; background: #1d1f21; color: #c5c8c6; padding: 0.5em; overflow: auto;}
+      .highlight .c { color: #969896; }
+      .highlight .cm { color: #969896; }
+      .highlight .cp { color: #969896; }
+      .highlight .c1 { color: #969896; }
+      .highlight .cs { color: #969896; }
+      .highlight .gu { color: #969896; }
+      .highlight .err { color: #960050; background-color: #1e0010; }
+      .highlight .k { color: #b294bb; }
+      .highlight .kc { color: #b294bb; }
+      .highlight .kd { color: #b294bb; }
+      .highlight .kp { color: #b294bb; }
+      .highlight .kr { color: #b294bb; }
+      .highlight .kt { color: #b294bb; }
+      .highlight .no { color: #b294bb; }
+      .highlight .l { color: #b294bb; }
+      .highlight .m { color: #b294bb; }
+      .highlight .mf { color: #b294bb; }
+      .highlight .mh { color: #b294bb; }
+      .highlight .mi { color: #b294bb; }
+      .highlight .mo { color: #b294bb; }
+      .highlight .se { color: #b294bb; }
+      .highlight .il { color: #b294bb; }
+      .highlight .n { color: #c5c8c6; }
+      .highlight .p { color: #c5c8c6; }
+      .highlight .nb { color: #c5c8c6; }
+      .highlight .ni { color: #c5c8c6; }
+      .highlight .nl { color: #c5c8c6; }
+      .highlight .nn { color: #c5c8c6; }
+      .highlight .py { color: #c5c8c6; }
+      .highlight .nv { color: #c5c8c6; }
+      .highlight .w { color: #c5c8c6; }
+      .highlight .bp { color: #c5c8c6; }
+      .highlight .vc { color: #c5c8c6; }
+      .highlight .vg { color: #c5c8c6; }
+      .highlight .vi { color: #c5c8c6; }
+      .highlight .o { color: #cc6666; }
+      .highlight .kn { color: #cc6666; }
+      .highlight .nt { color: #b294bb; }
+      .highlight .ow { color: #cc6666; }
+      .highlight .gd { color: #cc6666; }
+      .highlight .ld { color: #b5bd68; }
+      .highlight .s { color: #b5bd68; }
+      .highlight .sb { color: #b5bd68; }
+      .highlight .sc { color: #b5bd68; }
+      .highlight .sd { color: #b5bd68; }
+      .highlight .s2 { color: #b5bd68; }
+      .highlight .sh { color: #b5bd68; }
+      .highlight .si { color: #b5bd68; }
+      .highlight .sx { color: #b5bd68; }
+      .highlight .sr { color: #b5bd68; }
+      .highlight .s1 { color: #b5bd68; }
+      .highlight .ss { color: #b5bd68; }
+      .highlight .na { color: #8abeb7; }
+      .highlight .nc { color: #8abeb7; }
+      .highlight .nd { color: #8abeb7; }
+      .highlight .ne { color: #8abeb7; }
+      .highlight .nf { color: #8abeb7; }
+      .highlight .nx { color: #8abeb7; }
+      .highlight .gi { color: #8abeb7; }
+      .highlight .ge { font-style: italic; }
+      .highlight .gs { font-weight: bold; }
+      @font-face{font-family:'Glyphicons Halflings';src:url('/fonts/glyphicons-halflings-regular.eot');src:url('/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),url('/fonts/glyphicons-halflings-regular.woff') format('woff'),url('/fonts/glyphicons-halflings-regular.ttf') format('truetype'),url('/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg')}
+      nav { display: block; font-size: 14px; }
+      nav ul { list-style-type: none; margin: 0; padding: 0;}
+      nav ul li { list-style-type: none; margin: 0; padding: 0; box-sizing: border-box; }
+      nav ul li a { text-decoration: none; display: block; margin-top: 5px; margin-bottom: 5px; height: 32px; line-height: 32px; padding: 0 10px; color: #a9bf04; -moz-border-radius: 7px; -webkit-border-radius: 7px; border-radius: 7px; border: 1px solid #363636; background-color: #363636; }
+      nav ul li a:hover { background-color: #1c1c1c; color: #bfd805; text-shadow: 0 0 20px #e3fb2e; }
+      .glyphicon { font-size: 14px; }
+      .glyphicon:empty { width: 1em; }
+      .glyphicon-white { color: white; }
+      .glyphicon { position: relative; top: 1px; display: inline-block; font-family: 'Glyphicons Halflings'; -webkit-font-smoothing: antialiased; font-style: normal; font-weight: normal; line-height: 1; -moz-osx-font-smoothing: grayscale; }
+      .glyphicon-home:before { content: "\e021"; }
+      .glyphicon-user:before { content: "\e008"; }
+      .glyphicon-briefcase:before { content: "\e139"; }
+      .glyphicon-search:before { content: "\e003"; }
+      code, kbd, pre, samp {font-family: Monaco,Menlo,Consolas,"Courier New",monospace;}
+      code { padding: 2px 4px;font-size: 90%;color: #c7254e;white-space: nowrap;background-color: #f9f2f4;border-radius: 4px;}
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "The Monty Test - A revised Joel Test",
+        "datePublished": "2012-12-04 11:05:00 +0100",
+        "dateModified": "2012-12-04 11:05:00 +0100",
+        "publisher": [
+          {
+            "@type": "Organization",
+            "name": "Martin Gondermann",
+            "logo":
+            {
+              "@type": "imageObject",
+              "url": "http://blog.pagansoft.de/img/logo_amp.png",
+              "height": "61",
+              "width": "320"
+            }
+          }
+        ],
+        "author": "Martin Gondermann",
+        "image":
+        {
+          "@type": "imageObject",
+          "url": "http://blog.pagansoft.de/img/logo_amp.png",
+          "height": "61",
+          "width": "320"
+        },
+        "mainEntityOfPage": "http://blog.pagansoft.de/amp/articles/the-monty-test-a-revised-joel-test/"
+      }
+    </script>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    
+    
+  </head>
+  <body>
+    <header class="logo">Ideas, Jokes and everything else…</header>
+    <nav>
+  <ul>
+    <li><a href="/"><i class="glyphicon glyphicon-home glyphicon-white"></i> Home</a>
+    <li><a href="/pages/about.html"><i class="glyphicon glyphicon-user glyphicon-white"></i> About me</a>
+    <li><a href="/pages/impressum.html"><i class="glyphicon glyphicon-briefcase glyphicon-white"></i> Impressum</a>
+    <li><a href="/search.html"><i class="glyphicon glyphicon-search glyphicon-white"></i> Search</a>
+    
+  </ul>
+</nav>
+
+    <div id="content">
+      <article>
+        <header>
+          <h1>The Monty Test - A revised Joel Test</h1>
+        </header>
+        <div class="content">
+          
+          <p>12 years ago, <a href="http://www.joelonsoftware.com" title="Joel Spolsky's blog">Joel Spolsky</a>, Founder of <a href="http://www.fogcreek.com/">Fog Creek Software</a> developed the so called <a href="http://www.joelonsoftware.com/articles/fog0000000043.html" title="The Joel Test on Joel Spolsky's blog">Joel Test</a>.</p>
+
+<p>The purpose of these 12 questions is a test, if a company is able to create quality software.
+12 years is a long time and as a Software Craftsman I dont’ agree with all of these questions anymore. So here is an updated proposal:</p>
+
+<ol>
+  <li><a href="/articles/the-monty-test-a-revised-joel-test/#DoYouUseADvcs" title="Do you use (distributed) source control?">Do you use (distributed) source control?</a></li>
+  <li><a href="/articles/the-monty-test-a-revised-joel-test/#CanYouDeployInOneStep" title="Can you deploy your software in one step?">Can you deploy your software in one step?</a></li>
+  <li><a href="/articles/the-monty-test-a-revised-joel-test/#DoYouBuildOnEveryCommit" title="Do you build on every commit?">Do you build on every commit?</a></li>
+  <li><a href="/articles/the-monty-test-a-revised-joel-test/#DoYouHaveABugTracker" title="Do you have a bug tracker which is connected to your source control system?">Do you have a bug tracker which is connected to your source control system?</a></li>
+  <li><a href="/articles/the-monty-test-a-revised-joel-test/#DoYouFixBugsBeforeWritingNewCode" title="Do you fix bugs before writing new code?">Do you fix bugs before writing new code?</a></li>
+  <li><a href="/articles/the-monty-test-a-revised-joel-test/#DoYouHaveShortReleaseCycles" title="Do you have short release cycles?">Do you have short release cycles?</a></li>
+  <li><a href="/articles/the-monty-test-a-revised-joel-test/#DoYouHaveARunnableSpec" title="Do you have a runnable spec?">Do you have a runnable spec?</a></li>
+  <li><a href="/articles/the-monty-test-a-revised-joel-test/#CanYourDevelopersWorkEasilyTogether" title="Can your developers work easily together?">Can your developers work easily together?</a></li>
+  <li><a href="/articles/the-monty-test-a-revised-joel-test/#DoYouUseTheBestToolsMoneyCanBuy" title="Do you use the best tools money can buy?">Do you use the best tools money can buy?</a></li>
+  <li><a href="/articles/the-monty-test-a-revised-joel-test/#DoYouHaveFullTimeTesters" title="Do you have full time testers?">Do you have full time testers?</a></li>
+  <li><a href="/articles/the-monty-test-a-revised-joel-test/#DoNewCandidatesWriteCodeDuringTheirInterview" title="Do new candidates write code during their interview?">Do new candidates write code during their interview?</a></li>
+  <li><a href="/articles/the-monty-test-a-revised-joel-test/#DoYouDoUsabilityTesting" title="Do you do usability testing with end users?">Do you do usability testing with end users?</a></li>
+</ol>
+
+<!-- more -->
+
+<p>So here are my thougths on this topic in a more detailed form:</p>
+
+<h3 id="1-do-you-use-distributed-source-control">1. Do you use (distributed) source control?<a id="DoYouUseADvcs"></a>
+</h3>
+<p>The original question was <em>“Do you use source control?”</em>. In 2012 this should be no question anymore.
+Teams without source control are simply not professional software developers. So the question was extended to “Do you use a DVCS?”.
+This should be a bonus point, as SVN should suffice too. If you see CVS, run…</p>
+
+<h3 id="2-can-you-deploy-your-software-in-one-step">2. Can you deploy your software in one step?<a id="CanYouDeployInOneStep"></a>
+</h3>
+<p>The original question was <em>“Can you make a build in one step?”</em>. The question targets Continuous Integration systems.
+This should be extended to Continuous Deployment nowadays. This step also implies also having automatic acceptance tests (see also <a href="/articles/the-monty-test-a-revised-joel-test/#DoYouHaveARunnableSpec" title="Do you have a runnable spec?">question 7</a>).</p>
+
+<h3 id="3-do-you-build-on-every-commit">3. Do you build on every commit?<a id="DoYouBuildOnEveryCommit"></a>
+</h3>
+<p>The original question <em>“Do you make daily builds?”</em> is a bit outdated. Builds should be made by your CI system on <strong>EVERY.SINGLE.COMMIT</strong>. Period.</p>
+
+<h3 id="4-do-you-have-a-bug-tracker-which-is-connected-to-your-source-control-system">4. Do you have a bug tracker which is connected to your source control system?<a id="DoYouHaveABugTracker"></a>
+</h3>
+<p>Here it is the same as with <a href="/articles/the-monty-test-a-revised-joel-test/#DoYouUseADvcs" title="Do you use (distributed) source control?">question 1</a>. The original question <em>“Do you have a bug database?”</em> doesn’t suffice anymore.
+The Bugtracker you use should be able to communicate with your source control system and with other tools like code review systems to easily update bug states on commits and reviews.</p>
+
+<h3 id="5-do-you-fix-bugs-before-writing-new-code">5. Do you fix bugs before writing new code?<a id="DoYouFixBugsBeforeWritingNewCode"></a>
+</h3>
+<p>This is still up to date and should remain so. But this should be supported by <a href="/articles/the-monty-test-a-revised-joel-test/#DoYouHaveShortReleaseCycles" title="Do you have short release cycles?">short release cycles</a>, TDD and continuous fearleass refactoring.</p>
+
+<h3 id="6-do-you-have-short-release-cycles">6. Do you have short release cycles?<a id="DoYouHaveShortReleaseCycles"></a>
+</h3>
+<p>The original question was here <em>“Do you have an up-to-date schedule?”</em>. I think this should be extended to <em>“Do you use agile techniques like SCRUM?”</em> or in a more generic form
+<em>“Do you have short release cycles?”</em>, as this takes this problem away from the programmer and moves it to a project manager. The point is here more to have a continuous communication about
+the schedule (and what can be achieved within this schedule) with the stakeholder.</p>
+
+<h3 id="7-do-you-have-a-runnable-spec">7. Do you have a runnable spec?<a id="DoYouHaveARunnableSpec"></a>
+</h3>
+<p>The original question <em>“Do you have a spec?”</em> doesn’t suffice for me. The specs in the form of user stories and epics should be executable through a tool like <a href="http://cukes.info" title="Cucumber home page">Cucumber</a> or <a href="http://fitnesse.org" title="Fitnesse home page">Fitnesse</a>.
+The specs should be the acceptance tests too.</p>
+
+<h3 id="8-can-your-developers-work-easily-together">8. Can your developers work easily together?<a id="CanYourDevelopersWorkEasilyTogether"></a>
+</h3>
+<p>With the original question <em>“Do programmers have quiet working conditions?”</em> I cannot agree at least not with <a href="http://www.joelonsoftware.com/articles/fog0000000043.html" title="The Joel Test on Joel Spolsky's blog">the description Joel Spolsky gives</a>.
+He writes that a developer is most productive if he is in “the flow” (or “the zone” if you like it better). I tend here to agree with <a href="https://sites.google.com/site/unclebobconsultingllc" title="Robert C. Martin">Uncle Bob</a> in his book <a href="http://www.amazon.de/gp/product/0137081073/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=1638&amp;creative=6742&amp;creativeASIN=0137081073&amp;linkCode=as2&amp;tag=montyssamme-21" title="The Clean Coder: A Code of Conduct for Professional Programmers (Robert C. Martin)">The Clean Coder</a>,
+where he says that being in the flow can be productive for “boring” repeated work but dangerous for productive high quality programming where we need all our focus on the current topic.
+In my opinion it is better to have a work environment, where developers can easily communicate and collaborate. That doesn’t mean a big room stuffed with cubicles or worse none at all, but
+small interconnected and easily accessable rooms with round tables where up to 4 developers can sit around and work together.</p>
+
+<p>It gives a bonus point, if in the company a culture of pair programming is practiced.</p>
+
+<h3 id="9-do-you-use-the-best-tools-money-can-buy">9. Do you use the best tools money can buy?<a id="DoYouUseTheBestToolsMoneyCanBuy"></a>
+</h3>
+<p>Here I agree with the author. The developer should have access to the best tools available, no matter of the cost. But this doesn’t mean, the more expensive the better.
+Luckily some of the best tools available are free, so they should be used. The point is to have the best tools needed to do the job.</p>
+
+<p>So if the developer asks for a specific tool for some task, then give it to him. Finally he is the one who has to work with it.</p>
+
+<h3 id="10-do-you-have-full-time-testers">10. Do you have full time testers?<a id="DoYouHaveFullTimeTesters"></a>
+</h3>
+<p>We as professional developers write unit tests. And we practice TDD. The main slogan should be “QA should find nothing”. But this doesn’t mean, that we don’t need manual tests.
+These tests should be simply reduced to a minimum and used for issues which cannot automated (e.g. spell checking on ad pictures etc.). And these tasks should not be done by the
+developers but by professional dedicated testers. So I extended the original question <em>“Do you have testers?”</em> to <em>“Do you have <strong>full time</strong> testers”</em>.</p>
+
+<h3 id="11-do-new-candidates-write-code-during-their-interview">11. Do new candidates write code during their interview?<a id="DoNewCandidatesWriteCodeDuringTheirInterview"></a>
+</h3>
+<p>Here I agree with the original author too. How can you decide if the candidate you interview is a good developer, if you have never seen a single line of code from him?</p>
+
+<p>Most professional developers maintain or contribute to open source projects, so the employer can look for work probes in advance of the interview,
+but he should demand some live coding samples anyway during the interview.</p>
+
+<h3 id="12-do-you-do-usability-testing-with-end-users">12. Do you do usability testing with end users?<a id="DoYouDoUsabilityTesting"></a>
+</h3>
+<p>Here was some improvements in the last 12 years. Since professional development companies use agile methods to develop its products, there are continuous reviews by the stakeholders
+at the end of a <a href="/articles/the-monty-test-a-revised-joel-test/#DoYouHaveShortReleaseCycles" title="Do you have short release cycles?">short release cycle</a>. Unfortunately the stakeholders are in the most cases no end users. So this question is as up to date as ever.</p>
+
+
+        </div>
+        <div class="metainfo">
+          
+          This article was written by<span itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta content="//plus.google.com/+MartinGondermann/" itemprop="url" /><a href="/pages/about.html" rel="author"><span itemprop="name">Martin Gondermann</span></a></span>
+ on 2012-12-04 in 
+<a href="/categories/software-craftsmanship.html" rel="tag">Software Craftsmanship</a>
+.
+          <div class="media">
+            <span><a href="//twitter.com/home?status=The%20Monty%20Test%20-%20A%20revised%20Joel%20Test+-+http://blog.pagansoft.de/amp/articles/the-monty-test-a-revised-joel-test/" target="_blank" class="icon social-icons-small-twitter"><span>Share this article on Twitter</span></a></span>
+            <span><a href="//www.facebook.com/share.php?u=http://blog.pagansoft.de/amp/articles/the-monty-test-a-revised-joel-test/&amp;t=The%20Monty%20Test%20-%20A%20revised%20Joel%20Test" target="_blank" class="icon social-icons-small-facebook"><span>Share this article on Facebook</span></a></span>
+            <span><a href="//www.xing.com/spi/shares/new?url=http://blog.pagansoft.de/amp/articles/the-monty-test-a-revised-joel-test/" target="_blank" class="icon social-icons-small-xing"><span>Share this article on Xing</span></a></span>
+            <span><a href="//www.linkedin.com/shareArticle?mini=true&amp;ro=false&amp;trk=bookmarklet&amp;title=The%20Monty%20Test%20-%20A%20revised%20Joel%20Test&amp;url=http://blog.pagansoft.de/amp/articles/the-monty-test-a-revised-joel-test/" target="_blank" class="icon social-icons-small-linkedin"><span>Share this article on LinkedIn</span></a></span>
+            <span><a href="//plus.google.com/share?url=http://blog.pagansoft.de/amp/articles/the-monty-test-a-revised-joel-test/" target="_blank" class="icon  social-icons-small-gplus"><span>Share this article on Google+</span></a></span>
+          </div>
+        </div>
+      </article>
+    </div>
+    <footer>&copy; 2018 by pagansoft.de</footer>
+  </body>
+</html>

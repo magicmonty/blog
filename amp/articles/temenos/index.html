@@ -1,0 +1,268 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Temenos</title>
+    <link rel="canonical" href="http://blog.pagansoft.de/articles/temenos/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+      body { background: #dbddca url(/img/bg.png) left top repeat-x fixed; color: #3a3a3a; font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
+      a { color: #A9BF04; background-color: transparent; padding: 3px; text-decoration: none; }
+      a:hover { background-color: #A9BF04; color: #fbfcf2; }
+      header.logo { background: transparent url(/img/logo_amp.png) 0 top no-repeat; padding-top: 60px; padding-left: 60px; color: white; font-size: 100%; font-style: italic; margin-top: 5px; margin-bottom: 5px; }
+      #content { background: #fbfcf2; -moz-border-radius: 7px; -webkit-border-radius: 7px; border-radius: 7px; padding: 10px; position: relative; line-height: 1.5em; z-index: 100; margin-bottom: 20px; margin-left: 0px; margin-top: 0; }
+      .social-icons-small-facebook { background-position: 0 -40px; }
+      .social-icons-small-gplus { background-position: 0 -120px; }
+      .social-icons-small-linkedin { background-position: 0 -200px; }
+      .social-icons-small-twitter { background-position: 0 -280px; }
+      .social-icons-small-xing { background-position: 0 -320px; }
+      .list-unstyled { padding-left: 0; list-style: none; }
+      #content { border: 1px solid #4F4F4F; }
+      #content, nav { margin: 0 15px; }
+      #content img { max-width: 100%; }
+      #content h1 { margin: 0; color: #93a603; font-weight: bold; font-size: 120%; }
+      #content h1 a { color: #A9BF04; text-decoration: none; background-color: transparent; padding: 0; }
+      #content h1 a:hover { color: #bfd805; }
+      #content article { margin-top: 20px; margin-bottom: 10px; position: relative; padding-bottom: 20px; border-bottom: 1px dotted #c7c7c7; position: relative; }
+      #content article:first-child { margin-top: 0px; }
+      #content article:last-child { border-bottom: none; padding-bottom: 0px; }
+      #content article .metainfo { background-color: #F6F6F6; margin: 1em 0 1em 0; padding: 10px; border-top: 1px solid #DDD; color: #999; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; overflow: auto; position: relative; font-size: small; }
+      #content article .metainfo .media { width: 100%; padding: 0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+      #content article .metainfo .media span { height: 40px; min-width: 40px; margin: 0; }
+      #content article .metainfo .media a.icon { display: inline-block; width: 40px; height: 40px; background-color: transparent; -moz-transition: none; -o-transition: none; -webkit-transition: none; transition: none; padding: 0; margin-top: 0; }
+      #content article .metainfo .media a.icon { background-image: url(/img/social-icons-small-sb60b0b3967.png); background-repeat: no-repeat; }
+      #content article .metainfo .media a.icon span { display: none; }
+      #content article p:first-child { margin-top: 10px; }
+      #content article p:last-child { margin-bottom: 10px; }
+      #content article.index p:first-child, #content article.index p:last-child { margin: 0; }
+      footer { display: block;text-align: center;font-size: 11.2px;text-transform: lowercase;line-height: 2em; }
+      pre code { display: block; background: #1d1f21; color: #c5c8c6; padding: 0.5em; overflow: auto;}
+      .highlight .c { color: #969896; }
+      .highlight .cm { color: #969896; }
+      .highlight .cp { color: #969896; }
+      .highlight .c1 { color: #969896; }
+      .highlight .cs { color: #969896; }
+      .highlight .gu { color: #969896; }
+      .highlight .err { color: #960050; background-color: #1e0010; }
+      .highlight .k { color: #b294bb; }
+      .highlight .kc { color: #b294bb; }
+      .highlight .kd { color: #b294bb; }
+      .highlight .kp { color: #b294bb; }
+      .highlight .kr { color: #b294bb; }
+      .highlight .kt { color: #b294bb; }
+      .highlight .no { color: #b294bb; }
+      .highlight .l { color: #b294bb; }
+      .highlight .m { color: #b294bb; }
+      .highlight .mf { color: #b294bb; }
+      .highlight .mh { color: #b294bb; }
+      .highlight .mi { color: #b294bb; }
+      .highlight .mo { color: #b294bb; }
+      .highlight .se { color: #b294bb; }
+      .highlight .il { color: #b294bb; }
+      .highlight .n { color: #c5c8c6; }
+      .highlight .p { color: #c5c8c6; }
+      .highlight .nb { color: #c5c8c6; }
+      .highlight .ni { color: #c5c8c6; }
+      .highlight .nl { color: #c5c8c6; }
+      .highlight .nn { color: #c5c8c6; }
+      .highlight .py { color: #c5c8c6; }
+      .highlight .nv { color: #c5c8c6; }
+      .highlight .w { color: #c5c8c6; }
+      .highlight .bp { color: #c5c8c6; }
+      .highlight .vc { color: #c5c8c6; }
+      .highlight .vg { color: #c5c8c6; }
+      .highlight .vi { color: #c5c8c6; }
+      .highlight .o { color: #cc6666; }
+      .highlight .kn { color: #cc6666; }
+      .highlight .nt { color: #b294bb; }
+      .highlight .ow { color: #cc6666; }
+      .highlight .gd { color: #cc6666; }
+      .highlight .ld { color: #b5bd68; }
+      .highlight .s { color: #b5bd68; }
+      .highlight .sb { color: #b5bd68; }
+      .highlight .sc { color: #b5bd68; }
+      .highlight .sd { color: #b5bd68; }
+      .highlight .s2 { color: #b5bd68; }
+      .highlight .sh { color: #b5bd68; }
+      .highlight .si { color: #b5bd68; }
+      .highlight .sx { color: #b5bd68; }
+      .highlight .sr { color: #b5bd68; }
+      .highlight .s1 { color: #b5bd68; }
+      .highlight .ss { color: #b5bd68; }
+      .highlight .na { color: #8abeb7; }
+      .highlight .nc { color: #8abeb7; }
+      .highlight .nd { color: #8abeb7; }
+      .highlight .ne { color: #8abeb7; }
+      .highlight .nf { color: #8abeb7; }
+      .highlight .nx { color: #8abeb7; }
+      .highlight .gi { color: #8abeb7; }
+      .highlight .ge { font-style: italic; }
+      .highlight .gs { font-weight: bold; }
+      @font-face{font-family:'Glyphicons Halflings';src:url('/fonts/glyphicons-halflings-regular.eot');src:url('/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),url('/fonts/glyphicons-halflings-regular.woff') format('woff'),url('/fonts/glyphicons-halflings-regular.ttf') format('truetype'),url('/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg')}
+      nav { display: block; font-size: 14px; }
+      nav ul { list-style-type: none; margin: 0; padding: 0;}
+      nav ul li { list-style-type: none; margin: 0; padding: 0; box-sizing: border-box; }
+      nav ul li a { text-decoration: none; display: block; margin-top: 5px; margin-bottom: 5px; height: 32px; line-height: 32px; padding: 0 10px; color: #a9bf04; -moz-border-radius: 7px; -webkit-border-radius: 7px; border-radius: 7px; border: 1px solid #363636; background-color: #363636; }
+      nav ul li a:hover { background-color: #1c1c1c; color: #bfd805; text-shadow: 0 0 20px #e3fb2e; }
+      .glyphicon { font-size: 14px; }
+      .glyphicon:empty { width: 1em; }
+      .glyphicon-white { color: white; }
+      .glyphicon { position: relative; top: 1px; display: inline-block; font-family: 'Glyphicons Halflings'; -webkit-font-smoothing: antialiased; font-style: normal; font-weight: normal; line-height: 1; -moz-osx-font-smoothing: grayscale; }
+      .glyphicon-home:before { content: "\e021"; }
+      .glyphicon-user:before { content: "\e008"; }
+      .glyphicon-briefcase:before { content: "\e139"; }
+      .glyphicon-search:before { content: "\e003"; }
+      code, kbd, pre, samp {font-family: Monaco,Menlo,Consolas,"Courier New",monospace;}
+      code { padding: 2px 4px;font-size: 90%;color: #c7254e;white-space: nowrap;background-color: #f9f2f4;border-radius: 4px;}
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Temenos",
+        "datePublished": "2013-10-01 21:49:00 +0200",
+        "dateModified": "2013-10-01 21:49:00 +0200",
+        "publisher": [
+          {
+            "@type": "Organization",
+            "name": "Martin Gondermann",
+            "logo":
+            {
+              "@type": "imageObject",
+              "url": "http://blog.pagansoft.de/img/logo_amp.png",
+              "height": "61",
+              "width": "320"
+            }
+          }
+        ],
+        "author": "Martin Gondermann",
+        "image":
+        {
+          "@type": "imageObject",
+          "url": "http://blog.pagansoft.de/img/logo_amp.png",
+          "height": "61",
+          "width": "320"
+        },
+        "mainEntityOfPage": "http://blog.pagansoft.de/amp/articles/temenos/"
+      }
+    </script>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    
+    
+  </head>
+  <body>
+    <header class="logo">Ideas, Jokes and everything else…</header>
+    <nav>
+  <ul>
+    <li><a href="/"><i class="glyphicon glyphicon-home glyphicon-white"></i> Home</a>
+    <li><a href="/pages/about.html"><i class="glyphicon glyphicon-user glyphicon-white"></i> About me</a>
+    <li><a href="/pages/impressum.html"><i class="glyphicon glyphicon-briefcase glyphicon-white"></i> Impressum</a>
+    <li><a href="/search.html"><i class="glyphicon glyphicon-search glyphicon-white"></i> Search</a>
+    
+  </ul>
+</nav>
+
+    <div id="content">
+      <article>
+        <header>
+          <h1>Temenos</h1>
+        </header>
+        <div class="content">
+          
+          <p>Yesterday at the last meeting of my <a href="http://www.softwerkskammer.org">local software craftsmanship group</a>, <a href="http://trustartist.com/">Olaf Lewitz</a> from Berlin held a short introduction to <a href="http://trusttemenos.com/">Temenos</a>.</p>
+
+<p>This was as quite interesting experience, so here is a little braindump from me.</p>
+
+<h1 id="why">Why</h1>
+
+<p>In many companies a huge amount of time is wasted by fear and politics. That can range from fear about the own job, the position to things like “watermelon reporting” (all green on the outside, but don’t look inside). All this interferes an open communication.</p>
+
+<p>Effective teamwork needs trust and trust brings saftey which leads to a more open and therefore efficient communication, because if you trust each other, there is no more any need to question everything oneself or the others have to say, there is no need for politics and fear.
+This saves time, increases bandwith (by exchanging meaning and not just information). You also have more options in situations where you have to decide about things, because one knows about the otherwise hidden knowledge and skills of the other team members.</p>
+
+<!-- more -->
+
+<h1 id="what-is-temenos">What is Temenos</h1>
+
+<p>Temenos is a greek word meaning the sacred room around a temple. C. G. Jung used this word to describe the room in the inner self, where our self is developing in contrast to the Ego which is our representation to the outside.</p>
+
+<p>In this context, I describe here, Temenos is a room where the group and the individual can reflect about itself. Here we can ease concurrency, strains and old “wounds” and it opens room for positive authentic relations.</p>
+
+<p>It was developed by <a href="http://www.visiontemenos.com/temenos">Siraj Sirajuddin</a> over the last 20 years.</p>
+
+<p>So far to the official descriptions…</p>
+
+<h1 id="how">How</h1>
+
+<p>Temenos is a group workshop, which is all about storytelling.
+Storytelling is one of the things the human brain is very good at.</p>
+
+<h2 id="the-past">The Past</h2>
+
+<p>We started with looking at the past of ourselves. In this case we had a timebox of 5 minutes to draw a so called <strong>Influence map</strong>. This is a constrained (in our case one blank A4-Paper) drawing about what influenced you in the past, what made you to the person you are now. This could be a influencial person, an event or something else.</p>
+
+<p>Don’t write just draw. It doesn’t matter if you can’t draw very good, this is not about art but as a helper to tell your story.</p>
+
+<p>After the drawing phase there is a timeboxed phase, where you tell your story to the other people. This can be done in groups or one to one (this depends on the room settings and the people count), but it is important, that everyone hears every story.</p>
+
+<p>You disclose yourself to build up trust but also to learn more about yourself.</p>
+
+<p>In our case the timebox was a bit short (just one minute to tell the story) but even in this short time, after the second or third time I told my story, I realized, that I became better at  knowing what to tell and the associations between the different parts of the story became much clearer. Also the story changed from time to time a little bit after hearing the stories of the other people, because I realized things where we had something in common, what in turn made the connections between my experiences in the past much clearer.</p>
+
+<p>All in all this was a very intense, personal and interesting experience, and I’m happy that I was there.</p>
+
+<h2 id="the-present">The present</h2>
+
+<p>The next parts Olaf just described, as we had no more time to do more exercises.</p>
+
+<p>The exercise about the present is called <strong>Clean Slate</strong>. It’s about identifying the different systems where we play different roles (e.g. Me, Job, Home, Team, Choir etc.). Then we ask for every system the following questions:</p>
+
+<ul>
+  <li>How do I fail the system?</li>
+  <li>how does the system fails me?</li>
+</ul>
+
+<p>This is intended to become clear about your current state and to be able to let go of emotional baggage (e.g. how often you came home, frustrated from a meeting and could not let go?)</p>
+
+<h2 id="the-future">The future</h2>
+
+<p>Here we have two exercises to do.</p>
+
+<ol>
+  <li>a personal vision (where I want to go?) and</li>
+  <li>a shared vision (where <strong>we</strong> want to go together?)</li>
+</ol>
+
+<p>all this is also drawn and told via storytelling.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>I think, this is really a method that could build up trust in every team. I enjoyed hearing the stories of other people as much as telling my own story.</p>
+
+<p>What you need to do such a workshop is IMHO a good (and neutral) facilitator and some acceptance and willingness in the team to lose all the <a href="http://en.wikipedia.org/wiki/Fear,_uncertainty_and_doubt">FUD</a>.</p>
+
+<p>For the first part (and more information) you can go to <a href="http://trusttemenos.com/">http://trusttemenos.com</a> or <a href="http://trustartist.com/">http://trustartist.com</a>.</p>
+
+<p>For the second part you are on your own ;)</p>
+
+        </div>
+        <div class="metainfo">
+          
+          This article was written by<span itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta content="//plus.google.com/+MartinGondermann/" itemprop="url" /><a href="/pages/about.html" rel="author"><span itemprop="name">Martin Gondermann</span></a></span>
+ on 2013-10-01 in 
+<a href="/categories/software-craftsmanship.html" rel="tag">Software Craftsmanship</a>
+.
+          <div class="media">
+            <span><a href="//twitter.com/home?status=Temenos+-+http://blog.pagansoft.de/amp/articles/temenos/" target="_blank" class="icon social-icons-small-twitter"><span>Share this article on Twitter</span></a></span>
+            <span><a href="//www.facebook.com/share.php?u=http://blog.pagansoft.de/amp/articles/temenos/&amp;t=Temenos" target="_blank" class="icon social-icons-small-facebook"><span>Share this article on Facebook</span></a></span>
+            <span><a href="//www.xing.com/spi/shares/new?url=http://blog.pagansoft.de/amp/articles/temenos/" target="_blank" class="icon social-icons-small-xing"><span>Share this article on Xing</span></a></span>
+            <span><a href="//www.linkedin.com/shareArticle?mini=true&amp;ro=false&amp;trk=bookmarklet&amp;title=Temenos&amp;url=http://blog.pagansoft.de/amp/articles/temenos/" target="_blank" class="icon social-icons-small-linkedin"><span>Share this article on LinkedIn</span></a></span>
+            <span><a href="//plus.google.com/share?url=http://blog.pagansoft.de/amp/articles/temenos/" target="_blank" class="icon  social-icons-small-gplus"><span>Share this article on Google+</span></a></span>
+          </div>
+        </div>
+      </article>
+    </div>
+    <footer>&copy; 2018 by pagansoft.de</footer>
+  </body>
+</html>

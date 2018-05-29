@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://blog.pagansoft.de/pages/about.html</loc>
+    <lastmod>2016-04-28T00:00:00+02:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://blog.pagansoft.de/pages/impressum.html</loc>
+    <lastmod>2016-04-28T00:00:00+02:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://blog.pagansoft.de/index.html</loc>
+    <lastmod>2017-12-09T22:00:00+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/a-fable-of-webmidi/</loc>
+    <lastmod>2017-12-09T22:00:00+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/creating-clickonce-installers-with-fake/</loc>
+    <lastmod>2016-04-15T10:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/socrates2015/</loc>
+    <lastmod>2015-09-01T22:52:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/temenos/</loc>
+    <lastmod>2013-10-01T21:49:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/screencast-fizzbuzz-kata/</loc>
+    <lastmod>2013-08-01T20:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/gilded-rose-kata/</loc>
+    <lastmod>2013-01-13T15:04:00+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/coin-changer-kata/</loc>
+    <lastmod>2013-01-09T12:50:00+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/the-monty-test-a-revised-joel-test/</loc>
+    <lastmod>2012-12-04T11:05:00+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/roman-numerals-kata/</loc>
+    <lastmod>2012-11-20T20:00:00+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/screencast-video-store-refactoring-kata/</loc>
+    <lastmod>2012-06-29T22:59:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/im-attending-blackberry-devcon-europe-7-8-february-2012-amsterdam/</loc>
+    <lastmod>2012-01-19T12:34:00+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/introducing-autotest-for-delphi/</loc>
+    <lastmod>2011-09-30T18:31:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/contributing-code-to-one-of-my-projects/</loc>
+    <lastmod>2011-01-07T14:51:00+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/my-take-on-bootstrapping-an-open-source-playbook-project/</loc>
+    <lastmod>2011-01-02T08:58:00+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/access-control-extension-for-mediawiki-now-on-github/</loc>
+    <lastmod>2010-06-27T10:51:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/accesscontrol-extension-for-mediawiki-version-0-8/</loc>
+    <lastmod>2007-09-29T10:43:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/delay-on-answering-the-comments/</loc>
+    <lastmod>2007-07-02T17:53:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/accesscontrol-extension-for-mediawiki-version-0-7/</loc>
+    <lastmod>2007-01-12T13:28:00+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/accesscontrol-extension-for-mediawiki-version-0-6/</loc>
+    <lastmod>2006-11-23T18:08:00+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/accesscontrol-extension-for-mediawiki-version-0-5/</loc>
+    <lastmod>2006-11-21T20:18:00+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/accesscontrol-extension-for-mediawiki-version-0-4/</loc>
+    <lastmod>2006-11-06T18:33:00+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/accesscontrol-extension-for-mediawiki-version-0-3/</loc>
+    <lastmod>2006-10-18T13:27:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/seitenbasierte-gruppen-zugriffskontrolle-fuer-mediawiki/</loc>
+    <lastmod>2006-05-10T12:31:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/apache2-mit-ssltls/</loc>
+    <lastmod>2006-04-12T09:49:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/authentifizierung-am-ad-mit-centos-4/</loc>
+    <lastmod>2006-04-05T06:52:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.pagansoft.de/articles/freenx-howto-auf-centos-4/</loc>
+    <lastmod>2006-04-04T07:57:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+</urlset>

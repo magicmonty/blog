@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/Blog">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width">
+
+<meta itemprop="name" content="Monty's Sammelsurium">
+<meta property="og:site_name" content="Monty's Sammelsurium">
+
+
+<meta property="og:title" content="Monty's Sammelsurium - Creating ClickOnce installers with native registration free COM objects (with Paket and F#AKE)">
+<title>Monty's Sammelsurium - Creating ClickOnce installers with native registration free COM objects (with Paket and F#AKE)</title>
+
+
+
+<meta name="description" content="Ideas, Jokes and everything else…" />
+<meta itemprop="description" content="Ideas, Jokes and everything else…">
+<meta property="og:description" content="Ideas, Jokes and everything else…">
+
+
+
+<meta itemprop="image" content="/img/logo.png">
+<meta property="og:image" content="/img/logo.png">
+
+
+<meta name="xing:author" content="//www.xing.com/profile/Martin_Gondermann">
+<link href="//plus.google.com/+MartinGondermann/" rel="publisher">
+
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="Ideas, Jokes and everything else…">
+<link rel="alternate" href="/atom.xml" type="application/atom+xml" title="Ideas, Jokes and everything else…" />
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/highlighter.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="shortcut icon" href="/img/favicon.ico">
+<link rel="amphtml" href="http://blog.pagansoft.de/amp/articles/creating-clickonce-installers-with-fake">
+
+<script src="/js/lib/moment.min.js"></script>
+<script src="/js/lib/lunr.min.js"></script>
+<script src="/js/lib/jquery-2.2.3.min.js"></script>
+<script src="/js/lib/bootstrap.min.js"></script>
+
+
+
+
+<div class="container full-width">
+  <div class="row">
+    <header class="col-md-12 logo">Ideas, Jokes and everything else…</header>
+  </div>
+  <div class="row social-icons">
+    <div class="col-md-3">
+      <ul class="list-unstyled media">
+        <li><a href="/feed.xml" rel="tooltip" target="_blank" title="RSS feed" class="icon social-icons-rss"><span>RSS feed</span></a>
+        <li><a href="https://keybase.io/magicmonty" rel="tooltip" target="_blank" title="Public Keys" class="icon social-icons-keybase"><span>Public Keys</span></a>
+        <li><a href="http://twitter.com/magicmonty/" rel="tooltip" target="_blank" title="Twitter feed" class="icon social-icons-twitter"><span>Twitter feed</span></a>
+        <li><a href="https://plus.google.com/+MartinGondermann?rel=author" rel="tooltip" target="_blank" title="Google+" class="icon social-icons-gplus"><span>Google+</span></a>
+        </ul>
+    </div>
+    <div class="col-md-6"></div>
+    <div class="col-md-3">
+      <ul class="list-unstyled media">
+        <li><a href="https://www.linkedin.com/in/martingondermann" rel="tooltip" target="_blank" title="LinkedIn profile" class="icon social-icons-linkedin"><span>LinkedIn profile</span></a>
+        <li><a href="http://www.xing.com/profile/Martin_Gondermann" rel="tooltip" target="_blank" title="Xing profile" class="icon social-icons-xing"><span>Xing profile</span></a>
+        <li><a href="https://github.com/magicmonty" rel="tooltip" target="_blank" title="GitHub profile" class="icon social-icons-github"><span>GitHub profile</span></a>
+        <li><a href="https://coderwall.com/magicmonty" rel="tooltip" target="_blank" title="CoderWall profile" class="icon social-icons-coderwall"><span>CoderWall profile</span></a>
+        
+      </ul>
+    </div>
+  </div>
+  <div class="row social-icons si-tablet">
+    <div class="col-md-12">
+      <ul class="list-unstyled media">
+        <li><a href="/feed.xml" rel="tooltip" target="_blank" title="RSS feed" class="icon social-icons-rss"><span>RSS feed</span></a>
+        <li><a href="https://keybase.io/magicmonty" rel="tooltip" target="_blank" title="Public Keys" class="icon social-icons-keybase"><span>Public Keys</span></a>
+        <li><a href="http://twitter.com/magicmonty/" rel="tooltip" target="_blank" title="Twitter feed" class="icon social-icons-twitter"><span>Twitter feed</span></a>
+        <li><a href="https://plus.google.com/+MartinGondermann?rel=author" rel="tooltip" target="_blank" title="Google+" class="icon social-icons-gplus"><span>Google+</span></a>
+        <li><a href="https://coderwall.com/magicmonty" rel="tooltip" target="_blank" title="CoderWall profile" class="icon social-icons-coderwall"><span>CoderWall profile</span></a>
+        <li><a href="https://github.com/magicmonty" rel="tooltip" target="_blank" title="GitHub profile" class="icon social-icons-github"><span>GitHub profile</span></a>
+        <li><a href="http://www.xing.com/profile/Martin_Gondermann" rel="tooltip" target="_blank" title="Xing profile" class="icon social-icons-xing"><span>Xing profile</span></a>
+        <li><a href="https://www.linkedin.com/in/martingondermann" rel="tooltip" target="_blank" title="LinkedIn profile" class="icon social-icons-linkedin"><span>LinkedIn profile</span></a>
+        
+      </ul>
+    </div>
+  </div>
+  <div class="row social-icons si-phone">
+    <div class="col-md-12">
+      <ul class="list-unstyled media">
+        <li><a href="/feed.xml" title="RSS feed" class="icon social-icons-small-rss" target="_blank"><span>RSS feed</span></a>
+        <li><a href="https://keybase.io/magicmonty" title="Public Keys" class="icon social-icons-small-keybase" target="_blank"><span>Public Keys</span></a>
+        <li><a href="http://twitter.com/magicmonty/" title="Twitter feed" class="icon social-icons-small-twitter" target="_blank"><span>Twitter feed</span></a>
+        <li><a href="https://plus.google.com/+MartinGondermann?rel=author" title="Google+" class="icon social-icons-small-gplus" target="_blank"><span>Google+</span></a>
+        <li><a href="https://coderwall.com/magicmonty" title="CoderWall profile" class="icon social-icons-small-coderwall" target="_blank"><span>CoderWall profile</span></a>
+        <li><a href="https://github.com/magicmonty" title="GitHub profile" class="icon social-icons-small-github" target="_blank"><span>GitHub profile</span></a>
+        <li><a href="http://www.xing.com/profile/Martin_Gondermann" title="Xing profile" class="icon social-icons-small-xing" target="_blank"><span>Xing profile</span></a>
+        <li><a href="https://www.linkedin.com/in/martingondermann" title="LinkedIn profile" class="icon social-icons-small-linkedin" target="_blank"><span>LinkedIn profile</span></a>
+        
+      </ul>
+    </div>
+  </div>
+  <div class="row main">
+    <div id="sidebar_left" class="col-md-3 col-sm-12 col-xs-12 sidebar">
+      <nav>
+  <ul>
+    <li><a href="/"><i class="glyphicon glyphicon-home glyphicon-white"></i> Home</a>
+    <li><a href="/pages/about.html"><i class="glyphicon glyphicon-user glyphicon-white"></i> About me</a>
+    <li><a href="/pages/impressum.html"><i class="glyphicon glyphicon-briefcase glyphicon-white"></i> Impressum</a>
+    <li><a href="/search.html"><i class="glyphicon glyphicon-search glyphicon-white"></i> Search</a>
+    
+  </ul>
+</nav>
+
+      <div class="widget hidden-sm hidden-xs">
+  <h3>Categories</h3>
+  <div class="content">
+    <div class="tagcloud">
+      <a href="/categories/.net.html" class="set-1">.Net</a> <a href="/categories/accesscontrol.html" class="set-4">AccessControl</a> <a href="/categories/active-directory.html" class="set-1">Active Directory</a> <a href="/categories/air.html" class="set-1">Air</a> <a href="/categories/ant.html" class="set-1">Ant</a> <a href="/categories/apache.html" class="set-1">Apache</a> <a href="/categories/authentication.html" class="set-1">Authentication</a> <a href="/categories/autotest.html" class="set-1">Autotest</a> <a href="/categories/blackberry.html" class="set-1">BlackBerry</a> <a href="/categories/centos.html" class="set-1">CentOS</a> <a href="/categories/delphi.html" class="set-1">Delphi</a> <a href="/categories/development.html" class="set-1">Development</a> <a href="/categories/elmish.html" class="set-1">Elmish</a> <a href="/categories/fsharp.html" class="set-1">FSharp</a> <a href="/categories/fable.html" class="set-1">Fable</a> <a href="/categories/freenx.html" class="set-1">FreeNX</a> <a href="/categories/git.html" class="set-1">Git</a> <a href="/categories/github.html" class="set-1">GitHub</a> <a href="/categories/how-to.html" class="set-1">How-To</a> <a href="/categories/howto.html" class="set-2">HowTo</a> <a href="/categories/linux.html" class="set-2">Linux</a> <a href="/categories/midi.html" class="set-1">MIDI</a> <a href="/categories/mediawiki.html" class="set-4">MediaWiki</a> <a href="/categories/playbook.html" class="set-1">PlayBook</a> <a href="/categories/react.html" class="set-1">React</a> <a href="/categories/ssl.html" class="set-1">SSL</a> <a href="/categories/screencast.html" class="set-3">Screencast</a> <a href="/categories/software-craftsmanship.html" class="set-5">Software Craftsmanship</a> <a href="/categories/software-projects.html" class="set-5">Software-Projects</a> <a href="/categories/tdd.html" class="set-1">TDD</a> <a href="/categories/tools.html" class="set-1">Tools</a>
+    </div>
+  </div>
+</div>
+
+      <div class="widget visible-md hidden-xs hidden-sm hidden-lg">
+  <h3>Github repositories</h3>
+  <div class="content">
+    <div class="github-repos">
+      <ul>
+        <li><a href="http://github.com/magicmonty/bash-git-prompt" title="bash-git-prompt" rel="popover" data-placement="top" data-trigger="hover" data-content="An informative and fancy bash prompt for Git users" class="github_link" target="_blank">bash-git-prompt</a>
+        <li><a href="http://github.com/magicmonty/SharpFun" title="SharpFun" rel="popover" data-placement="top" data-trigger="hover" data-content="Functional Data Types for C#" class="github_link" target="_blank">SharpFun</a>
+        <li><a href="http://github.com/magicmonty/FizzBuzzKata-csharp" title="FizzBuzzKata-csharp" rel="popover" data-placement="top" data-trigger="hover" data-content="FizzBuzz kata project for Xamarin Studio" class="github_link" target="_blank">FizzBuzzKata-csharp</a>
+        <li><a href="http://github.com/magicmonty/gildedrose_kata_monodevelop" title="gildedrose_kata_monodevelop" rel="popover" data-placement="top" data-trigger="hover" data-content="Start project for the Gilded Rose Kata for MonoDevelop" class="github_link" target="_blank">gildedrose_kata_monodevelop</a>
+        <li><a href="http://github.com/magicmonty/wintersmith-uglifyjs" title="wintersmith-uglifyjs" rel="popover" data-placement="top" data-trigger="hover" data-content="Plugin for Wintersmith, which combines and compresses all configured js files into a single file" class="github_link" target="_blank">wintersmith-uglifyjs</a>
+        <li><a href="http://github.com/magicmonty/marsrover-kata-delphi" title="marsrover-kata-delphi" rel="popover" data-placement="top" data-trigger="hover" data-content="Mars Rover Kata in Delphi" class="github_link" target="_blank">marsrover-kata-delphi</a>
+        <li><a href="http://github.com/magicmonty/activesync-go" title="activesync-go" rel="popover" data-placement="top" data-trigger="hover" data-content="ActiveSync implementation for Google Go" class="github_link" target="_blank">activesync-go</a>
+        <li><a href="http://github.com/magicmonty/wbxml-go" title="wbxml-go" rel="popover" data-placement="top" data-trigger="hover" data-content="WBXML encoder/decoder implementation for Google Go" class="github_link" target="_blank">wbxml-go</a>
+        <li><a href="http://github.com/magicmonty/autotest4delphi" title="autotest4delphi" rel="popover" data-placement="top" data-trigger="hover" data-content="Application to run DUnit tests automatically on change" class="github_link" target="_blank">autotest4delphi</a>
+        <li><a href="http://github.com/magicmonty/gildedrose_kata_delphi" title="gildedrose_kata_delphi" rel="popover" data-placement="top" data-trigger="hover" data-content="Start project for the Gilded Rose Kata in Delphi" class="github_link" target="_blank">gildedrose_kata_delphi</a>
+        <li><a href="http://github.com/magicmonty/videostore_delphi" title="videostore_delphi" rel="popover" data-placement="top" data-trigger="hover" data-content="The videostore example from Martin Fowler's Refactoring, and from Episode 3 of cleancoders.com in Delphi" class="github_link" target="_blank">videostore_delphi</a>
+        <li><a href="http://github.com/magicmonty/MediaWikiAccessControl" title="MediaWikiAccessControl" rel="popover" data-placement="top" data-trigger="hover" data-content="Group based AccessControl for selected MediaWiki pages" class="github_link" target="_blank">MediaWikiAccessControl</a>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+      <div class="widget visible-md hidden-xs hidden-sm hidden-lg">
+  <h3>Links</h3>
+  <div class="content">
+    <ul class="links">
+      <li><a href="http://lambdaphonic.de" rel="tooltip" target="_blank" title="λphonic">λphonic</a>
+      <li><a href="http://www.softwerkskammer.de" rel="tooltip" target="_blank" title="Softwerkskammer">Softwerkskammer</a>
+      <li><a href="http://www.torstenpahl.de" rel="tooltip" target="_blank" title="Torsten Pahl - Zauberkünstler">Torsten Pahl - Zauberkünstler</a>
+      <li><a href="http://www.theater-und-mehr.de" rel="tooltip" target="_blank" title="Theater und mehr...">Theater und mehr...</a>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+    <div id="content" class="col-lg-6 col-md-9 col-sm-12 col-xs-12">
+      <article>
+  <header>
+    <h1>Creating ClickOnce installers with native registration free COM objects (with Paket and F#AKE)</h1>
+  </header>
+  <div class="content">
+  <p>I haven’t found any good intro to this online (only parts of it), so I will give my best to describe the process I took here.</p>
+
+<p>The goal is, to create a <a href="https://en.wikipedia.org/wiki/ClickOnce" title="ClickOnce description on WikiPedia" rel="nofollow" target="_blank">ClickOnce</a> installer for a .NET project,
+which contains a dependency to a COM object. The quirk here is, that we have to deploy this COM object with
+the project and we have no control over it. We just have been given a DLL, which in turn is a native COM object.</p>
+
+<!-- more -->
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>We have gotten a native COM dll named <code>ForeignInterface.dll</code>, which we have to deploy with our project.</p>
+
+<p>The problem is, that <a href="https://en.wikipedia.org/wiki/ClickOnce" title="ClickOnce description on WikiPedia" rel="nofollow" target="_blank">ClickOnce</a> does’t allow to register COM objects on installation, as the ClickOnce installation runs in the security context of the user.</p>
+
+<p>We have two possibilities here. We can create a separate <a href="https://en.wikipedia.org/wiki/Windows_Installer" title="Windows installer description on WikiPedia" rel="nofollow" target="_blank">MSI</a> installer and add it as prerequisite to the ClickOnce installer
+or we can use <a href="https://msdn.microsoft.com/en-us/library/fh1h056h(v=vs.110).aspx" title="Registration-Free COM Interop" rel="nofollow" target="_blank">Registration-Free COM Interop</a>.</p>
+
+<p>I describe here the latter, as it has some quirks to it, which I will address here.</p>
+
+<p><strong><em>Warning: All id’s, names etc. I use here are faked. So please replace them with your own.</em></strong></p>
+
+<h2 id="step-1-creating-the-project">Step 1: Creating the project</h2>
+
+<p>For demonstration purposes, we create a simple console project:</p>
+
+<p><img src="/img/posts/creating-clickonce-installers-with-fake/create_project.png" alt="Create the project"></p>
+
+<p>The project lives now in <code>C:\Development\MySuperAwesomeProject\MySuperAwesomeProject</code>.</p>
+
+<p>Next we import the native COM dll, so that the DLL is copied over to the <code>bin</code> directory:</p>
+
+<ul>
+  <li>Right click on your project</li>
+  <li>Click on <code>Add</code> → <code>Existing Item</code>
+</li>
+  <li>Select <code>All Files (*.*)</code> in the filter combo box</li>
+  <li>Browse to the <code>ForeignInterface.dll</code> and select it</li>
+  <li>Click <code>Add</code>
+</li>
+  <li>The select it in the Solution Explorer and set <code>Copy to Output Directory</code> to <code>Copy if newer</code>
+</li>
+  <li>
+    <p>Your Solution should now look like this:</p>
+
+    <p><img src="/img/posts/creating-clickonce-installers-with-fake/import_dll.png" alt="The imported COM dll"></p>
+  </li>
+  <li>Also the <code>ForeignInterface.dll</code> should have been copied over to your project directory.</li>
+</ul>
+
+<h2 id="step-2-creating-a-com-wrapper">Step 2: Creating a COM wrapper</h2>
+
+<p>First we have to create a Wrapper, so that we can use the native COM object in .NET.</p>
+
+<p>The most control we have with the <a href="https://msdn.microsoft.com/en-us/library/tt0cf3sx(v=vs.110).aspx" title="Description of the tlbimp.exe" rel="nofollow" target="_blank"><code>tlbimp.exe</code></a> tool.
+So we open the <code>Developer Command Prompt for VS2013</code>, go to our project directory and use this command to create an Interop assembly:</p>
+
+<div class="highlight"><pre><code class="language-bat">tlbimp.exe /out:Interop.ForeignInterface.dll /namespace:ForeignInterface ForeignInterface.dll</code></pre></div>
+
+<p>This creates the the Interop Assembly <code>Interop.ForeignInterface.dll</code> in our project folder.
+For further information see <a href="https://msdn.microsoft.com/en-us/library/tw4zwhbe(v=vs.110).aspx" title="Further information for creating Interop assemblies" rel="nofollow" target="_blank">here</a>.</p>
+
+<p>Now we add it as Reference to our project:</p>
+
+<ul>
+  <li>Right click on <code>References</code> and then on <code>Add Reference...</code>
+</li>
+  <li>Click <code>Browse</code>, browse to your <code>Interop.ForeignInterface.dll</code> and add it.</li>
+  <li>Then click <code>OK</code> in the Reference manager.</li>
+</ul>
+
+<p>We now can test our COM interface:</p>
+
+<div class="highlight"><pre><code class="language-csharp"><span class="k">namespace</span> <span class="nn">MySuperAwesomeProject</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+    <span class="k">using</span> <span class="nn">System.Diagnostics</span><span class="p">;</span>
+    <span class="k">using</span> <span class="nn">System.Runtime.InteropServices</span><span class="p">;</span>
+    <span class="k">using</span> <span class="nn">ForeignInterface</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">try</span>
+            <span class="p">{</span>
+                <span class="kt">var</span> <span class="n">impl</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ForeignInterface</span><span class="p">();</span>
+                <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">impl</span><span class="p">.</span><span class="n">Process</span><span class="p">(</span><span class="s">"FOO"</span><span class="p">));</span>
+            <span class="p">}</span>
+            <span class="k">catch</span> <span class="p">(</span><span class="n">COMException</span> <span class="n">e</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"ERROR: {0}"</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">ReadKey</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>If we execute this, then the following error should occur:</p>
+
+<div class="highlight"><pre><code>ERROR: Retrieving the COM class factory for component with CLSID {A1A168E6-3591-41C9-87D6-3E21588C7FFB} failed due to the following error: 80040154 Class not registered (Exception from HRESULT: 0x80040154 (REGDB_E_CLASSNOTREG)).
+</code></pre></div>
+
+<p>If we get a valid result, then the COM component is already registered.
+For further testing we open an Administrator console, navigate to the project directory and execute the following command:</p>
+
+<div class="highlight"><pre><code>regsvr32 /u ForeignInterface.dll
+</code></pre></div>
+
+<p>This deregisters the COM component in the system, and the error message above should occur on execution.</p>
+
+<h2 id="step-3-preparing-for-registration-free-com-interop">Step 3: Preparing for Registration-Free COM Interop</h2>
+
+<p>This is a two step process. First we need a side-by-side manifest for the <code>ForeignInterface.dll</code>, so we can reference it as dependency in our application.
+Then we have to create an application manifest which adds the side-by-side manifest as dependency.</p>
+
+<h3 id="step-31-creating-a-side-by-side-manifest-for-the-com-dll">Step 3.1: Creating a side-by-side manifest for the COM dll</h3>
+
+<p>for this we use the <a href="https://msdn.microsoft.com/en-us/library/aa375649(v=vs.85).aspx" title="Description of the mt.exe" rel="nofollow" target="_blank"><code>mt.exe</code></a> from the Windows SDK:</p>
+
+<div class="highlight"><pre><code>mt.exe -dll:ForeignInterface.dll -tlb:ForeignInterface.dll -out:ForeignInterface.sxs.manifest
+</code></pre></div>
+
+<p>This creates a basic manifest file for the <code>ForeignInterface.dll</code>:</p>
+
+<div class="highlight"><pre><code class="language-xml"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;</span>
+<span class="nt">&lt;assembly</span> <span class="na">xmlns=</span><span class="s">"urn:schemas-microsoft-com:asm.v1"</span> <span class="na">manifestVersion=</span><span class="s">"1.0"</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;file</span> <span class="na">name=</span><span class="s">"ForeignInterface.dll"</span> <span class="na">hashalg=</span><span class="s">"SHA1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;comClass</span> <span class="na">clsid=</span><span class="s">"{A1A168E6-3591-41C9-87D6-3E21588C7FFB}"</span>
+              <span class="na">tlbid=</span><span class="s">"{7B2E8C1F-CCB0-4261-8289-6598529DBDAF}"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;typelib</span> <span class="na">tlbid=</span><span class="s">"{7B2E8C1F-CCB0-4261-8289-6598529DBDAF}"</span>
+             <span class="na">resourceid=</span><span class="s">"1"</span>
+             <span class="na">version=</span><span class="s">"2.1"</span>
+             <span class="na">helpdir=</span><span class="s">""</span>
+             <span class="na">flags=</span><span class="s">"HASDISKIMAGE"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/file&gt;</span>
+
+  <span class="nt">&lt;comInterfaceExternalProxyStub</span> <span class="na">name=</span><span class="s">"IForeignInterface"</span>
+                                 <span class="na">iid=</span><span class="s">"{63A461A0-93A1-407D-B144-C69F7F299315}"</span>
+                                 <span class="na">tlbid=</span><span class="s">"{7B2E8C1F-CCB0-4261-8289-6598529DBDAF}"</span>
+                                 <span class="na">proxyStubClsid32=</span><span class="s">"{00020424-0000-0000-C000-000000000046}"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/assembly&gt;</span></code></pre></div>
+
+<p>We now add this manifest to the project as above, so that it will also be copied over into the <code>bin</code> directory on build.</p>
+
+<p>Your solution now looks like this:</p>
+
+<p><img src="/img/posts/creating-clickonce-installers-with-fake/import_manifest.png" alt="The imported side-by-side manifest"></p>
+
+<p>The manifest is now changed a bit, as we need an assembly identity we can refer to:</p>
+
+<div class="highlight"><pre><code class="language-xml"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;</span>
+<span class="nt">&lt;assembly</span> <span class="na">xmlns=</span><span class="s">"urn:schemas-microsoft-com:asm.v1"</span> <span class="na">manifestVersion=</span><span class="s">"1.0"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;assemblyIdentity</span> <span class="na">type=</span><span class="s">"win32"</span> <span class="na">name=</span><span class="s">"ForeignInterface.sxs"</span> <span class="na">version=</span><span class="s">"2.1.0.0"</span> <span class="nt">/&gt;</span>
+
+  <span class="nt">&lt;file</span> <span class="na">name=</span><span class="s">"ForeignInterface.dll"</span> <span class="na">hashalg=</span><span class="s">"SHA1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;comClass</span> <span class="na">clsid=</span><span class="s">"{A1A168E6-3591-41C9-87D6-3E21588C7FFB}"</span>
+              <span class="na">tlbid=</span><span class="s">"{7B2E8C1F-CCB0-4261-8289-6598529DBDAF}"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;typelib</span> <span class="na">tlbid=</span><span class="s">"{7B2E8C1F-CCB0-4261-8289-6598529DBDAF}"</span> <span class="na">version=</span><span class="s">"2.1"</span> <span class="na">helpdir=</span><span class="s">""</span>  <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/file&gt;</span>
+
+  <span class="nt">&lt;comInterfaceExternalProxyStub</span> <span class="na">name=</span><span class="s">"IForeignInterface"</span>
+                                 <span class="na">iid=</span><span class="s">"{63A461A0-93A1-407D-B144-C69F7F299315}"</span>
+                                 <span class="na">tlbid=</span><span class="s">"{7B2E8C1F-CCB0-4261-8289-6598529DBDAF}"</span>
+                                 <span class="na">proxyStubClsid32=</span><span class="s">"{00020424-0000-0000-C000-000000000046}"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/assembly&gt;</span></code></pre></div>
+
+<p><em>Note that I added the <code>assemblyIdentity</code> tag with the same name as the manifest but without the <code>.manifest</code> extension. I also removed the <code>flags</code> and the <code>resourceid</code> attributes from the <code>typelib</code> tag as they are not needed.</em></p>
+
+<p>If you wish, you can also add a <code>description</code> attribute to the <code>typelib</code> and <code>comClass</code> tags.</p>
+
+<h3 id="step-32-creating-an-application-manifest-and-adding-the-dependency">Step 3.2: Creating an application manifest and adding the dependency</h3>
+
+<p>Now we have to add the dependency to our application. For this we create an application manifest:</p>
+
+<ul>
+  <li>Right click on your Project</li>
+  <li>
+<code>Add</code> → <code>New Item...</code>
+</li>
+  <li>
+    <p><code>General</code> → <code>Application Manifest File</code>:</p>
+
+    <p><img src="/img/posts/creating-clickonce-installers-with-fake/add_application_manifest.png" alt="Add an application manifest"></p>
+  </li>
+</ul>
+
+<p>Now we replace the content of the application manifest with the following:</p>
+
+<div class="highlight"><pre><code class="language-xml"><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;asmv1:assembly</span> <span class="na">manifestVersion=</span><span class="s">"1.0"</span> <span class="na">xmlns=</span><span class="s">"urn:schemas-microsoft-com:asm.v1"</span> <span class="na">xmlns:asmv1=</span><span class="s">"urn:schemas-microsoft-com:asm.v1"</span> <span class="na">xmlns:asmv2=</span><span class="s">"urn:schemas-microsoft-com:asm.v2"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;trustInfo</span> <span class="na">xmlns=</span><span class="s">"urn:schemas-microsoft-com:asm.v2"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;security&gt;</span>
+      <span class="nt">&lt;requestedPrivileges</span> <span class="na">xmlns=</span><span class="s">"urn:schemas-microsoft-com:asm.v3"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;requestedExecutionLevel</span> <span class="na">level=</span><span class="s">"asInvoker"</span> <span class="na">uiAccess=</span><span class="s">"false"</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/requestedPrivileges&gt;</span>
+    <span class="nt">&lt;/security&gt;</span>
+  <span class="nt">&lt;/trustInfo&gt;</span>
+
+  <span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;dependentAssembly&gt;</span>
+      <span class="nt">&lt;assemblyIdentity</span> <span class="na">type=</span><span class="s">"win32"</span> <span class="na">name=</span><span class="s">"ForeignInterface.sxs"</span> <span class="na">version=</span><span class="s">"2.1.0.0"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/dependentAssembly&gt;</span>
+  <span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;/asmv1:assembly&gt;</span></code></pre></div>
+
+<p><em>The crucial part here is the <code>dependentAssembly</code> tag. The contained <code>assemblyIdentity</code> should be the same as the one in <code>ForeignInterface.sxs.manifest</code>. If you have more then one COM object to include, simply add more <code>dependency</code> tags.</em></p>
+
+<p>The last step is to set the <code>app.manifest</code> as application manifest and disable the Visual Studio Hosting process:</p>
+
+<p><img src="/img/posts/creating-clickonce-installers-with-fake/set_app_manifest.png" alt="Setting the application manifest">
+<img src="/img/posts/creating-clickonce-installers-with-fake/disable_vshost.png" alt="Disabling the Visual Studio Hosting Process"></p>
+
+<p><em>You need to disable the VS hosting process, as the <code>MyAwesomeProject.vshost.exe</code> uses a different manifest, and therefore debugging would not work. Also if you want to unit test your COM-Object, you have to do extra steps which I will not explain here. For further information see <a href="http://blog.functionalfun.net/2012_09_01_archive.html" title="A quick guide to Registration-Free COM in .Net–and how to Unit Test it" rel="nofollow" target="_blank">here</a>.</em></p>
+
+<p>Congratulations, your project should now run correctly without error.</p>
+
+<h2 id="step-4-preparing-the-paket-and-fake">Step 4: Preparing the Paket and F#AKE</h2>
+
+<p>I will use <a href="http://fsprojects.github.io/Paket/" title="Paket" rel="nofollow" target="_blank">Paket</a> and <a href="http://fsharp.github.io/FAKE/" title="F#AKE" rel="nofollow" target="_blank">F#AKE</a> here for simplicity purposes.</p>
+
+<h3 id="step-41-preparing-paket">Step 4.1: Preparing Paket</h3>
+
+<ol>
+  <li>Create a new directory in your solution directory named <code>.paket</code>
+    <ul>
+      <li>
+<strong>Tip:</strong> enter <code>.paket.</code> (the name ending with a full-stop) as directory name when creating the directory with Windows explorer</li>
+    </ul>
+  </li>
+  <li>Download the <code>paket.bootstrapper.exe</code> from <a href="https://github.com/fsprojects/Paket/releases" rel="nofollow" target="_blank">https://github.com/fsprojects/Paket/releases</a> and put it into the <code>.paket</code> directory
+    <ul>
+      <li>This executable will also be checked in into your Source Code Management System!</li>
+    </ul>
+  </li>
+  <li>
+    <p>Add the following batch file (for convenience) and name it <code>paket.bat</code></p>
+
+    <div class="highlight"><pre><code class="language-bat"><span class="p">@</span><span class="k">ECHO</span> OFF
+
+.paket\paket.bootstrapper.exe
+<span class="k">IF</span> <span class="k">ERRORLEVEL</span> <span class="mi">1</span> <span class="p">(</span>
+  <span class="k">EXIT</span> /B <span class="nv">%ERRORLEVEL%</span>
+<span class="p">)</span>
+
+.paket\paket.exe <span class="nv">%*</span></code></pre></div>
+  </li>
+  <li>now run <code>paket init</code> on the command line in your solution dir
+    <ul>
+      <li>This downloads the current version of <a href="http://fsprojects.github.io/Paket/" title="Paket" rel="nofollow" target="_blank">Paket</a> and creates an initial <code>paket.dependencies</code> file</li>
+    </ul>
+  </li>
+  <li>
+    <p>modify the <code>paket.dependencies</code> so that it looks like this:</p>
+
+    <div class="highlight"><pre><code>source https://www.nuget.org/api/v2
+
+nuget FAKE
+</code></pre></div>
+  </li>
+  <li>now run <code>paket install</code> on the command line
+    <ul>
+      <li>This downloads the <a href="http://fsharp.github.io/FAKE/" title="F#AKE" rel="nofollow" target="_blank">F#AKE</a> NuGet package into the packages folder under <code>packages\FAKE</code> and creates the <code>paket.lock</code> file</li>
+      <li>both <code>paket.lock</code> and <code>paket.dependencies</code> should be checked in into your SCM</li>
+      <li>the <code>packages</code> folder and the <code>.paket\paket.exe</code> should stay out of your SCM!</li>
+    </ul>
+  </li>
+  <li>
+    <p>For convenience reasons we create also a <code>fake.bat</code> file:</p>
+
+    <div class="highlight"><pre><code class="language-bat"><span class="p">@</span><span class="k">ECHO</span> OFF
+<span class="k">CLS</span>
+
+<span class="k">CALL</span> paket.bat restore
+<span class="k">IF</span> <span class="k">ERRORLEVEL</span> <span class="mi">1</span> <span class="p">(</span>
+  <span class="k">EXIT</span> /B <span class="nv">%ERRORLEVEL%</span>
+<span class="p">)</span>
+
+<span class="k">SET</span> <span class="nv">FAKE</span><span class="p">=</span><span class="s2">"</span><span class="nv">%~dp0</span><span class="s2">packages\FAKE\tools\FAKE.EXE"</span>
+
+<span class="p">:</span><span class="nl">build</span>
+<span class="k">ECHO</span> ----------- BUILDING ---------------------
+<span class="k">IF</span> <span class="k">EXIST</span> <span class="s2">"</span><span class="nv">%~dp0</span><span class="s2">Build.log"</span> <span class="k">DEL</span> /F /Q <span class="s2">"</span><span class="nv">%~dp0</span><span class="s2">Build.log"</span>
+<span class="nv">%FAKE%</span> <span class="s2">"</span><span class="nv">%~dp0</span><span class="s2">build.fsx"</span> <span class="nv">%1</span> -lf Build.log
+<span class="k">PAUSE</span></code></pre></div>
+  </li>
+</ol>
+
+<h3 id="step-42-adding-a-fake-build-script">Step 4.2: Adding a F#AKE build script</h3>
+
+<p><strong><em>You should install “Visual F#” and the “Visual F# Power Tools” extensions in Visual Studio,
+if you want to edit the build file with IntelliSense. Another option would be Visual Studio Code with the <a href="http://ionide.io" title="Crossplatform F# Editor" rel="nofollow" target="_blank">Ionide</a> Extension</em></strong></p>
+
+<p>First add a new F# script file (or TextFile, if this template is missing) to your solution (in your solution directory) and name it <code>build.fsx</code></p>
+
+<p>My <code>build.fsx</code> has the following content:</p>
+
+<div class="highlight"><pre><code class="language-fsharp"><span class="o">#</span><span class="n">r</span> <span class="s">"packages/FAKE/tools/FakeLib.dll"</span>
+
+<span class="k">open</span> <span class="nn">Fake</span>
+
+<span class="c1">// project and version info</span>
+<span class="k">let</span> <span class="nv">projectName</span> <span class="o">=</span> <span class="s">"MySuperAwesomeProject"</span>
+<span class="k">let</span> <span class="nv">version</span> <span class="o">=</span> <span class="s">"0.1.0.0"</span>  <span class="c1">// or retrieve from CI server</span>
+
+<span class="c1">// Directories</span>
+<span class="k">let</span> <span class="nv">buildDir</span>  <span class="o">=</span> <span class="s">@".\build\"</span>
+<span class="k">let</span> <span class="nv">deployDir</span> <span class="o">=</span> <span class="s">@".\deploy\"</span>
+<span class="k">let</span> <span class="nv">publishDir</span> <span class="o">=</span> <span class="n">deployDir</span>  <span class="o">@@</span> <span class="o">(</span><span class="n">sprintf</span> <span class="s">"%s.%s"</span> <span class="n">projectName</span> <span class="n">version</span><span class="o">)</span>
+
+<span class="c1">// Filesets</span>
+<span class="k">let</span> <span class="nv">appReferences</span>  <span class="o">=</span> <span class="o">!!</span> <span class="s">"**/*.csproj"</span>
+
+<span class="n">Target</span> <span class="s">"Clean"</span> <span class="o">(</span><span class="k">fun</span> <span class="o">_</span> <span class="o">-&gt;</span>
+    <span class="n">CleanDirs</span> <span class="o">[</span><span class="n">buildDir</span><span class="o">;</span> <span class="n">deployDir</span><span class="o">;</span> <span class="n">publishDir</span><span class="o">]</span>
+<span class="o">)</span>
+
+<span class="n">Target</span> <span class="s">"Build"</span> <span class="o">(</span><span class="k">fun</span> <span class="o">_</span> <span class="o">-&gt;</span>
+    <span class="n">MSBuildRelease</span> <span class="n">buildDir</span> <span class="s">"Build"</span> <span class="n">appReferences</span>
+    <span class="o">|&gt;</span> <span class="n">Log</span> <span class="s">"Release Build-Output: "</span>
+<span class="o">)</span>
+
+<span class="n">Target</span> <span class="s">"Prepare Deployment"</span> <span class="o">(</span><span class="k">fun</span> <span class="o">_</span> <span class="o">-&gt;</span>
+    <span class="n">trace</span> <span class="s">"This will be filled in a moment"</span>
+<span class="o">)</span>
+
+<span class="n">Target</span> <span class="s">"Create ClickOnce Installer"</span> <span class="o">(</span><span class="k">fun</span> <span class="o">_</span> <span class="o">-&gt;</span>
+    <span class="n">trace</span> <span class="s">"This will be filled in a moment"</span>
+<span class="o">)</span>
+
+<span class="n">Target</span> <span class="s">"Deploy"</span> <span class="o">(</span><span class="k">fun</span> <span class="o">_</span> <span class="o">-&gt;</span>
+    <span class="n">trace</span> <span class="s">"Deploy the created ClickOnce installer wherever you want"</span>
+<span class="o">)</span>
+
+<span class="s">"Clean"</span>
+  <span class="o">==&gt;</span> <span class="s">"Build"</span>
+  <span class="o">==&gt;</span> <span class="s">"Prepare Deployment"</span>
+  <span class="o">==&gt;</span> <span class="s">"Create ClickOnce Installer"</span>
+  <span class="o">==&gt;</span> <span class="s">"Deploy"</span>
+
+<span class="n">RunTargetOrDefault</span> <span class="s">"Deploy"</span></code></pre></div>
+
+<p>You should now be able to build the project on the command line via <code>fake</code>.
+The build output should land in the <code>build</code> directory and an empty <code>deploy</code> directory should be created.
+For more information about how to use <a href="http://fsharp.github.io/FAKE/" title="F#AKE" rel="nofollow" target="_blank">F#AKE</a> see <a href="http://fsharp.github.io/FAKE/gettingstarted.html" title="Getting Started with F#AKE" rel="nofollow" target="_blank">here</a>.</p>
+
+<h2 id="step-5-creating-the-clickonce-application">Step 5: Creating the ClickOnce Application</h2>
+
+<p>Now for the gist of this article. To create a ClickOnce application we use the <a href="https://msdn.microsoft.com/en-us/library/acz3y3te(v=vs.110).aspx" title="Mage.exe (Manifest Generation and Editing Tool)" rel="nofollow" target="_blank">Manifest Generation and Editing Tool</a> (<code>mage.exe</code>).
+In <a href="http://fsharp.github.io/FAKE/" title="F#AKE" rel="nofollow" target="_blank">F#AKE</a> exists a <a href="http://fsharp.github.io/FAKE/apidocs/fake-magehelper.html" rel="nofollow" target="_blank">helper</a> which will do most of the work for us.</p>
+
+<p>First we implement the <code>"Prepare Deployment"</code> target:</p>
+
+<div class="highlight"><pre><code class="language-fsharp"><span class="n">Target</span> <span class="s">"Prepare Deployment"</span> <span class="o">(</span><span class="k">fun</span> <span class="o">_</span> <span class="o">-&gt;</span>
+    <span class="o">!!</span> <span class="o">(</span><span class="n">buildDir</span> <span class="o">@@</span> <span class="s">"**/*.*"</span><span class="o">)</span>
+    <span class="o">--</span> <span class="s">"**/ForeignInterface.dll"</span>
+    <span class="o">--</span> <span class="s">"**/*.pdb"</span>
+    <span class="o">|&gt;</span> <span class="n">CopyFiles</span> <span class="n">publishDir</span>
+<span class="o">)</span></code></pre></div>
+
+<p>This copies everything except the <code>ForeignInterface.dll</code> and all <code>.pdb</code> files into the deployment directory.</p>
+
+<p><strong><em>The <code>ForeignInterface.dll</code> is skipped here because it would otherwise referenced by the <code>mage</code> tool, which leads to an attempt to copy the DLL twice because the side-by-side manifest references this DLL also. This in turn would lead to an error on installation!</em></strong></p>
+
+<p>On the beginning of the file we add a helper, so we can use it as a reference:</p>
+
+<div class="highlight"><pre><code class="language-fsharp"><span class="k">let</span> <span class="nv">EmptyMageParams</span> <span class="o">=</span>  <span class="o">{</span>
+  <span class="n">ToolsPath</span> <span class="o">=</span> <span class="s">"C:/Program Files (x86)/Microsoft SDKs/Windows/v8.1A/bin/NETFX 4.5.1 Tools"</span>
+  <span class="n">Manifest</span> <span class="o">=</span> <span class="s">""</span>
+  <span class="n">ApplicationFile</span> <span class="o">=</span> <span class="s">""</span>
+  <span class="n">CertFile</span> <span class="o">=</span> <span class="n">None</span>
+
+  <span class="n">Name</span> <span class="o">=</span> <span class="n">projectName</span>
+  <span class="n">Version</span> <span class="o">=</span> <span class="n">version</span>
+  <span class="n">Processor</span> <span class="o">=</span> <span class="n">X86</span>
+  <span class="n">TrustLevel</span> <span class="o">=</span> <span class="n">None</span>
+  <span class="n">Publisher</span> <span class="o">=</span> <span class="n">Some</span> <span class="s">"MyAwesomeCompany"</span>
+  <span class="n">ProviderURL</span> <span class="o">=</span> <span class="s">""</span>
+  <span class="n">SupportURL</span> <span class="o">=</span> <span class="n">None</span>
+  <span class="n">FromDirectory</span> <span class="o">=</span> <span class="s">""</span>
+
+  <span class="n">ProjectFiles</span> <span class="o">=</span> <span class="bp">[]</span>
+  <span class="n">IconPath</span> <span class="o">=</span> <span class="s">""</span>
+  <span class="n">IconFile</span> <span class="o">=</span> <span class="s">""</span>
+  <span class="n">TmpCertFile</span> <span class="o">=</span> <span class="s">""</span>
+  <span class="n">Password</span> <span class="o">=</span> <span class="n">None</span>
+  <span class="n">CertHash</span> <span class="o">=</span> <span class="n">None</span>
+  <span class="n">IncludeProvider</span> <span class="o">=</span> <span class="n">None</span>
+  <span class="n">Install</span> <span class="o">=</span> <span class="n">None</span>
+  <span class="n">UseManifest</span> <span class="o">=</span> <span class="n">None</span>
+  <span class="n">CodeBase</span> <span class="o">=</span> <span class="n">None</span>
+<span class="o">}</span></code></pre></div>
+
+<p>Now we can create our <code>"Create ClickOnce Installer"</code> target:</p>
+
+<div class="highlight"><pre><code class="language-fsharp"><span class="n">Target</span> <span class="s">"Create ClickOnce Installer"</span> <span class="o">(</span><span class="k">fun</span> <span class="o">_</span> <span class="o">-&gt;</span>
+    <span class="k">let</span> <span class="nv">appManifest</span> <span class="o">=</span> <span class="n">publishDir</span> <span class="o">@@</span> <span class="o">(</span><span class="n">sprintf</span> <span class="s">"%s.exe.manifest"</span> <span class="n">projectName</span><span class="o">)</span>
+    <span class="k">let</span> <span class="nv">deployManifest</span> <span class="o">=</span> <span class="n">sprintf</span> <span class="s">"%s.application"</span> <span class="n">projectName</span>
+    <span class="k">let</span> <span class="nv">appParams</span> <span class="o">=</span> <span class="o">{</span> <span class="n">EmptyMageParams</span> <span class="k">with</span> <span class="n">Manifest</span> <span class="o">=</span> <span class="n">appManifest</span>
+                                           <span class="n">ApplicationFile</span> <span class="o">=</span> <span class="n">publishDir</span> <span class="o">@@</span> <span class="o">(</span><span class="n">sprintf</span> <span class="s">"%s.exe"</span> <span class="n">projectName</span><span class="o">)</span>
+                                           <span class="n">TrustLevel</span> <span class="o">=</span> <span class="n">Some</span> <span class="n">FullTrust</span>
+                                           <span class="n">FromDirectory</span> <span class="o">=</span> <span class="n">publishDir</span>
+                                           <span class="n">IconPath</span> <span class="o">=</span> <span class="n">publishDir</span>
+                                           <span class="n">IconFile</span> <span class="o">=</span> <span class="n">projectName</span> <span class="o">+</span> <span class="s">".ico"</span>
+                                           <span class="n">IncludeProvider</span> <span class="o">=</span> <span class="n">Some</span> <span class="k">false</span>
+                                           <span class="n">UseManifest</span> <span class="o">=</span> <span class="n">Some</span> <span class="k">true</span> <span class="o">}</span>
+
+    <span class="k">let</span> <span class="nv">deployParams</span> <span class="o">=</span> <span class="o">{</span> <span class="n">EmptyMageParams</span> <span class="k">with</span> <span class="n">Manifest</span> <span class="o">=</span> <span class="n">appManifest</span>
+                                              <span class="n">ApplicationFile</span> <span class="o">=</span> <span class="n">deployDir</span> <span class="o">@@</span> <span class="n">deployManifest</span>
+                                              <span class="n">Install</span> <span class="o">=</span> <span class="n">Some</span> <span class="k">true</span> <span class="o">}</span>
+    <span class="n">MageCreateApp</span> <span class="n">appParams</span>
+    <span class="c1">// MageSignManifest appParams</span>
+    <span class="n">MageDeployApp</span> <span class="n">deployParams</span>
+    <span class="c1">// MageSignDeploy deployParams</span>
+
+    <span class="o">(</span><span class="n">buildDir</span> <span class="o">@@</span> <span class="s">"ForeignInterface.dll"</span><span class="o">)</span> <span class="o">|&gt;</span> <span class="n">CopyFile</span> <span class="n">publishDir</span>
+<span class="o">)</span></code></pre></div>
+
+<p>*Note that we copy the <code>ForeignInterface.dll</code> to the deployment directory <strong>after</strong> we created and signed the manifests.**</p>
+
+<p>If you want to sign the manifests you need to add a certificate file to the solution. You can then
+reference this file with the <code>CertFile</code> setting in the <code>EmptyMageParams</code>. You can then uncomment the <code>MageSignManifest</code> and <code>MageSignDeploy</code> commands.</p>
+
+<p>I usually want to change also the <code>.application</code> file a bit, so that the application will be updated on start.
+For this I have written a little helper function, which is added at the beginning of the <code>build.fsx</code>:</p>
+
+<div class="highlight"><pre><code class="language-fsharp"><span class="o">#</span><span class="n">r</span> <span class="s">"System.Xml.Linq.dll"</span>
+<span class="k">open</span> <span class="nn">System.Xml.Linq</span>
+
+<span class="k">let</span> <span class="nv">setUpdatePolicy</span> <span class="o">(</span><span class="n">filename</span><span class="o">:</span> <span class="kt">string</span><span class="o">)</span> <span class="o">=</span>
+    <span class="k">let</span> <span class="nv">n</span> <span class="n">nameSpace</span> <span class="n">name</span> <span class="o">=</span> <span class="nn">XName</span><span class="p">.</span><span class="n">op_Implicit</span> <span class="o">(</span><span class="n">nameSpace</span> <span class="o">+</span> <span class="n">name</span><span class="o">)</span>
+
+    <span class="k">let</span> <span class="nv">asmv1</span> <span class="o">=</span> <span class="s">"{urn:schemas-microsoft-com:asm.v1}"</span>
+    <span class="k">let</span> <span class="nv">asmv2</span> <span class="o">=</span> <span class="s">"{urn:schemas-microsoft-com:asm.v2}"</span>
+    <span class="k">let</span> <span class="nv">cov1</span> <span class="o">=</span> <span class="s">"{urn:schemas-microsoft-com:clickonce.v1}"</span>
+
+    <span class="k">let</span> <span class="nv">removeNode</span> <span class="n">name</span> <span class="o">(</span><span class="n">node</span><span class="o">:</span> <span class="n">XElement</span> <span class="n">option</span><span class="o">)</span> <span class="o">=</span>
+        <span class="k">match</span> <span class="n">node</span> <span class="k">with</span>
+        <span class="o">|</span> <span class="n">None</span> <span class="o">-&gt;</span> <span class="n">None</span>
+        <span class="o">|</span> <span class="n">Some</span> <span class="n">n</span> <span class="o">-&gt;</span>
+            <span class="k">match</span> <span class="n">n</span><span class="o">.</span><span class="n">Element</span><span class="o">(</span><span class="n">name</span><span class="o">)</span> <span class="k">with</span>
+            <span class="o">|</span> <span class="k">null</span> <span class="o">-&gt;</span> <span class="bp">()</span>
+            <span class="o">|</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="n">e</span><span class="o">.</span><span class="n">Remove</span><span class="bp">()</span>
+            <span class="n">node</span>
+
+    <span class="k">let</span> <span class="nv">addNode</span> <span class="o">(</span><span class="n">name</span><span class="o">:</span> <span class="n">XName</span><span class="o">)</span> <span class="o">(</span><span class="n">node</span><span class="o">:</span> <span class="n">XElement</span> <span class="n">option</span><span class="o">)</span> <span class="o">=</span>
+        <span class="k">match</span> <span class="n">node</span> <span class="k">with</span>
+        <span class="o">|</span> <span class="n">Some</span> <span class="n">n</span> <span class="o">-&gt;</span> <span class="n">n</span><span class="o">.</span><span class="n">Add</span><span class="o">(</span><span class="k">new</span> <span class="n">XElement</span><span class="o">(</span><span class="n">name</span><span class="o">))</span>
+        <span class="o">|</span> <span class="o">_</span> <span class="o">-&gt;</span> <span class="bp">()</span>
+
+    <span class="k">let</span> <span class="nv">element</span> <span class="n">name</span> <span class="o">(</span><span class="n">node</span><span class="o">:</span> <span class="n">XElement</span> <span class="n">option</span><span class="o">)</span> <span class="o">:</span> <span class="n">XElement</span> <span class="n">option</span> <span class="o">=</span>
+        <span class="k">match</span> <span class="n">node</span> <span class="k">with</span>
+        <span class="o">|</span> <span class="n">None</span> <span class="o">-&gt;</span> <span class="n">None</span>
+        <span class="o">|</span> <span class="n">Some</span> <span class="n">n</span> <span class="o">-&gt;</span>
+            <span class="k">match</span> <span class="n">n</span><span class="o">.</span><span class="n">Element</span><span class="o">(</span><span class="n">name</span><span class="o">)</span> <span class="k">with</span>
+            <span class="o">|</span> <span class="k">null</span> <span class="o">-&gt;</span> <span class="n">None</span>
+            <span class="o">|</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="n">Some</span> <span class="n">e</span>
+
+    <span class="k">let</span> <span class="nv">doc</span> <span class="o">=</span> <span class="nn">XDocument</span><span class="p">.</span><span class="n">Load</span><span class="o">(</span><span class="n">filename</span><span class="o">)</span>
+
+    <span class="n">Some</span> <span class="n">doc</span><span class="o">.</span><span class="n">Root</span>
+    <span class="o">|&gt;</span> <span class="n">element</span> <span class="o">(</span><span class="n">n</span> <span class="n">asmv2</span> <span class="s">"deployment"</span><span class="o">)</span>
+    <span class="o">|&gt;</span> <span class="n">element</span> <span class="o">(</span><span class="n">n</span> <span class="n">asmv2</span> <span class="s">"subscription"</span><span class="o">)</span>
+    <span class="o">|&gt;</span> <span class="n">element</span> <span class="o">(</span><span class="n">n</span> <span class="n">asmv2</span> <span class="s">"update"</span><span class="o">)</span>
+    <span class="o">|&gt;</span> <span class="n">removeNode</span> <span class="o">(</span><span class="n">n</span> <span class="n">asmv2</span> <span class="s">"expiration"</span><span class="o">)</span>
+    <span class="o">|&gt;</span> <span class="n">addNode</span> <span class="o">(</span><span class="n">n</span> <span class="n">asmv2</span> <span class="s">"beforeApplicationStartup"</span><span class="o">)</span>
+
+    <span class="n">doc</span><span class="o">.</span><span class="n">Save</span><span class="o">(</span><span class="n">filename</span><span class="o">)</span></code></pre></div>
+
+<p>Now i can call</p>
+
+<div class="highlight"><pre><code class="language-fsharp"><span class="n">deployDir</span> <span class="o">@@</span> <span class="n">deployManifest</span> <span class="o">|&gt;</span> <span class="n">setUpdatePolicy</span></code></pre></div>
+
+<p>directly before <code>MageSignDeploy</code>.</p>
+
+<h2 id="tldr">TL:DR</h2>
+
+<p>The important parts are:</p>
+
+<ul>
+  <li>Deploy the COM DLL and a corresponding <code>.sxs.manifest</code>
+</li>
+  <li>Add a dependency to the <code>.sxs.manifest</code> in the application manifest</li>
+  <li>The publish directory should have a version on it, so you can simply deploy a new version into your target directory and just update the <code>.application</code> file.</li>
+  <li>Copy all files except for the COM DLL into the Publish Directory</li>
+  <li>Copy the COM DLL <strong>after</strong> creation of the ClickOnce manifests</li>
+</ul>
+
+<p>The final script now looks like this.</p>
+
+<div class="highlight"><pre><code class="language-fsharp"><span class="o">#</span><span class="n">r</span> <span class="s">"packages/FAKE/tools/FakeLib.dll"</span>
+
+<span class="k">open</span> <span class="nn">Fake</span>
+
+<span class="c1">// project and version info</span>
+<span class="k">let</span> <span class="nv">projectName</span> <span class="o">=</span> <span class="s">"MySuperAwesomeProject"</span>
+<span class="k">let</span> <span class="nv">version</span> <span class="o">=</span> <span class="s">"0.1.0.0"</span>  <span class="c1">// or retrieve from CI server</span>
+
+<span class="c1">// Directories</span>
+<span class="k">let</span> <span class="nv">buildDir</span>  <span class="o">=</span> <span class="s">@".\build\"</span>
+<span class="k">let</span> <span class="nv">deployDir</span> <span class="o">=</span> <span class="s">@".\deploy\"</span>
+<span class="k">let</span> <span class="nv">applicationDirName</span> <span class="o">=</span> <span class="o">(</span><span class="n">sprintf</span> <span class="s">"%s.%s"</span> <span class="n">projectName</span> <span class="n">version</span><span class="o">)</span>
+<span class="k">let</span> <span class="nv">publishDir</span> <span class="o">=</span> <span class="n">deployDir</span> <span class="o">@@</span> <span class="n">applicationDirName</span>
+
+<span class="c1">// Filesets</span>
+<span class="k">let</span> <span class="nv">appReferences</span>  <span class="o">=</span> <span class="o">!!</span> <span class="s">"**/*.csproj"</span>
+
+
+<span class="k">let</span> <span class="nv">EmptyMageParams</span> <span class="o">=</span>  <span class="o">{</span>
+    <span class="n">ToolsPath</span> <span class="o">=</span> <span class="s">@"C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1A\bin\NETFX 4.5.1 Tools"</span>
+    <span class="n">Manifest</span> <span class="o">=</span> <span class="s">""</span>
+    <span class="n">ApplicationFile</span> <span class="o">=</span> <span class="s">""</span>
+    <span class="n">CertFile</span> <span class="o">=</span> <span class="n">None</span>
+
+    <span class="n">Name</span> <span class="o">=</span> <span class="n">projectName</span>
+    <span class="n">Version</span> <span class="o">=</span> <span class="n">version</span>
+    <span class="n">Processor</span> <span class="o">=</span> <span class="n">MSIL</span>
+    <span class="n">TrustLevel</span> <span class="o">=</span> <span class="n">None</span>
+    <span class="n">Publisher</span> <span class="o">=</span> <span class="n">Some</span> <span class="s">"MyAwesomeCompany"</span>
+    <span class="n">ProviderURL</span> <span class="o">=</span> <span class="s">""</span>
+    <span class="n">SupportURL</span> <span class="o">=</span> <span class="n">None</span>
+    <span class="n">FromDirectory</span> <span class="o">=</span> <span class="s">""</span>
+
+    <span class="n">ProjectFiles</span> <span class="o">=</span> <span class="bp">[]</span>
+    <span class="n">IconPath</span> <span class="o">=</span> <span class="s">""</span>
+    <span class="n">IconFile</span> <span class="o">=</span> <span class="s">""</span>
+    <span class="n">TmpCertFile</span> <span class="o">=</span> <span class="s">""</span>
+    <span class="n">Password</span> <span class="o">=</span> <span class="n">None</span>
+    <span class="n">CertHash</span> <span class="o">=</span> <span class="n">None</span>
+    <span class="n">IncludeProvider</span> <span class="o">=</span> <span class="n">None</span>
+    <span class="n">Install</span> <span class="o">=</span> <span class="n">None</span>
+    <span class="n">UseManifest</span> <span class="o">=</span> <span class="n">None</span>
+    <span class="n">CodeBase</span> <span class="o">=</span> <span class="n">None</span> <span class="o">}</span>
+
+
+<span class="o">#</span><span class="n">r</span> <span class="s">"System.Xml.Linq.dll"</span>
+<span class="k">open</span> <span class="nn">System.Xml.Linq</span>
+
+<span class="k">let</span> <span class="nv">setUpdatePolicy</span> <span class="o">(</span><span class="n">filename</span><span class="o">:</span> <span class="kt">string</span><span class="o">)</span> <span class="o">=</span>
+    <span class="k">let</span> <span class="nv">n</span> <span class="n">nameSpace</span> <span class="n">name</span> <span class="o">=</span> <span class="nn">XName</span><span class="p">.</span><span class="n">op_Implicit</span> <span class="o">(</span><span class="n">nameSpace</span> <span class="o">+</span> <span class="n">name</span><span class="o">)</span>
+
+    <span class="k">let</span> <span class="nv">asmv1</span> <span class="o">=</span> <span class="s">"{urn:schemas-microsoft-com:asm.v1}"</span>
+    <span class="k">let</span> <span class="nv">asmv2</span> <span class="o">=</span> <span class="s">"{urn:schemas-microsoft-com:asm.v2}"</span>
+    <span class="k">let</span> <span class="nv">cov1</span> <span class="o">=</span> <span class="s">"{urn:schemas-microsoft-com:clickonce.v1}"</span>
+
+    <span class="k">let</span> <span class="nv">removeNode</span> <span class="n">name</span> <span class="o">(</span><span class="n">node</span><span class="o">:</span> <span class="n">XElement</span> <span class="n">option</span><span class="o">)</span> <span class="o">=</span>
+        <span class="k">match</span> <span class="n">node</span> <span class="k">with</span>
+        <span class="o">|</span> <span class="n">None</span> <span class="o">-&gt;</span> <span class="n">None</span>
+        <span class="o">|</span> <span class="n">Some</span> <span class="n">n</span> <span class="o">-&gt;</span>
+            <span class="k">match</span> <span class="n">n</span><span class="o">.</span><span class="n">Element</span><span class="o">(</span><span class="n">name</span><span class="o">)</span> <span class="k">with</span>
+            <span class="o">|</span> <span class="k">null</span> <span class="o">-&gt;</span> <span class="bp">()</span>
+            <span class="o">|</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="n">e</span><span class="o">.</span><span class="n">Remove</span><span class="bp">()</span>
+            <span class="n">node</span>
+
+    <span class="k">let</span> <span class="nv">addNode</span> <span class="o">(</span><span class="n">name</span><span class="o">:</span> <span class="n">XName</span><span class="o">)</span> <span class="o">(</span><span class="n">node</span><span class="o">:</span> <span class="n">XElement</span> <span class="n">option</span><span class="o">)</span> <span class="o">=</span>
+        <span class="k">match</span> <span class="n">node</span> <span class="k">with</span>
+        <span class="o">|</span> <span class="n">Some</span> <span class="n">n</span> <span class="o">-&gt;</span> <span class="n">n</span><span class="o">.</span><span class="n">Add</span><span class="o">(</span><span class="k">new</span> <span class="n">XElement</span><span class="o">(</span><span class="n">name</span><span class="o">))</span>
+        <span class="o">|</span> <span class="o">_</span> <span class="o">-&gt;</span> <span class="bp">()</span>
+
+    <span class="k">let</span> <span class="nv">element</span> <span class="n">name</span> <span class="o">(</span><span class="n">node</span><span class="o">:</span> <span class="n">XElement</span> <span class="n">option</span><span class="o">)</span> <span class="o">:</span> <span class="n">XElement</span> <span class="n">option</span> <span class="o">=</span>
+        <span class="k">match</span> <span class="n">node</span> <span class="k">with</span>
+        <span class="o">|</span> <span class="n">None</span> <span class="o">-&gt;</span> <span class="n">None</span>
+        <span class="o">|</span> <span class="n">Some</span> <span class="n">n</span> <span class="o">-&gt;</span>
+            <span class="k">match</span> <span class="n">n</span><span class="o">.</span><span class="n">Element</span><span class="o">(</span><span class="n">name</span><span class="o">)</span> <span class="k">with</span>
+            <span class="o">|</span> <span class="k">null</span> <span class="o">-&gt;</span> <span class="n">None</span>
+            <span class="o">|</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="n">Some</span> <span class="n">e</span>
+
+    <span class="k">let</span> <span class="nv">doc</span> <span class="o">=</span> <span class="nn">XDocument</span><span class="p">.</span><span class="n">Load</span><span class="o">(</span><span class="n">filename</span><span class="o">)</span>
+
+    <span class="n">Some</span> <span class="n">doc</span><span class="o">.</span><span class="n">Root</span>
+    <span class="o">|&gt;</span> <span class="n">element</span> <span class="o">(</span><span class="n">n</span> <span class="n">asmv2</span> <span class="s">"deployment"</span><span class="o">)</span>
+    <span class="o">|&gt;</span> <span class="n">element</span> <span class="o">(</span><span class="n">n</span> <span class="n">asmv2</span> <span class="s">"subscription"</span><span class="o">)</span>
+    <span class="o">|&gt;</span> <span class="n">element</span> <span class="o">(</span><span class="n">n</span> <span class="n">asmv2</span> <span class="s">"update"</span><span class="o">)</span>
+    <span class="o">|&gt;</span> <span class="n">removeNode</span> <span class="o">(</span><span class="n">n</span> <span class="n">asmv2</span> <span class="s">"expiration"</span><span class="o">)</span>
+    <span class="o">|&gt;</span> <span class="n">addNode</span> <span class="o">(</span><span class="n">n</span> <span class="n">asmv2</span> <span class="s">"beforeApplicationStartup"</span><span class="o">)</span>
+
+    <span class="n">doc</span><span class="o">.</span><span class="n">Save</span><span class="o">(</span><span class="n">filename</span><span class="o">)</span>
+
+
+<span class="n">Target</span> <span class="s">"Clean"</span> <span class="o">(</span><span class="k">fun</span> <span class="o">_</span> <span class="o">-&gt;</span>
+    <span class="n">CleanDirs</span> <span class="o">[</span><span class="n">buildDir</span><span class="o">;</span> <span class="n">deployDir</span><span class="o">;</span> <span class="n">publishDir</span><span class="o">]</span>
+<span class="o">)</span>
+
+<span class="n">Target</span> <span class="s">"Build"</span> <span class="o">(</span><span class="k">fun</span> <span class="o">_</span> <span class="o">-&gt;</span>
+    <span class="n">MSBuildRelease</span> <span class="n">buildDir</span> <span class="s">"Build"</span> <span class="n">appReferences</span>
+    <span class="o">|&gt;</span> <span class="n">Log</span> <span class="s">"Release Build-Output: "</span>
+<span class="o">)</span>
+
+<span class="n">Target</span> <span class="s">"Prepare Deployment"</span> <span class="o">(</span><span class="k">fun</span> <span class="o">_</span> <span class="o">-&gt;</span>
+    <span class="o">!!</span> <span class="o">(</span><span class="n">buildDir</span> <span class="o">@@</span> <span class="s">"**/*.*"</span><span class="o">)</span>
+    <span class="o">--</span> <span class="s">"**/ForeignInterface.dll"</span>
+    <span class="o">--</span> <span class="s">"**/*.pdb"</span>
+    <span class="o">|&gt;</span> <span class="n">CopyFiles</span> <span class="n">publishDir</span>
+<span class="o">)</span>
+
+<span class="n">Target</span> <span class="s">"Create ClickOnce Installer"</span> <span class="o">(</span><span class="k">fun</span> <span class="o">_</span> <span class="o">-&gt;</span>
+    <span class="k">let</span> <span class="nv">appManifest</span> <span class="o">=</span> <span class="n">publishDir</span> <span class="o">@@</span> <span class="o">(</span><span class="n">sprintf</span> <span class="s">"%s.exe.manifest"</span> <span class="n">projectName</span><span class="o">)</span>
+    <span class="k">let</span> <span class="nv">deployManifest</span> <span class="o">=</span> <span class="n">sprintf</span> <span class="s">"%s.application"</span> <span class="n">projectName</span>
+    <span class="k">let</span> <span class="nv">appParams</span> <span class="o">=</span> <span class="o">{</span> <span class="n">EmptyMageParams</span> <span class="k">with</span> <span class="n">Manifest</span> <span class="o">=</span> <span class="n">appManifest</span>
+                                           <span class="n">ApplicationFile</span> <span class="o">=</span> <span class="n">publishDir</span> <span class="o">@@</span> <span class="o">(</span><span class="n">sprintf</span> <span class="s">"%s.exe"</span> <span class="n">projectName</span><span class="o">)</span>
+                                           <span class="n">TrustLevel</span> <span class="o">=</span> <span class="n">Some</span> <span class="n">FullTrust</span>
+                                           <span class="n">FromDirectory</span> <span class="o">=</span> <span class="n">publishDir</span>
+                                           <span class="n">IconPath</span> <span class="o">=</span> <span class="n">publishDir</span>
+                                           <span class="n">IconFile</span> <span class="o">=</span> <span class="n">projectName</span> <span class="o">+</span> <span class="s">".ico"</span>
+                                           <span class="n">IncludeProvider</span> <span class="o">=</span> <span class="n">Some</span> <span class="k">false</span>
+                                           <span class="n">UseManifest</span> <span class="o">=</span> <span class="n">Some</span> <span class="k">true</span> <span class="o">}</span>
+
+    <span class="k">let</span> <span class="nv">deployParams</span> <span class="o">=</span> <span class="o">{</span> <span class="n">EmptyMageParams</span> <span class="k">with</span> <span class="n">Manifest</span> <span class="o">=</span> <span class="n">appManifest</span>
+                                              <span class="n">ApplicationFile</span> <span class="o">=</span> <span class="n">deployDir</span> <span class="o">@@</span> <span class="n">deployManifest</span>
+                                              <span class="n">Install</span> <span class="o">=</span> <span class="n">Some</span> <span class="k">true</span> <span class="o">}</span>
+    <span class="n">MageCreateApp</span> <span class="n">appParams</span>
+    <span class="c1">// MageSignManifest appParams</span>
+    <span class="n">MageDeployApp</span> <span class="n">deployParams</span>
+    <span class="n">deployDir</span> <span class="o">@@</span> <span class="n">deployManifest</span> <span class="o">|&gt;</span> <span class="n">setUpdatePolicy</span>
+    <span class="c1">// MageSignDeploy deployParams</span>
+
+    <span class="o">(</span><span class="n">buildDir</span> <span class="o">@@</span> <span class="s">"ForeignInterface.dll"</span><span class="o">)</span> <span class="o">|&gt;</span> <span class="n">CopyFile</span> <span class="n">publishDir</span>
+<span class="o">)</span>
+
+<span class="n">Target</span> <span class="s">"Deploy"</span> <span class="o">(</span><span class="k">fun</span> <span class="o">_</span> <span class="o">-&gt;</span>
+    <span class="n">trace</span> <span class="s">"Deploy the created ClickOnce installer wherever you want"</span>
+<span class="o">)</span>
+
+<span class="s">"Clean"</span>
+  <span class="o">==&gt;</span> <span class="s">"Build"</span>
+  <span class="o">==&gt;</span> <span class="s">"Prepare Deployment"</span>
+  <span class="o">==&gt;</span> <span class="s">"Create ClickOnce Installer"</span>
+  <span class="o">==&gt;</span> <span class="s">"Deploy"</span>
+
+<span class="n">RunTargetOrDefault</span> <span class="s">"Deploy"</span></code></pre></div>
+
+<p>You should be able to run <code>fake</code> and in the <code>deploy</code> directory
+will be a ClickOnce installer created, which you can deploy anywhere you want.
+I hope this helps a bit. Good luck with your own projects.</p>
+
+
+  </div>
+  <div class="metainfo">
+    
+    <ul class="list-unstyled media">
+      <li>
+<a href="//twitter.com/home?status=Creating%20ClickOnce%20installers%20with%20native%20registration%20free%20COM%20objects%20(with%20Paket%20and%20F#AKE)+-+http://blog.pagansoft.de/articles/creating-clickonce-installers-with-fake/" target="_blank" rel="tooltip" class="icon social-icons-small-twitter" data-original-title="Share this article on Twitter"><span>Share this article on Twitter</span></a>
+      </li>
+<li>
+<a href="//www.facebook.com/share.php?u=http://blog.pagansoft.de/articles/creating-clickonce-installers-with-fake/&amp;t=Creating%20ClickOnce%20installers%20with%20native%20registration%20free%20COM%20objects%20(with%20Paket%20and%20F#AKE)" target="_blank" rel="tooltip" class="icon social_icons_small-facebook" data-original-title="Share this article on Facebook"><span>Share this article on Facebook</span></a>
+      </li>
+<li>
+<a href="//www.xing.com/spi/shares/new?url=http://blog.pagansoft.de/articles/creating-clickonce-installers-with-fake/" target="_blank" rel="tooltip" class="icon social-icons-small-xing" data-original-title="Share this article on Xing"><span>Share this article on Xing</span></a>
+      </li>
+<li>
+<a href="//www.linkedin.com/shareArticle?mini=true&amp;ro=false&amp;trk=bookmarklet&amp;title=Creating%20ClickOnce%20installers%20with%20native%20registration%20free%20COM%20objects%20(with%20Paket%20and%20F#AKE)&amp;url=http://blog.pagansoft.de/articles/creating-clickonce-installers-with-fake/" target="_blank" rel="tooltip" class="icon social-icons-small-linkedin" data-original-title="Share this article on LinkedIn"><span>Share this article on LinkedIn</span></a>
+      </li>
+<li>
+<a href="//plus.google.com/share?url=http://blog.pagansoft.de/articles/creating-clickonce-installers-with-fake/" target="_blank" rel="tooltip" class="icon social-icons-small-gplus" data-original-title="Share this article on Google+"><span>Share this article on Google+</span></a>
+    </li>
+</ul>
+    This article was written by<span itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta content="//plus.google.com/+MartinGondermann/" itemprop="url">
+<a href="/pages/about.html" rel="author"><span itemprop="name">Martin Gondermann</span></a></span>
+ on 2016-04-15 in 
+<a href="/categories/how-to.html" rel="tag">How-To</a> and <a href="/categories/.net.html" rel="tag">.Net</a>
+.
+  </div>
+  <div id="disqus_thread"></div>
+</article>
+<script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = http://blog.pagansoft.de/articles/creating-clickonce-installers-with-fake/;
+    this.page.identifier = creating-clickonce-installers-with-fake;
+  }
+
+  (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//pagansoft.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+<script src="//apis.google.com/js/plusone.js"></script>
+
+    </div>
+    <div id="sidebar_right" class="col-md-3 sidebar visible-lg">
+      <div class="widget hidden-md">
+  <h3>Github repositories</h3>
+  <div class="content">
+    <div class="github-repos">
+      <ul>
+        <li><a href="http://github.com/magicmonty/bash-git-prompt" title="bash-git-prompt" rel="popover" data-placement="top" data-trigger="hover" data-content="An informative and fancy bash prompt for Git users" class="github_link" target="_blank">bash-git-prompt</a>
+        <li><a href="http://github.com/magicmonty/SharpFun" title="SharpFun" rel="popover" data-placement="top" data-trigger="hover" data-content="Functional Data Types for C#" class="github_link" target="_blank">SharpFun</a>
+        <li><a href="http://github.com/magicmonty/FizzBuzzKata-csharp" title="FizzBuzzKata-csharp" rel="popover" data-placement="top" data-trigger="hover" data-content="FizzBuzz kata project for Xamarin Studio" class="github_link" target="_blank">FizzBuzzKata-csharp</a>
+        <li><a href="http://github.com/magicmonty/gildedrose_kata_monodevelop" title="gildedrose_kata_monodevelop" rel="popover" data-placement="top" data-trigger="hover" data-content="Start project for the Gilded Rose Kata for MonoDevelop" class="github_link" target="_blank">gildedrose_kata_monodevelop</a>
+        <li><a href="http://github.com/magicmonty/wintersmith-uglifyjs" title="wintersmith-uglifyjs" rel="popover" data-placement="top" data-trigger="hover" data-content="Plugin for Wintersmith, which combines and compresses all configured js files into a single file" class="github_link" target="_blank">wintersmith-uglifyjs</a>
+        <li><a href="http://github.com/magicmonty/marsrover-kata-delphi" title="marsrover-kata-delphi" rel="popover" data-placement="top" data-trigger="hover" data-content="Mars Rover Kata in Delphi" class="github_link" target="_blank">marsrover-kata-delphi</a>
+        <li><a href="http://github.com/magicmonty/activesync-go" title="activesync-go" rel="popover" data-placement="top" data-trigger="hover" data-content="ActiveSync implementation for Google Go" class="github_link" target="_blank">activesync-go</a>
+        <li><a href="http://github.com/magicmonty/wbxml-go" title="wbxml-go" rel="popover" data-placement="top" data-trigger="hover" data-content="WBXML encoder/decoder implementation for Google Go" class="github_link" target="_blank">wbxml-go</a>
+        <li><a href="http://github.com/magicmonty/autotest4delphi" title="autotest4delphi" rel="popover" data-placement="top" data-trigger="hover" data-content="Application to run DUnit tests automatically on change" class="github_link" target="_blank">autotest4delphi</a>
+        <li><a href="http://github.com/magicmonty/gildedrose_kata_delphi" title="gildedrose_kata_delphi" rel="popover" data-placement="top" data-trigger="hover" data-content="Start project for the Gilded Rose Kata in Delphi" class="github_link" target="_blank">gildedrose_kata_delphi</a>
+        <li><a href="http://github.com/magicmonty/videostore_delphi" title="videostore_delphi" rel="popover" data-placement="top" data-trigger="hover" data-content="The videostore example from Martin Fowler's Refactoring, and from Episode 3 of cleancoders.com in Delphi" class="github_link" target="_blank">videostore_delphi</a>
+        <li><a href="http://github.com/magicmonty/MediaWikiAccessControl" title="MediaWikiAccessControl" rel="popover" data-placement="top" data-trigger="hover" data-content="Group based AccessControl for selected MediaWiki pages" class="github_link" target="_blank">MediaWikiAccessControl</a>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+      <div class="widget hidden-md">
+  <h3>Links</h3>
+  <div class="content">
+    <ul class="links">
+      <li><a href="http://lambdaphonic.de" rel="tooltip" target="_blank" title="λphonic">λphonic</a>
+      <li><a href="http://www.softwerkskammer.de" rel="tooltip" target="_blank" title="Softwerkskammer">Softwerkskammer</a>
+      <li><a href="http://www.torstenpahl.de" rel="tooltip" target="_blank" title="Torsten Pahl - Zauberkünstler">Torsten Pahl - Zauberkünstler</a>
+      <li><a href="http://www.theater-und-mehr.de" rel="tooltip" target="_blank" title="Theater und mehr...">Theater und mehr...</a>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+  </div>
+  <div class="row">
+    <footer class="col-md-12">&copy; 2018 by pagansoft.de</footer>
+  </div>
+</div>
+<script src="/js/default.js"></script>
+<script>
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'pagansoft'; // required: replace example with your forum shortname
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
+</script>

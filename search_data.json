@@ -1,0 +1,237 @@
+{
+  
+
+    "articles-a-fable-of-webmidi": {
+      "title": "A fable of Web MIDI",
+      "url": " /articles/a-fable-of-webmidi/",
+      "author": "magicmonty",
+      "category": ".Net"
+    }
+    ,
+  
+
+    "articles-creating-clickonce-installers-with-fake": {
+      "title": "Creating ClickOnce installers with native registration free COM objects (with Paket and F#AKE)",
+      "url": " /articles/creating-clickonce-installers-with-fake/",
+      "author": "magicmonty",
+      "category": ".Net"
+    }
+    ,
+  
+
+    "articles-socrates2015": {
+      "title": "SoCraTes 2015 - or how to be catmatic",
+      "url": " /articles/socrates2015/",
+      "author": "magicmonty",
+      "category": "Software Craftsmanship"
+    }
+    ,
+  
+
+    "articles-temenos": {
+      "title": "Temenos",
+      "url": " /articles/temenos/",
+      "author": "magicmonty",
+      "category": "Software Craftsmanship"
+    }
+    ,
+  
+
+    "articles-screencast-fizzbuzz-kata": {
+      "title": "Screencast: FizzBuzz kata",
+      "url": " /articles/screencast-fizzbuzz-kata/",
+      "author": "magicmonty",
+      "category": "Screencast"
+    }
+    ,
+  
+
+    "articles-gilded-rose-kata": {
+      "title": "Screencast: Gilded Rose kata",
+      "url": " /articles/gilded-rose-kata/",
+      "author": "magicmonty",
+      "category": "Screencast"
+    }
+    ,
+  
+
+    "articles-coin-changer-kata": {
+      "title": "Screencast: Coin changer kata",
+      "url": " /articles/coin-changer-kata/",
+      "author": "magicmonty",
+      "category": "Screencast"
+    }
+    ,
+  
+
+    "articles-the-monty-test-a-revised-joel-test": {
+      "title": "The Monty Test - A revised Joel Test",
+      "url": " /articles/the-monty-test-a-revised-joel-test/",
+      "author": "magicmonty",
+      "category": "Software Craftsmanship"
+    }
+    ,
+  
+
+    "articles-roman-numerals-kata": {
+      "title": "Screencast: Roman Numerals kata",
+      "url": " /articles/roman-numerals-kata/",
+      "author": "magicmonty",
+      "category": "Screencast"
+    }
+    ,
+  
+
+    "articles-screencast-video-store-refactoring-kata": {
+      "title": "Screencast: Video store refactoring kata",
+      "url": " /articles/screencast-video-store-refactoring-kata/",
+      "author": "magicmonty",
+      "category": "Screencast"
+    }
+    ,
+  
+
+    "articles-im-attending-blackberry-devcon-europe-7-8-february-2012-amsterdam": {
+      "title": "I’m attending BlackBerry DevCon Europe – 7-8 February 2012, Amsterdam",
+      "url": " /articles/im-attending-blackberry-devcon-europe-7-8-february-2012-amsterdam/",
+      "author": "magicmonty",
+      "category": "Conferences"
+    }
+    ,
+  
+
+    "articles-introducing-autotest-for-delphi": {
+      "title": "Introducing AutoTest for Delphi",
+      "url": " /articles/introducing-autotest-for-delphi/",
+      "author": "magicmonty",
+      "category": "Software-Projects"
+    }
+    ,
+  
+
+    "articles-contributing-code-to-one-of-my-projects": {
+      "title": "Contributing code to one of my projects",
+      "url": " /articles/contributing-code-to-one-of-my-projects/",
+      "author": "magicmonty",
+      "category": "Software-Projects"
+    }
+    ,
+  
+
+    "articles-my-take-on-bootstrapping-an-open-source-playbook-project": {
+      "title": "My take on bootstrapping an open source playbook project",
+      "url": " /articles/my-take-on-bootstrapping-an-open-source-playbook-project/",
+      "author": "magicmonty",
+      "category": "Software-Projects"
+    }
+    ,
+  
+
+    "articles-access-control-extension-for-mediawiki-now-on-github": {
+      "title": "Access Control Extension for MediaWiki now on GitHub",
+      "url": " /articles/access-control-extension-for-mediawiki-now-on-github/",
+      "author": "magicmonty",
+      "category": ""
+    }
+    ,
+  
+
+    "articles-accesscontrol-extension-for-mediawiki-version-0-8": {
+      "title": "Version 0.8 of AccessControl Extension for MediaWiki",
+      "url": " /articles/accesscontrol-extension-for-mediawiki-version-0-8/",
+      "author": "magicmonty",
+      "category": ""
+    }
+    ,
+  
+
+    "articles-delay-on-answering-the-comments": {
+      "title": "Delay on answering the comments",
+      "url": " /articles/delay-on-answering-the-comments/",
+      "author": "magicmonty",
+      "category": ""
+    }
+    ,
+  
+
+    "articles-accesscontrol-extension-for-mediawiki-version-0-7": {
+      "title": "Version 0.7 of AccessControl Extension for MediaWiki",
+      "url": " /articles/accesscontrol-extension-for-mediawiki-version-0-7/",
+      "author": "magicmonty",
+      "category": ""
+    }
+    ,
+  
+
+    "articles-accesscontrol-extension-for-mediawiki-version-0-6": {
+      "title": "Version 0.6 of AccessControl Extension for MediaWiki",
+      "url": " /articles/accesscontrol-extension-for-mediawiki-version-0-6/",
+      "author": "magicmonty",
+      "category": ""
+    }
+    ,
+  
+
+    "articles-accesscontrol-extension-for-mediawiki-version-0-5": {
+      "title": "Version 0.5 of AccessControl Extension for MediaWiki",
+      "url": " /articles/accesscontrol-extension-for-mediawiki-version-0-5/",
+      "author": "magicmonty",
+      "category": ""
+    }
+    ,
+  
+
+    "articles-accesscontrol-extension-for-mediawiki-version-0-4": {
+      "title": "Version 0.4 of AccessControl Extension for MediaWiki",
+      "url": " /articles/accesscontrol-extension-for-mediawiki-version-0-4/",
+      "author": "magicmonty",
+      "category": ""
+    }
+    ,
+  
+
+    "articles-accesscontrol-extension-for-mediawiki-version-0-3": {
+      "title": "Version 0.3 of AccessControl Extension for MediaWiki",
+      "url": " /articles/accesscontrol-extension-for-mediawiki-version-0-3/",
+      "author": "magicmonty",
+      "category": ""
+    }
+    ,
+  
+
+    "articles-seitenbasierte-gruppen-zugriffskontrolle-fuer-mediawiki": {
+      "title": "Extension für MediaWiki: Seitenbasierte Gruppen-Zugriffskontrolle",
+      "url": " /articles/seitenbasierte-gruppen-zugriffskontrolle-fuer-mediawiki/",
+      "author": "magicmonty",
+      "category": ""
+    }
+    ,
+  
+
+    "articles-apache2-mit-ssltls": {
+      "title": "Apache2 mit SSL/TLS",
+      "url": " /articles/apache2-mit-ssltls/",
+      "author": "magicmonty",
+      "category": "HowTo"
+    }
+    ,
+  
+
+    "articles-authentifizierung-am-ad-mit-centos-4": {
+      "title": "Authentifizierung am AD mit CentOS 4",
+      "url": " /articles/authentifizierung-am-ad-mit-centos-4/",
+      "author": "magicmonty",
+      "category": "HowTo"
+    }
+    ,
+  
+
+    "articles-freenx-howto-auf-centos-4": {
+      "title": "FreeNx Howto auf CentOS 4",
+      "url": " /articles/freenx-howto-auf-centos-4/",
+      "author": "magicmonty",
+      "category": "HowTo"
+    }
+    
+  
+}
