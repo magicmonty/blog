@@ -1,9 +1,11 @@
 _site/
+deploy/
 .sass-cache/
 .jekyll-metadata
 .tweet-cache/
 bin
 *.sublime-workspace
+vendor/
 
 .gem
 *.rbc
