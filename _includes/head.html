@@ -1,0 +1,51 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width">
+
+  <meta itemprop="name" content="{{ site.name }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+
+  {% if page.title %}
+    <meta property="og:title" content="{{ site.name }} - {{ page.title }}">
+    <title>{{ site.name }} - {{ page.title }}</title>
+  {% else %}
+    <meta property="og:title" content="{{ site.name }}">
+    <title>{{ site.name }}</title>
+  {% endif %}
+
+  {% if page.description %}
+    <meta name="description" content="{{ page.description}}" />
+    <meta itemprop="description" content="{{ page.description }}">
+    <meta property="og:description" content="{{ page.description }}">
+  {% else %}
+    <meta name="description" content="{{ site.description}}" />
+    <meta itemprop="description" content="{{ site.description }}">
+    <meta property="og:description" content="{{ site.description }}">
+  {% endif %}
+
+  {% if page.image %}
+    <meta itemprop="image" content="{{ page.image }}">
+    <meta property="og:image" content="{{ page.image }}">
+  {% else %}
+    <meta itemprop="image" content="/img/logo.png">
+    <meta property="og:image" content="/img/logo.png">
+  {% endif %}
+
+  <meta name="xing:author" content="//www.xing.com/profile/Martin_Gondermann">
+  <link href="//plus.google.com/+MartinGondermann/" rel="publisher">
+
+  <link rel="alternate" href="/feed.xml" type="application/rss+xml" title="{{ site.description }}">
+  <link rel="alternate" href="/atom.xml" type="application/atom+xml" title="{{ site.description }}" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/highlighter.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  {% if page.path contains '_posts' %}<link rel="amphtml" href="{{ page.id | prepend: '/amp' | prepend: site.baseurl | prepend: site.url }}">{% endif %}
+
+  <script src="/js/lib/moment.min.js"></script>
+  <script src="/js/lib/lunr.min.js"></script>
+  <script src="/js/lib/jquery-2.2.3.min.js"></script>
+  <script src="/js/lib/bootstrap.min.js"></script>
+  {% include cookieconsent.html %}
+</head>
