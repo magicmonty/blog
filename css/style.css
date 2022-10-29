@@ -1,68 +1,71 @@
 /* line 120, social-icons/*.png */
-.social-icons-sprite, .social-icons-coderwall, .social-icons-facebook, .social-icons-github, .social-icons-gplus, .social-icons-keybase, .social-icons-linkedin, .social-icons-rss, .social-icons-twitter, .social-icons-xing, .social-icons-zerply { background-image: url('/img/social-icons-s2c06ccaeae.png'); background-repeat: no-repeat; }
+.social-icons-sprite, .social-icons-coderwall, .social-icons-facebook, .social-icons-github, .social-icons-keybase, .social-icons-linkedin, .social-icons-mastodon, .social-icons-rss, .social-icons-twitter, .social-icons-xing, .social-icons-zerply { background-image: url('/img/social-icons-s30cf2684a7.png'); background-repeat: no-repeat; }
 
-/* line 120, social-icons-small/*.png */
-.social-icons-small-sprite, .social-icons-small-coderwall, .social-icons-small-facebook, .social-icons-small-github, .social-icons-small-gplus, .social-icons-small-keybase, .social-icons-small-linkedin, .social-icons-small-rss, .social-icons-small-twitter, .social-icons-small-xing, .social-icons-small-zerply { background-image: url('/img/social-icons-small-sb60b0b3967.png'); background-repeat: no-repeat; }
+/* line 128, social-icons-small/*.png */
+.social-icons-small-sprite, .social-icons-small-blank, .social-icons-small-coderwall, .social-icons-small-facebook, .social-icons-small-github, .social-icons-small-keybase, .social-icons-small-linkedin, .social-icons-small-mastodon, .social-icons-small-rss, .social-icons-small-twitter, .social-icons-small-xing, .social-icons-small-zerply { background-image: url('/img/social-icons-small-s3cada5e23f.png'); background-repeat: no-repeat; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .social-icons-coderwall { background-position: 0 0; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .social-icons-facebook { background-position: 0 -57px; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .social-icons-github { background-position: 0 -114px; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
-.social-icons-gplus { background-position: 0 -171px; }
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.social-icons-keybase { background-position: 0 -171px; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
-.social-icons-keybase { background-position: 0 -228px; }
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.social-icons-linkedin { background-position: 0 -228px; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
-.social-icons-linkedin { background-position: 0 -285px; }
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.social-icons-mastodon { background-position: 0 -285px; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .social-icons-rss { background-position: 0 -342px; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .social-icons-twitter { background-position: 0 -399px; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .social-icons-xing { background-position: 0 -456px; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .social-icons-zerply { background-position: 0 -513px; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
-.social-icons-small-coderwall { background-position: 0 0; }
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.social-icons-small-blank { background-position: 0 0; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
-.social-icons-small-facebook { background-position: 0 -40px; }
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.social-icons-small-coderwall { background-position: 0 -40px; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
-.social-icons-small-github { background-position: 0 -80px; }
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.social-icons-small-facebook { background-position: 0 -80px; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
-.social-icons-small-gplus { background-position: 0 -120px; }
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.social-icons-small-github { background-position: 0 -120px; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .social-icons-small-keybase { background-position: 0 -160px; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .social-icons-small-linkedin { background-position: 0 -200px; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
-.social-icons-small-rss { background-position: 0 -240px; }
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.social-icons-small-mastodon { background-position: 0 -240px; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
-.social-icons-small-twitter { background-position: 0 -280px; }
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.social-icons-small-rss { background-position: 0 -280px; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
-.social-icons-small-xing { background-position: 0 -320px; }
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.social-icons-small-twitter { background-position: 0 -320px; }
 
-/* line 84, ../../vendor/ruby/2.5.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
-.social-icons-small-zerply { background-position: 0 -360px; }
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.social-icons-small-xing { background-position: 0 -360px; }
+
+/* line 84, ../../vendor/ruby/3.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.social-icons-small-zerply { background-position: 0 -400px; }
 
 /* line 30, ../../_sass/style.scss */
 body { background: #dbddca url(../img/bg.png) left top repeat-x fixed; color: s #3a3a3a; }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version='2.0' xmlns:content='http://purl.org/rss/1.0/modules/content/' xmlns:wfw='http://wellformedweb.org/CommentAPI/' xmlns:dc='http://purl.org/dc/elements/1.1/' xmlns:atom='http://www.w3.org/2005/Atom'>
   <channel>
-    <title>Monty's Sammelsurium</title>
+    <title>Monty&apos;s Sammelsurium</title>
     <description>Ideas, Jokes and everything else…</description>
     <atom:link href="http://blog.pagansoft.de/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link href="http://blog.pagansoft.de"></link>
@@ -229,7 +229,7 @@ This is the point, where the TDD-Part of the kata converts to a refactoring kata
         <guid isPermaLink="true">http://blog.pagansoft.de/articles/the-monty-test-a-revised-joel-test/</guid>
         <author>post.author</author>
         
-          <description>&lt;p&gt;12 years ago, &lt;a href=&quot;http://www.joelonsoftware.com&quot; title=&quot;Joel Spolsky's blog&quot;&gt;Joel Spolsky&lt;/a&gt;, Founder of &lt;a href=&quot;http://www.fogcreek.com/&quot;&gt;Fog Creek Software&lt;/a&gt; developed the so called &lt;a href=&quot;http://www.joelonsoftware.com/articles/fog0000000043.html&quot; title=&quot;The Joel Test on Joel Spolsky's blog&quot;&gt;Joel Test&lt;/a&gt;.&lt;/p&gt;
+          <description>&lt;p&gt;12 years ago, &lt;a href=&quot;http://www.joelonsoftware.com&quot; title=&quot;Joel Spolsky&apos;s blog&quot;&gt;Joel Spolsky&lt;/a&gt;, Founder of &lt;a href=&quot;http://www.fogcreek.com/&quot;&gt;Fog Creek Software&lt;/a&gt; developed the so called &lt;a href=&quot;http://www.joelonsoftware.com/articles/fog0000000043.html&quot; title=&quot;The Joel Test on Joel Spolsky&apos;s blog&quot;&gt;Joel Test&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;The purpose of these 12 questions is a test, if a company is able to create quality software.
 12 years is a long time and as a Software Craftsman I dont&amp;rsquo; agree with all of these questions anymore. So here is an updated proposal:&lt;/p&gt;
