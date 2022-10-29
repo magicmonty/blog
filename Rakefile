@@ -5,12 +5,12 @@ require 'html-proofer'
 
 task :build do
   puts "## Building website with Jekyll"
-  sh "bin/jekyll build"
+  sh "bundle exec jekyll build"
 end
 
 task :serve do
   puts "## Building website with Jekyll"
-  sh "bin/jekyll serve --drafts"
+  sh "bundle exec jekyll serve --drafts --livereload"
 end
 
 task test_amp: :build do

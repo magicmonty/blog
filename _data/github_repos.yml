@@ -1,8 +1,11 @@
-- name: bash-git-prompt
-  description: "An informative and fancy bash prompt for Git users"
+- name: sonicpi.nvim
+  description: "A neovim plugin for Sonic Pi"
 
 - name: SharpFun
   description: Functional Data Types for C#
+
+- name: bash-git-prompt
+  description: "An informative and fancy bash prompt for Git users"
 
 - name: FizzBuzzKata-csharp
   description: "FizzBuzz kata project for Xamarin Studio"

@@ -16,9 +16,9 @@
   position: left
   display: true
 
-- url: https://plus.google.com/+MartinGondermann?rel=author
-  title: Google+
-  icon: gplus
+- url: https://mastodon.social/@magicmonty
+  title: Mastodon
+  icon: mastodon
   position: left
   display: true
 
