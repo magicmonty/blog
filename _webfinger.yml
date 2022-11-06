@@ -1,0 +1,11 @@
+acct:magicmonty@mastodon.social:
+  properties:
+    name: Martin Gondermann
+  aliases:
+    - https://mastodon.social/@magicmonty
+    - https://mastodon.social/users/magicmonty
+  links:
+    website: https://blog.pagansoft.de
+    profile: https://mastodon.social/@magicmonty
+    self: https://mastodon.social/users/magicmonty
+    subscribe: https://mastodon.social/authorize_interactions?uri={uri}

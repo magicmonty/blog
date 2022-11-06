@@ -1,0 +1,24 @@
+# maps string keys to best practice fully qualified URNs
+
+# some references:
+#   http://webfinger.net/rel/
+#   http://www.packetizer.com/webfinger/link_relations.html
+
+# names of people
+name: "http://schema.org/name"
+full_name: "http://schema.org/name"
+
+# homepages of people
+profile:
+  rel: http://webfinger.net/rel/profile-page
+  type: text/html
+
+website:
+  rel: http://webfinger.net/rel/website
+  type: text/html
+
+self:
+  rel: self
+  type: application/activity+json
+
+subscribe: http://ostatus.org/schema/1.0/subscribe

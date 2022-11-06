@@ -42,8 +42,7 @@ exclude:
 - dependencyci.yml
 - README.md
 - deploy
-include:
-  - .well-known
+- _well_known
 lsi: false
 permalink: /articles/:title/
 paginate: 10
