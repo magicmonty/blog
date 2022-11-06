@@ -12,13 +12,13 @@
       <div class="row social-icons">
         <div class="col-md-3">
           <ul class="list-unstyled media">
-            {% for link in left_social_links %}<li><a href="{{ link.url }}" data-toggle="tooltip" rel="me nofollow" target="_blank" title="{{ link.title }}" class="icon social-icons-{{ link.icon }}"><span>{{ link.title }}</span></a>
+            {% for link in left_social_links %}<li><a href="{{ link.url }}" data-toggle="tooltip" rel="me" target="_blank" title="{{ link.title }}" class="icon social-icons-{{ link.icon }}"><span>{{ link.title }}</span></a>
               {% endfor %}</ul>
         </div>
         <div class="col-md-6"></div>
         <div class="col-md-3">
           <ul class="list-unstyled media">
-            {% for link in right_social_links reversed %}<li><a href="{{ link.url }}" data-toggle="tooltip" rel="me nofollow" target="_blank" title="{{ link.title }}" class="icon social-icons-{{ link.icon }}"><span>{{ link.title }}</span></a>
+            {% for link in right_social_links reversed %}<li><a href="{{ link.url }}" data-toggle="tooltip" rel="me" target="_blank" title="{{ link.title }}" class="icon social-icons-{{ link.icon }}"><span>{{ link.title }}</span></a>
               {% endfor %}
           </ul>
         </div>
@@ -26,7 +26,7 @@
       <div class="row social-icons si-tablet">
         <div class="col-md-12">
           <ul class="list-unstyled media">
-            {% for link in all_social_links %}<li><a href="{{ link.url }}" data-toggle="tooltip" rel="me nofollow" target="_blank" title="{{ link.title }}" class="icon social-icons-{{ link.icon }}"><span>{{ link.title }}</span></a>
+            {% for link in all_social_links %}<li><a href="{{ link.url }}" data-toggle="tooltip" rel="me" target="_blank" title="{{ link.title }}" class="icon social-icons-{{ link.icon }}"><span>{{ link.title }}</span></a>
               {% endfor %}
           </ul>
         </div>
