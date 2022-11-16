@@ -6,6 +6,7 @@ git rm -rf .
 cd ..
 bundle exec jekyll build --destination deploy || exit 1
 cd deploy
+touch .nojekyll
 git add --all
 git commit -m "Deployment"
 git push origin gh-pages
