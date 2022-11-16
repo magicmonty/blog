@@ -1,7 +1,3 @@
----
-layout: none
-permalink: .well-known/webfinger
----
 {
   "subject": "acct:magicmonty@mastodon.social",
   "aliases": [ "https://mastodon.social/@magicmonty", "https://mastodon.social/users/magicmonty" ],
