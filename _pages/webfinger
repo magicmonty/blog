@@ -1,0 +1,4 @@
+---
+layout: none
+permalink: /:path/.well-known/.:basename
+---
