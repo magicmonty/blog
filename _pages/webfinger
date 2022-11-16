@@ -1,4 +1,14 @@
 ---
 layout: none
-permalink: /:path/.well-known/.:basename
+permalink: /:path/.well-known/:basename
 ---
+{
+  "subject": "acct:magicmonty@mastodon.social",
+  "aliases": [ "https://mastodon.social/@magicmonty", "https://mastodon.social/users/magicmonty" ],
+  "properties": { "http://schema.org/name": "Martin Gondermann" },
+  "links": [
+    { "rel": "http://webfinger.net/rel/website", "type": "text/html", "href": "https://blog.pagansoft.de" },
+    { "rel": "http://webfinger.net/rel/profile-page", "type": "text/html", "href": "https://mastodon.social/@magicmonty" },
+    { "rel": "self", "type": "application/activity+json", "href": "https://mastodon.social/users/magicmonty" },
+    { "rel": "http://ostatus.org/schema/1.0/subscribe", "href": "https://mastodon.social/authorize_interactions?uri={uri}" } ]
+}
