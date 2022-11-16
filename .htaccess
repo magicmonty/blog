@@ -28,6 +28,6 @@
 | order allow,deny
 | deny from all
 | </Files>
-| <Files .well-known/webfinger>
-| ForceType application/jrd+json
-| </Files>
+<Files .well-known/webfinger>
+ForceType application/jrd+json
+</Files>
